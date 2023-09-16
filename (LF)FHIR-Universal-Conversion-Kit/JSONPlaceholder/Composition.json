@@ -1,0 +1,336 @@
+{
+    "resourceType": "Composition",
+    "id": "8af8d7c5-ade0-4531-ab73-e0b0fe0dc7be",
+    "meta": {
+        "profile": [
+            "https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-composition-profile"
+        ]
+    },
+    "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative: Composition</b><a name=\"CompositionExample\"> </a></p><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Resource Composition &quot;CompositionExample&quot; </p><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-twcr-sf-composition-profile.html\">Composition</a></p></div><p><b>status</b>: final</p><p><b>type</b>: Cancer event report <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (<a href=\"https://loinc.org/\">LOINC</a>#72134-0)</span></p><p><b>date</b>: 2022-07-12 14:30:00+0800</p><p><b>author</b>: </p><ul><li><a href=\"Organization-OrganizationExample.html\">Organization/OrganizationExample</a></li><li><a href=\"Practitioner-PractitionerExample.html\">Practitioner/PractitionerExample</a></li></ul><p><b>title</b>: 癌症登記短表</p></div>"
+    },
+    "status": "final",
+    "type": {
+        "coding": [
+            {
+                "system": "http://loinc.org",
+                "code": "72134-0",
+                "display": "Cancer event report"
+            }
+        ],
+        "subject": {
+            "reference": "urn:uuid:c5ff88a5-6c8f-4c3b-ba78-5a2e79c0c096"
+        },
+        "date": "2023-09-16T18:24:12+08:00",
+        "author": [
+            {
+                "reference": "urn:uuid:80b0528d-67c8-4216-a9c3-bcadbe4cf1fb"
+            },
+            {
+                "reference": "urn:uuid:91391c04-4a8c-4fc0-ae94-77b8008b0462"
+            }
+        ],
+        "title": "Cancer Registry Short Form",
+        "section": {
+            "sectionCancerConfirmation": {
+                "title": "The section of CancerConfirmation",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "395099008",
+                            "display": "Cancer confirmed (situation)"
+                        }
+                    ]
+                },
+                "entry": [
+                    {
+                        "reference": "urn:uuid:f284f9d1-1aec-4df1-8048-b14fb730b948"
+                    },
+                    {
+                        "reference": "urn:uuid:8ccfd299-cd2c-4c4d-b19f-bb1f6a9bae4a"
+                    },
+                    {
+                        "reference": "urn:uuid:7213cbbb-7dab-497d-b972-dd1293c99fd4"
+                    },
+                    {
+                        "reference": "urn:uuid:09080ae0-c994-4488-99b4-45d820e4e898"
+                    },
+                    {
+                        "reference": "urn:uuid:16dbf4a2-b669-44c2-862f-fad0b35a04e4"
+                    },
+                    {
+                        "reference": "urn:uuid:e97a99b5-dfed-4cab-8f26-fd6941bcb9c0"
+                    },
+                    {
+                        "reference": "urn:uuid:5e85d9a3-15ec-4025-9f67-d2a23f5d89b3"
+                    },
+                    {
+                        "reference": "urn:uuid:8ad64c0d-2720-4c6e-bd6c-96cc4e2d962f"
+                    },
+                    {
+                        "reference": "urn:uuid:37a81be4-f49a-43fd-ab55-6c17327af42a"
+                    },
+                    {
+                        "reference": "urn:uuid:c0ba42f6-9d47-4279-8119-7c09acd7b058"
+                    },
+                    {
+                        "reference": "urn:uuid:4b33a05d-b58f-4911-a2fe-8c646bc1a9cd"
+                    },
+                    {
+                        "reference": "urn:uuid:2901ee84-3eef-4db6-9dcd-439ca9efee10"
+                    }
+                ]
+            },
+            "sectionStageOfInitialDiagnosis": {
+                "title": "The section of StageOfInitialDiagnosis",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "https://hapi.fhir.tw/fhir/CodeSystem/logical-model-codesystem",
+                            "code": "StageOfInitialDiagnosisOfCancer",
+                            "display": "StageOfInitialDiagnosisOfCancer"
+                        }
+                    ]
+                },
+                "entry": [
+                    {
+                        "reference": "urn:uuid:8555fb18-0e5a-4ca3-84d1-094ae22e5db8"
+                    },
+                    {
+                        "reference": "urn:uuid:b3cc4483-6475-4175-8108-1712052cb29d"
+                    },
+                    {
+                        "reference": "urn:uuid:8c76bfbb-d575-49d8-ae73-ad4fa33cbdf1"
+                    },
+                    {
+                        "reference": "urn:uuid:310c0275-be86-4313-85cd-71ea9f5b4c66"
+                    },
+                    {
+                        "reference": "urn:uuid:8f98dbff-b7a1-45f8-8309-d9917039f366"
+                    },
+                    {
+                        "reference": "urn:uuid:cdc7019c-055f-4139-83af-e130deed3f28"
+                    },
+                    {
+                        "reference": "urn:uuid:f6fb15ba-6698-49ce-9f2a-02606b00b527"
+                    },
+                    {
+                        "reference": "urn:uuid:0f172e93-5e88-409c-be69-7c9a205c38d4"
+                    },
+                    {
+                        "reference": "urn:uuid:6b11daa4-aae5-45cf-ba63-45817473af24"
+                    },
+                    {
+                        "reference": "urn:uuid:079d9716-b549-4158-9004-894493bf31f2"
+                    },
+                    {
+                        "reference": "urn:uuid:0d0ea630-998d-4d12-9803-e3c57ea14192"
+                    },
+                    {
+                        "reference": "urn:uuid:4de99bfc-0bee-499b-94c1-47d09eafc780"
+                    },
+                    {
+                        "reference": "urn:uuid:0e8a8fc0-a2e1-4f26-8d1d-6f0425837252"
+                    },
+                    {
+                        "reference": "urn:uuid:eb8b4da3-5331-4716-99ae-2e622a4cdb13"
+                    }
+                ]
+            },
+            "sectionFirstCourseOfTreatment": {
+                "title": "The section of FirstCourseOfTreatment",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "708255002",
+                            "display": "First line treatment (procedure)"
+                        }
+                    ]
+                },
+                "entry": [
+                    {
+                        "reference": "urn:uuid:90945f88-0d80-472e-b788-f76b731b5f48"
+                    },
+                    {
+                        "reference": "urn:uuid:f3602cf5-1f92-45da-8547-41a2f3f699b1"
+                    },
+                    {
+                        "reference": "urn:uuid:b436ff99-ee48-4c91-8c0b-86e4de9a1905"
+                    },
+                    {
+                        "reference": "urn:uuid:95e5c4bf-f0e9-4266-8a0f-167f7c7a22ea"
+                    },
+                    {
+                        "reference": "urn:uuid:0ab09ae4-e3aa-4b42-8609-37575099e3e2"
+                    },
+                    {
+                        "reference": "urn:uuid:a43d7bc9-5585-4dbc-be62-8522c885e9e0"
+                    },
+                    {
+                        "reference": "urn:uuid:76dffe52-8cc6-48a2-9abd-5a5f50d8ac4e"
+                    },
+                    {
+                        "reference": "urn:uuid:7a9cd423-8968-40c1-b881-560ce15b3869"
+                    },
+                    {
+                        "reference": "urn:uuid:896fc8cb-afdc-4821-a0be-d83d49023542"
+                    },
+                    {
+                        "reference": "urn:uuid:b9616f8a-651e-4f4c-bf16-9724d3e5b6f4"
+                    },
+                    {
+                        "reference": "urn:uuid:26122caf-5acf-487f-ac41-1062ab612a57"
+                    },
+                    {
+                        "reference": "urn:uuid:7c86ba63-2984-45b1-8169-fa53a5228619"
+                    },
+                    {
+                        "reference": "urn:uuid:09d48fed-5bb7-4521-b141-6d78deec6bed"
+                    },
+                    {
+                        "reference": "urn:uuid:1826aa67-16b7-472f-9a3e-8938104fd751"
+                    },
+                    {
+                        "reference": "urn:uuid:bda8dee6-fbda-4d34-8509-f14115bb0a63"
+                    },
+                    {
+                        "reference": "urn:uuid:1d5c5d91-b151-49d0-acac-c1c4c70ed817"
+                    },
+                    {
+                        "reference": "urn:uuid:84214b35-5ac6-4af2-8b5f-01740034ac6f"
+                    },
+                    {
+                        "reference": "urn:uuid:e0152c01-e22d-439b-adb8-87263ee49164"
+                    },
+                    {
+                        "reference": "urn:uuid:86d4bc60-1141-4db3-a4fa-cb76347e35c5"
+                    },
+                    {
+                        "reference": "urn:uuid:aa9b00f8-e668-4a64-9f21-3072b5eae5fa"
+                    },
+                    {
+                        "reference": "urn:uuid:0da2a513-0dda-497d-9c07-9c17ea952962"
+                    },
+                    {
+                        "reference": "urn:uuid:f7bf38fd-7a3f-4dc6-a978-e25a047eaf2b"
+                    },
+                    {
+                        "reference": "urn:uuid:cb3b349b-ce41-4ed1-83a4-a338c20a02ec"
+                    },
+                    {
+                        "reference": "urn:uuid:2654317b-e996-4f68-8096-0c57831e8c3b"
+                    },
+                    {
+                        "reference": "urn:uuid:92a0da68-1447-41f7-8610-72880a982237"
+                    },
+                    {
+                        "reference": "urn:uuid:3217a2b4-3537-40bb-ad72-42c182334534"
+                    },
+                    {
+                        "reference": "urn:uuid:18484ec5-8d78-4508-89f0-375d7067b8ab"
+                    },
+                    {
+                        "reference": "urn:uuid:690f3f6d-0f81-4a66-a70e-40a467a88d54"
+                    },
+                    {
+                        "reference": "urn:uuid:0d3ed1f8-d783-404b-8720-4815e41484df"
+                    }
+                ]
+            },
+            "sectionOtherFactors": {
+                "title": "The section of OtherFactors",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "https://hapi.fhir.tw/fhir/CodeSystem/logical-model-codesystem",
+                            "code": "OtherFactors",
+                            "display": "OtherFactors"
+                        }
+                    ]
+                },
+                "entry": [
+                    {
+                        "reference": "urn:uuid:c4a646c8-f342-4c97-a66d-5ee022770b02"
+                    },
+                    {
+                        "reference": "urn:uuid:ee1cff3d-bc46-4e4a-9aa4-5cfee3e82be7"
+                    },
+                    {
+                        "reference": "urn:uuid:7547051f-cc71-43b4-be97-17ab520ba8c6"
+                    },
+                    {
+                        "reference": "urn:uuid:254917e6-aeaa-4532-ab21-4001247bc710"
+                    },
+                    {
+                        "reference": "urn:uuid:f7134fa7-444c-4057-b09b-17943700dda8"
+                    },
+                    {
+                        "reference": "urn:uuid:13246b32-3033-451c-96b4-37af48aeb180"
+                    }
+                ]
+            },
+            "sectionOutcome": {
+                "title": "The section of Outcome",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://loinc.org",
+                            "code": "21976-6",
+                            "display": "Cancer outcome status"
+                        }
+                    ]
+                },
+                "entry": {
+                    "reference": "urn:uuid:600ade9c-acae-4cb2-91cb-ff6507022bfe"
+                }
+            },
+            "sectionSSF": {
+                "title": "The section of SSF",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "https://hapi.fhir.tw/fhir/CodeSystem/logical-model-codesystem",
+                            "code": "SSF",
+                            "display": "Site-Specific Factor"
+                        }
+                    ]
+                },
+                "entry": [
+                    {
+                        "reference": "urn:uuid:05675f84-1ae6-492f-832d-ad891e8c8d30"
+                    },
+                    {
+                        "reference": "urn:uuid:7f77bae0-d864-4af2-a6b8-b408580ebf9f"
+                    },
+                    {
+                        "reference": "urn:uuid:914843ce-35d6-4736-839b-0c860e7aa8ba"
+                    },
+                    {
+                        "reference": "urn:uuid:0424dcc5-543a-4807-9219-b6069e1594c2"
+                    },
+                    {
+                        "reference": "urn:uuid:e344b46a-0cdb-4ddf-80e9-8f98e21b814b"
+                    },
+                    {
+                        "reference": "urn:uuid:ae077367-7188-4b40-b21d-ead350fee9cd"
+                    },
+                    {
+                        "reference": "urn:uuid:cd27d884-4dca-4af0-b69c-f2c4e3bf2a47"
+                    },
+                    {
+                        "reference": "urn:uuid:9c7ecb35-7086-4ad9-b293-5be6799eab8f"
+                    },
+                    {
+                        "reference": "urn:uuid:b2f3e4f6-863b-48c9-a2c5-8be9ea851a7b"
+                    },
+                    {
+                        "reference": "urn:uuid:2b8cf845-b9e9-4e02-8e4c-d10b0aabf4f5"
+                    }
+                ]
+            }
+        }
+    }
+}

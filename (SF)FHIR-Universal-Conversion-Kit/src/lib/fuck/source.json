@@ -1,0 +1,20 @@
+[
+    {
+        "identifier":{ "id":"E123456789","system":"xxx","value":"23432"},
+        "identifier2": "E123456789",
+        "name": "Test",
+        "wbc": 10
+    },
+    {
+        "identifier": "S10000000",
+        "identifier2": "S100000123",
+        "name": "WWW",
+        "wbc": 10
+    },
+    {
+        "identifier": "S10000000",
+        "identifier2": "S100000123",
+        "name": "WWW",
+        "wbc": 10
+    }
+]
