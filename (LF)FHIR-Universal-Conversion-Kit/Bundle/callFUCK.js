@@ -9,6 +9,12 @@ const axios = require("axios");
 const moment = require("moment");
 const { v4: uuidv4 } = require("uuid");
 
+const Lorex = "https://hapi.fhir.tw/fhir/"; //Lorex
+const internal1 = "http://152.38.3.102:8080/fhir/"; //內網1
+const internal2 = "http://152.38.3.103:4180/fhir" //內網2
+
+const fhirServer = Lorex;
+
 // Running server and POST to F.U.C.K. then return the result of F.U.C.K. response
 function runFuck(data, profileName) {
     // Start the F.U.C.K. server
@@ -69,171 +75,182 @@ function createComposition(sectionEntry, compId = `${uuidv4()}`, status = "final
                     display: "Cancer event report",
                 },
             ],
-            subject: {
-                reference: `urn:uuid:${sectionEntry.Patient}`,
+        },
+        subject: {
+            reference: `Patient/${sectionEntry.Patient}`,
+        },
+        date: date,
+        author: [
+            {
+                reference: `Organization/${sectionEntry.Organization}`,
             },
-            date: date,
-            author: [{ reference: `urn:uuid:${sectionEntry.Organization}` }, { reference: `urn:uuid:${sectionEntry.Practitioner}` }],
-            title: "Cancer Registry Short Form",
-            section: {
-                sectionCancerConfirmation: {
-                    title: "The section of CancerConfirmation",
-                    code: {
-                        coding: [
-                            {
-                                system: "http://snomed.info/sct",
-                                code: "395099008",
-                                display: "Cancer confirmed (situation)",
-                            },
-                        ],
-                    },
-                    entry: [
-                        { reference: `urn:uuid:${sectionEntry.Encounter}` },
-                        { reference: `urn:uuid:${sectionEntry.Condition}` },
-                        { reference: `urn:uuid:${sectionEntry.DateOfDiagnosisCondition}` },
-                        { reference: `urn:uuid:${sectionEntry.DateOfFirstMicroscopicConfirmation}` },
-                        { reference: `urn:uuid:${sectionEntry.PrimaryCancer}` },
-                        { reference: `urn:uuid:${sectionEntry.GradeClinical}` },
-                        { reference: `urn:uuid:${sectionEntry.GradePathological}` },
-                        { reference: `urn:uuid:${sectionEntry.TumorSize}` },
-                        { reference: `urn:uuid:${sectionEntry.PerineuralInvasion}` },
-                        { reference: `urn:uuid:${sectionEntry.LymphVascularInvasion}` },
-                        { reference: `urn:uuid:${sectionEntry.RegionalLymphNodesExamined}` },
-                        { reference: `urn:uuid:${sectionEntry.RegionalLymphNodesPositive}` },
+            {
+                reference: `Practitioner/${sectionEntry.Practitioner}`,
+            },
+        ],
+        title: "Cancer Registry Short Form",
+        section: [
+            {
+                title: "The section of CancerConfirmation",
+                code: {
+                    coding: [
+                        {
+                            system: "http://snomed.info/sct",
+                            code: "395099008",
+                            display: "Cancer confirmed (situation)",
+                        },
                     ],
                 },
-                sectionStageOfInitialDiagnosis: {
-                    title: "The section of StageOfInitialDiagnosis",
-                    code: {
-                        coding: [
-                            {
-                                system: "https://hapi.fhir.tw/fhir/CodeSystem/logical-model-codesystem",
-                                code: "StageOfInitialDiagnosisOfCancer",
-                                display: "StageOfInitialDiagnosisOfCancer",
-                            },
-                        ],
-                    },
-                    entry: [
-                        { reference: `urn:uuid:${sectionEntry.SurgicalDiagnosticAndStagingProcedure}` },
-                        { reference: `urn:uuid:${sectionEntry.SurgicalDiagnosticAndStagingProcedureAtOtherFacility}` },
-                        { reference: `urn:uuid:${sectionEntry.ClinicalT}` },
-                        { reference: `urn:uuid:${sectionEntry.ClinicalN}` },
-                        { reference: `urn:uuid:${sectionEntry.ClinicalM}` },
-                        { reference: `urn:uuid:${sectionEntry.ClinicalOtherStaging}` },
-                        { reference: `urn:uuid:${sectionEntry.ClinicalStage}` },
-                        { reference: `urn:uuid:${sectionEntry.ClinicalStageDescriptor}` },
-                        { reference: `urn:uuid:${sectionEntry.PathologicT}` },
-                        { reference: `urn:uuid:${sectionEntry.PathologicN}` },
-                        { reference: `urn:uuid:${sectionEntry.PathologicM}` },
-                        { reference: `urn:uuid:${sectionEntry.PathologicOtherStaging}` },
-                        { reference: `urn:uuid:${sectionEntry.PathologicStage}` },
-                        { reference: `urn:uuid:${sectionEntry.PathologicStageDescriptor}` },
+                entry: [
+                    { reference: `Encounter/${sectionEntry.Encounter}` },
+                    { reference: `Condition/${sectionEntry.Condition}` },
+                    { reference: `Condition/${sectionEntry.DateOfDiagnosisCondition}` },
+                    { reference: `Condition/${sectionEntry.DateOfFirstMicroscopicConfirmation}` },
+                    { reference: `Condition/${sectionEntry.PrimaryCancer}` },
+                    { reference: `Observation/${sectionEntry.GradeClinical}` },
+                    { reference: `Observation/${sectionEntry.GradePathological}` },
+                    { reference: `Observation/${sectionEntry.TumorSize}` },
+                    { reference: `Observation/${sectionEntry.PerineuralInvasion}` },
+                    { reference: `Observation/${sectionEntry.LymphVascularInvasion}` },
+                    { reference: `Observation/${sectionEntry.RegionalLymphNodesExamined}` },
+                    { reference: `Observation/${sectionEntry.RegionalLymphNodesPositive}` },
+                ],
+            },
+            {
+                title: "The section of StageOfInitialDiagnosis",
+                code: {
+                    coding: [
+                        {
+                            system: "https://hapi.fhir.tw/fhir/CodeSystem/logical-model-codesystem",
+                            code: "StageOfInitialDiagnosisOfCancer",
+                            display: "StageOfInitialDiagnosisOfCancer",
+                        },
                     ],
                 },
+                entry: [
+                    { reference: `Procedure/${sectionEntry.SurgicalDiagnosticAndStagingProcedure}` },
+                    { reference: `Procedure/${sectionEntry.SurgicalDiagnosticAndStagingProcedureAtOtherFacility}` },
+                    { reference: `Observation/${sectionEntry.ClinicalT}` },
+                    { reference: `Observation/${sectionEntry.ClinicalN}` },
+                    { reference: `Observation/${sectionEntry.ClinicalM}` },
+                    { reference: `Observation/${sectionEntry.ClinicalOtherStaging}` },
+                    { reference: `Observation/${sectionEntry.ClinicalStage}` },
+                    { reference: `Observation/${sectionEntry.ClinicalStageDescriptor}` },
+                    { reference: `Observation/${sectionEntry.PathologicT}` },
+                    { reference: `Observation/${sectionEntry.PathologicN}` },
+                    { reference: `Observation/${sectionEntry.PathologicM}` },
+                    { reference: `Observation/${sectionEntry.PathologicOtherStaging}` },
+                    { reference: `Observation/${sectionEntry.PathologicStage}` },
+                    { reference: `Observation/${sectionEntry.PathologicStageDescriptor}` },
+                ],
+            },
+            {
+                title: "The section of FirstCourseOfTreatment",
+                code: {
+                    coding: [
+                        {
+                            system: "http://snomed.info/sct",
+                            code: "708255002",
+                            display: "First line treatment (procedure)",
+                        },
+                    ],
+                },
+                entry: [
+                    { reference: `Procedure/${sectionEntry.FirstCourseOfTreatment}` },
+                    { reference: `Procedure/${sectionEntry.FirstSurgicalProcedure}` },
+                    { reference: `Procedure/${sectionEntry.SurgicalProcedureOfPrimarySite}` },
+                    { reference: `Procedure/${sectionEntry.SurgicalProcedureOfPrimarySiteAtOtherFacility}` },
+                    { reference: `Procedure/${sectionEntry.MinimallyInvasiveSurgery}` },
+                    { reference: `Observation/${sectionEntry.SurgicalMarginsOfThePrimarySite}` },
+                    { reference: `Observation/${sectionEntry.SurgicalMarginsDistanceOfThePrimarySite}` },
+                    { reference: `Procedure/${sectionEntry.ScopeOfRegionalLymphNodeSurgeryAtOtherFacility}` },
+                    { reference: `Procedure/${sectionEntry.ScopeOfRegionalLymphNodeSurgery}` },
+                    { reference: `Procedure/${sectionEntry.SurgicalProcedureOtherSiteAtOtherFacility}` },
+                    { reference: `Procedure/${sectionEntry.SurgicalProcedureOtherSite}` },
+                    { reference: `Procedure/${sectionEntry.ReasonForNoSurgeryOfPrimarySite}` },
+                    { reference: `Procedure/${sectionEntry.RT}` },
+                    { reference: `Procedure/${sectionEntry.SequenceOfRadiotherapyAndSurgery}` },
+                    { reference: `Procedure/${sectionEntry.SequenceOfLocoregionalTherapyAndSystemicTherapy}` },
+                    { reference: `Procedure/${sectionEntry.EBRTTechnique}` },
+                    { reference: `Procedure/${sectionEntry.OtherRT}` },
+                    { reference: `Procedure/${sectionEntry.SystemicTherapy}` },
+                    { reference: `Procedure/${sectionEntry.Chemotherapy}` },
+                    { reference: `Procedure/${sectionEntry.ChemotherapyAtOtherFacility}` },
+                    { reference: `Procedure/${sectionEntry.HormoneSteroidTherapy}` },
+                    { reference: `Procedure/${sectionEntry.HormoneSteroidTherapyAtOtherFacility}` },
+                    { reference: `Procedure/${sectionEntry.Immunotherapy}` },
+                    { reference: `Procedure/${sectionEntry.ImmunotherapyAtOtherFacility}` },
+                    { reference: `Procedure/${sectionEntry.HematologicTransplantEndocrineProcedure}` },
+                    { reference: `Procedure/${sectionEntry.TargetedTherapy}` },
+                    { reference: `Procedure/${sectionEntry.TargetedTherapyAtOtherFacility}` },
+                    { reference: `Procedure/${sectionEntry.PalliativeCare}` },
+                    { reference: `Procedure/${sectionEntry.OtherTreatment}` },
+                ],
+            },
+            {
+                title: "The section of OtherFactors",
+                code: {
+                    coding: [
+                        {
+                            system: "https://hapi.fhir.tw/fhir/CodeSystem/logical-model-codesystem",
+                            code: "OtherFactors",
+                            display: "OtherFactors",
+                        },
+                    ],
+                },
+                entry: [
+                    { reference: `Observation/${sectionEntry.Height}` },
+                    { reference: `Observation/${sectionEntry.Weight}` },
+                    { reference: `Observation/${sectionEntry.SmokingBehavior}` },
+                    { reference: `Observation/${sectionEntry.BetelNutChewingBehavior}` },
+                    { reference: `Observation/${sectionEntry.DrinkingBehavior}` },
+                    { reference: `Condition/${sectionEntry.AssessmentOfPerformanceStatusBeforeTreatment}` },
+                ],
+            },
+            {
+                title: "The section of Outcome",
+                code: {
+                    coding: [
+                        {
+                            system: "http://loinc.org",
+                            code: "21976-6",
+                            display: "Cancer outcome status",
+                        },
+                    ],
+                },
+                entry: {
+                    reference: `Observation/${sectionEntry.FirstRecurrence}`,
+                },
+            },
+            {
+                title: "The section of SSF",
+                code: {
+                    coding: [
+                        {
+                            system: "https://hapi.fhir.tw/fhir/CodeSystem/logical-model-codesystem",
+                            code: "SSF",
+                            display: "Site-Specific Factor",
+                        },
+                    ],
+                },
+                entry: [
+                    { reference: `Observation/${sectionEntry.SSF1}` },
+                    { reference: `Observation/${sectionEntry.SSF2}` },
+                    { reference: `Observation/${sectionEntry.SSF3}` },
+                    { reference: `Observation/${sectionEntry.SSF4}` },
+                    { reference: `Observation/${sectionEntry.SSF5}` },
+                    { reference: `Observation/${sectionEntry.SSF6}` },
+                    { reference: `Observation/${sectionEntry.SSF7}` },
+                    { reference: `Observation/${sectionEntry.SSF8}` },
+                    { reference: `Observation/${sectionEntry.SSF9}` },
+                    { reference: `Observation/${sectionEntry.SSF10}` },
+                ],
+            },
+        ],
 
-                sectionFirstCourseOfTreatment: {
-                    title: "The section of FirstCourseOfTreatment",
-                    code: {
-                        coding: [
-                            {
-                                system: "http://snomed.info/sct",
-                                code: "708255002",
-                                display: "First line treatment (procedure)",
-                            },
-                        ],
-                    },
-                    entry: [
-                        { reference: `urn:uuid:${sectionEntry.FirstCourseOfTreatment}` },
-                        { reference: `urn:uuid:${sectionEntry.FirstSurgicalProcedure}` },
-                        { reference: `urn:uuid:${sectionEntry.SurgicalProcedureOfPrimarySite}` },
-                        { reference: `urn:uuid:${sectionEntry.SurgicalProcedureOfPrimarySiteAtOtherFacility}` },
-                        { reference: `urn:uuid:${sectionEntry.MinimallyInvasiveSurgery}` },
-                        { reference: `urn:uuid:${sectionEntry.SurgicalMarginsOfThePrimarySite}` },
-                        { reference: `urn:uuid:${sectionEntry.SurgicalMarginsDistanceOfThePrimarySite}` },
-                        { reference: `urn:uuid:${sectionEntry.ScopeOfRegionalLymphNodeSurgeryAtOtherFacility}` },
-                        { reference: `urn:uuid:${sectionEntry.ScopeOfRegionalLymphNodeSurgery}` },
-                        { reference: `urn:uuid:${sectionEntry.SurgicalProcedureOtherSiteAtOtherFacility}` },
-                        { reference: `urn:uuid:${sectionEntry.SurgicalProcedureOtherSite}` },
-                        { reference: `urn:uuid:${sectionEntry.ReasonForNoSurgeryOfPrimarySite}` },
-                        { reference: `urn:uuid:${sectionEntry.RT}` },
-                        { reference: `urn:uuid:${sectionEntry.SequenceOfRadiotherapyAndSurgery}` },
-                        { reference: `urn:uuid:${sectionEntry.SequenceOfLocoregionalTherapyAndSystemicTherapy}` },
-                        { reference: `urn:uuid:${sectionEntry.EBRTTechnique}` },
-                        { reference: `urn:uuid:${sectionEntry.OtherRT}` },
-                        { reference: `urn:uuid:${sectionEntry.SystemicTherapy}` },
-                        { reference: `urn:uuid:${sectionEntry.Chemotherapy}` },
-                        { reference: `urn:uuid:${sectionEntry.ChemotherapyAtOtherFacility}` },
-                        { reference: `urn:uuid:${sectionEntry.HormoneSteroidTherapy}` },
-                        { reference: `urn:uuid:${sectionEntry.HormoneSteroidTherapyAtOtherFacility}` },
-                        { reference: `urn:uuid:${sectionEntry.Immunotherapy}` },
-                        { reference: `urn:uuid:${sectionEntry.ImmunotherapyAtOtherFacility}` },
-                        { reference: `urn:uuid:${sectionEntry.HematologicTransplantEndocrineProcedure}` },
-                        { reference: `urn:uuid:${sectionEntry.TargetedTherapy}` },
-                        { reference: `urn:uuid:${sectionEntry.TargetedTherapyAtOtherFacility}` },
-                        { reference: `urn:uuid:${sectionEntry.PalliativeCare}` },
-                        { reference: `urn:uuid:${sectionEntry.OtherTreatment}` },
-                    ],
-                },
-                sectionOtherFactors: {
-                    title: "The section of OtherFactors",
-                    code: {
-                        coding: [
-                            {
-                                system: "https://hapi.fhir.tw/fhir/CodeSystem/logical-model-codesystem",
-                                code: "OtherFactors",
-                                display: "OtherFactors",
-                            },
-                        ],
-                    },
-                    entry: [
-                        { reference: `urn:uuid:${sectionEntry.Height}` },
-                        { reference: `urn:uuid:${sectionEntry.Weight}` },
-                        { reference: `urn:uuid:${sectionEntry.SmokingBehavior}` },
-                        { reference: `urn:uuid:${sectionEntry.BetelNutChewingBehavior}` },
-                        { reference: `urn:uuid:${sectionEntry.DrinkingBehavior}` },
-                        { reference: `urn:uuid:${sectionEntry.AssessmentOfPerformanceStatusBeforeTreatment}` },
-                    ],
-                },
-                sectionOutcome: {
-                    title: "The section of Outcome",
-                    code: {
-                        coding: [
-                            {
-                                system: "http://loinc.org",
-                                code: "21976-6",
-                                display: "Cancer outcome status",
-                            },
-                        ],
-                    },
-                    entry: {
-                        reference: `urn:uuid:${sectionEntry.FirstRecurrence}`,
-                    },
-                },
-                sectionSSF: {
-                    title: "The section of SSF",
-                    code: {
-                        coding: [
-                            {
-                                system: "https://hapi.fhir.tw/fhir/CodeSystem/logical-model-codesystem",
-                                code: "SSF",
-                                display: "Site-Specific Factor",
-                            },
-                        ],
-                    },
-                    entry: [
-                        { reference: `urn:uuid:${sectionEntry.SSF1}` },
-                        { reference: `urn:uuid:${sectionEntry.SSF2}` },
-                        { reference: `urn:uuid:${sectionEntry.SSF3}` },
-                        { reference: `urn:uuid:${sectionEntry.SSF4}` },
-                        { reference: `urn:uuid:${sectionEntry.SSF5}` },
-                        { reference: `urn:uuid:${sectionEntry.SSF6}` },
-                        { reference: `urn:uuid:${sectionEntry.SSF7}` },
-                        { reference: `urn:uuid:${sectionEntry.SSF8}` },
-                        { reference: `urn:uuid:${sectionEntry.SSF9}` },
-                        { reference: `urn:uuid:${sectionEntry.SSF10}` },
-                    ],
-                },
-            },
+        request: {
+            method: "PUT",
+            url: `Composition/${compId}`,
         },
     };
 
@@ -271,25 +288,25 @@ let data = postData; // data: Object, type: JSON
     }
 
     /* Valid Number of profiles*/
-    let PNum = 0
+    let PNum = 0;
     let ct = 0;
     for (e in entry) {
         entry[e].resourceType !== undefined ? ct++ : console.log(entry[e].resource);
     }
     console.log(ct, `Validation Number of profiles: ${profiles.length} Success`);
-    PNum = ct
+    PNum = ct;
 
     // 2. Composition 單獨上傳
     // Create Composition section entry
     const tmpProfiles = profiles.map((profile) => profile.split("TWCR-")[1]);
     const UUID = getUUID(entry);
 
-     /* Valid UUID */
-     let count = 0;
-     for (let e in entry) {
-         entry[e].id === UUID[e] ? count++ : console.log(entry[e]);
-     }
-     console.log(count, `Validation UUID: ${profiles.length} Success`);
+    /* Valid UUID */
+    let count = 0;
+    for (let e in entry) {
+        entry[e].id === UUID[e] ? count++ : console.log(entry[e]);
+    }
+    console.log(count, `Validation UUID: ${profiles.length} Success`);
 
     const sectionEntry = {};
     tmpProfiles.map((profile, index) => (sectionEntry[profile] = UUID[index]));
@@ -305,18 +322,18 @@ let data = postData; // data: Object, type: JSON
     });
 
     let Composition = createComposition(sectionEntry);
-    
+
     const CompId = Composition.id;
-     // Composition POST to FHIR server
-     const hapiCompURL = `https://hapi.fhir.tw/fhir/Composition/${CompId}`;
-     const postCompHapi = axios.put(hapiCompURL, Composition);
-     postCompHapi
-         .then((res) => (Composition = res.data))
-         .catch((e) => {
-             console.log(e.response.data);
-         });
-     console.log("***Completely create Composition***");
-     PNum++
+    // Composition POST to FHIR server
+    const hapiCompURL = `${fhirServer}Composition/${CompId}`;
+    const postCompHapi = axios.put(hapiCompURL, Composition);
+    postCompHapi
+        .then((res) => (Composition = res.data))
+        .catch((e) => {
+            console.log(e.response.data);
+        });
+    console.log("***Completely create Composition***");
+    PNum++;
 
     // save Composition
     const CompositionPath = path.join(__dirname, "../JSONPlaceholder/Composition.json");
@@ -339,18 +356,13 @@ let data = postData; // data: Object, type: JSON
         delete entry[e].request;
     }
 
-     // Create resource
-     for (let e in entry) {
+    // Create resource
+    for (let e in entry) {
         let resource = [{ resource: entry[e] }];
         entry[e] = resource[0];
     }
 
     let BundleDocument = createBundle(entry);
-
-    // if (BundleDocument.id.includes("urn:uuid:")) {
-    //     const BundleID = BundleDocument.id.split(":")[2];
-    //     BundleDocument.id = BundleID;
-    // }
 
     BundleDocument.type = "document";
 
@@ -364,19 +376,18 @@ let data = postData; // data: Object, type: JSON
         }
     });
 
-    const hapiBundlePutURL = `https://hapi.fhir.tw/fhir/Bundle/${BundleDocument.id}`;
+    const hapiBundlePutURL = `${fhirServer}Bundle/${BundleDocument.id}`;
     const putBundleHapi = axios.put(hapiBundlePutURL, BundleDocument);
 
     putBundleHapi
         .then((res) => (BundleDocument = res))
         .catch((e) => {
-            console.log(e);
+            console.log(e.response.data);
         });
 
     console.log("***Completely create Bundle document***");
-    PNum++
+    PNum++;
 
     /* Final Check */
-    PNum===75+2 ? console.log(PNum, `Validation Long Form Profiles: ${PNum} Success`) : "Validation Failed"
-    
+    PNum === 75 + 2 ? console.log(PNum, `Validation Long Form Profiles: ${PNum} Success`) : "Validation Failed";
 })();

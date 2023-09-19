@@ -9,6 +9,12 @@ const axios = require("axios");
 const moment = require("moment");
 const { v4: uuidv4 } = require("uuid");
 
+const Lorex = "https://hapi.fhir.tw/fhir/"; //Lorex
+const internal1 = "http://152.38.3.102:8080/fhir/"; //內網1
+const internal2 = "http://152.38.3.103:4180/fhir" //內網2
+
+const fhirServer = Lorex;
+
 // Running server and POST to F.U.C.K. then return the result of F.U.C.K. response
 function runFuck(data, profileName) {
     // Start the F.U.C.K. server
@@ -65,82 +71,88 @@ function createComposition(sectionEntry, compId = `${uuidv4()}`, status = "final
                     display: "Cancer event report",
                 },
             ],
-            subject: {
-                reference: sectionEntry.Patient,
-            },
-            date: date,
-            author: [{ reference: sectionEntry.Organization }, { reference: sectionEntry.Practitioner }],
-
-            title: "Cancer Registry Short Form",
-            section: {
-                sectionCancerConfirmation: {
-                    title: "The section of CancerConfirmation",
-                    code: {
-                        coding: [
-                            {
-                                system: "http://snomed.info/sct",
-                                code: "395099008",
-                            },
-                        ],
-                    },
-                    entry: [
-                        { reference: sectionEntry.Encounter },
-                        { reference: sectionEntry.Condition },
-                        { reference: sectionEntry.DateOfDiagnosisCondition },
-                        { reference: sectionEntry.DateOfFirstMicroscopicConfirmation },
-                        { reference: sectionEntry.PrimaryCancer },
-                        { reference: sectionEntry.GradeClinical },
-                        { reference: sectionEntry.GradePathological },
-                    ],
-                },
-
-                sectionFirstCourseOfTreatment: {
-                    title: "The section of FirstCourseOfTreatment",
-                    code: {
-                        coding: [
-                            {
-                                system: "http://snomed.info/sct",
-                                code: "708255002",
-                            },
-                        ],
-                    },
-                    entry: [
-                        { reference: sectionEntry.FirstSurgicalProcedure },
-                        { reference: sectionEntry.SurgicalProcedureOfPrimarySite },
-                        { reference: sectionEntry.RT },
-                        { reference: sectionEntry.Chemotherapy },
-                        { reference: sectionEntry.HormoneSteroidTherapy },
-                        { reference: sectionEntry.Immunotherapy },
-                        { reference: sectionEntry.HematologicTransplantEndocrineProcedure },
-                        { reference: sectionEntry.TargetTherapy },
-                        { reference: sectionEntry.PalliativeCare },
-                        { reference: sectionEntry.OtherTreatment },
-                    ],
-                },
-                sectionOtherFactors: {
-                    title: "The section of OtherFactors",
-                    code: {
-                        coding: [
-                            {
-                                system: "https://hapi.fhir.tw/fhir/CodeSystem/logical-model-codesystem",
-                                code: "OtherFactors",
-                            },
-                        ],
-                    },
-                    entry: [
-                        { reference: sectionEntry.Height },
-                        { reference: sectionEntry.Weight },
-                        { reference: sectionEntry.SmokingBehavior },
-                        { reference: sectionEntry.BetelNutChewingBehavior },
-                        { reference: sectionEntry.DrinkingBehavior },
-                    ],
-                },
-            },
         },
+        subject: {
+            reference: `Patient/${sectionEntry.Patient}`,
+        },
+        date: date,
+        author: [
+            {
+                reference: `Organization/${sectionEntry.Organization}`,
+            },
+            {
+                reference: `Practitioner/${sectionEntry.Practitioner}`,
+            },
+        ],
+
+        title: "Cancer Registry Short Form",
+        section: [
+            {
+                title: "The section of CancerConfirmation",
+                code: {
+                    coding: [
+                        {
+                            system: "http://snomed.info/sct",
+                            code: "395099008",
+                        },
+                    ],
+                },
+                entry: [
+                    { reference: `Encounter/${sectionEntry.Encounter}` },
+                    { reference: `Condition/${sectionEntry.Condition}` },
+                    { reference: `Condition/${sectionEntry.DateOfDiagnosisCondition}` },
+                    { reference: `Condition/${sectionEntry.DateOfFirstMicroscopicConfirmation}` },
+                    { reference: `Condition/${sectionEntry.PrimaryCancer}` },
+                    { reference: `Observation/${sectionEntry.GradeClinical}` },
+                    { reference: `Observation/${sectionEntry.GradePathological}` },
+                ],
+            },
+            {
+                title: "The section of FirstCourseOfTreatment",
+                code: {
+                    coding: [
+                        {
+                            system: "http://snomed.info/sct",
+                            code: "708255002",
+                        },
+                    ],
+                },
+                entry: [
+                    { reference: `Procedure/${sectionEntry.FirstSurgicalProcedure}` },
+                    { reference: `Procedure/${sectionEntry.SurgicalProcedureOfPrimarySite}` },
+                    { reference: `Procedure/${sectionEntry.RT}` },
+                    { reference: `Procedure/${sectionEntry.Chemotherapy}` },
+                    { reference: `Procedure/${sectionEntry.HormoneSteroidTherapy}` },
+                    { reference: `Procedure/${sectionEntry.Immunotherapy}` },
+                    { reference: `Procedure/${sectionEntry.HematologicTransplantEndocrineProcedure}` },
+                    { reference: `Procedure/${sectionEntry.TargetTherapy}` },
+                    { reference: `Procedure/${sectionEntry.PalliativeCare}` },
+                    { reference: `Procedure/${sectionEntry.OtherTreatment}` },
+                ],
+            },
+            {
+                title: "The section of OtherFactors",
+                code: {
+                    coding: [
+                        {
+                            system: "https://hapi.fhir.tw/fhir/CodeSystem/logical-model-codesystem",
+                            code: "OtherFactors",
+                        },
+                    ],
+                },
+                entry: [
+                    { reference: `Observation/${sectionEntry.Height}` },
+                    { reference: `Observation/${sectionEntry.Weight}` },
+                    { reference: `Observation/${sectionEntry.SmokingBehavior}` },
+                    { reference: `Observation/${sectionEntry.BetelNutChewingBehavior}` },
+                    { reference: `Observation/${sectionEntry.DrinkingBehavior}` },
+                ],
+            },
+        ],
 
         request: {
             method: "PUT",
-            url: compId,
+            url: `Composition/${compId}`,
         },
     };
 
@@ -181,18 +193,19 @@ let data = postData; // data: Object, type: JSON
     }
 
     /* Valid Number of profiles */
-    let PNum=0;
+    let PNum = 0;
     let ct = 0;
     for (e in entry) {
         entry[e].resourceType !== undefined ? ct++ : console.log(entry[e].resource);
     }
     console.log(ct, `Validation Number of profiles: ${profiles.length} Success`);
-    PNum = ct
+    PNum = ct;
+
     // 2. Composition 單獨上傳
     // Create Composition section entry
     const tmpProfiles = profiles.map((profile) => profile.split("TWCR-")[1]);
     const UUID = getUUID(entry);
-    
+
     /* Valid UUID */
     let count = 0;
     for (let e in entry) {
@@ -217,7 +230,7 @@ let data = postData; // data: Object, type: JSON
 
     const CompId = Composition.id;
     // Composition POST to FHIR server
-    const hapiCompURL = `https://hapi.fhir.tw/fhir/Composition/${CompId}`;
+    const hapiCompURL = `${fhirServer}Composition/${CompId}`;
     const postCompHapi = axios.put(hapiCompURL, Composition);
     postCompHapi
         .then((res) => (Composition = res.data))
@@ -225,7 +238,7 @@ let data = postData; // data: Object, type: JSON
             console.log(e.response.data);
         });
     console.log("***Completely create Composition***");
-    PNum++
+    PNum++;
 
     // save Composition
     const CompositionPath = path.join(__dirname, "../JSONPlaceholder/Composition.json");
@@ -263,13 +276,13 @@ let data = postData; // data: Object, type: JSON
 
     BundleDocument.type = "document";
 
-    const hapiBundlePutURL = `https://hapi.fhir.tw/fhir/Bundle/${BundleDocument.id}`;
+    const hapiBundlePutURL = `${fhirServer}Bundle/${BundleDocument.id}`;
     const putBundleHapi = axios.put(hapiBundlePutURL, BundleDocument);
 
     putBundleHapi
         .then((res) => (BundleDocument = res.data))
         .catch((e) => {
-            console.log(e);
+            console.log(e.response.data);
         });
 
     // save Bundle document
@@ -283,8 +296,8 @@ let data = postData; // data: Object, type: JSON
     });
 
     console.log("***Completely create Bundle document***");
-    PNum++
+    PNum++;
 
     /* Final Check */
-    PNum===25+2 ? console.log(PNum, `Validation Long Form Profiles: ${PNum} Success`) : "Validation Failed"
+    PNum === 25 + 2 ? console.log(PNum, `Validation Short Form Profiles: ${PNum} Success`) : "Validation Failed";
 })();
