@@ -1,0 +1,1307 @@
+{
+    "resourceType": "OperationOutcome",
+    "issue": [
+        {
+            "severity": "error",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId"
+                    }
+                ]
+            },
+            "diagnostics": "Unrecognized property 'request'",
+            "location": [
+                "Composition",
+                "Line 1, Col 7470"
+            ]
+        },
+        {
+            "severity": "information",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId"
+                    }
+                ]
+            },
+            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-composition-profile|0.1.0",
+            "location": [
+                "Composition.author[0]",
+                "Line 1, Col 1520"
+            ]
+        },
+        {
+            "severity": "information",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId"
+                    }
+                ]
+            },
+            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-composition-profile|0.1.0",
+            "location": [
+                "Composition.author[1]",
+                "Line 1, Col 1586"
+            ]
+        },
+        {
+            "severity": "information",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId"
+                    }
+                ]
+            },
+            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-composition-profile|0.1.0",
+            "location": [
+                "Composition.section[0].entry[0]",
+                "Line 1, Col 1869"
+            ]
+        },
+        {
+            "severity": "information",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId"
+                    }
+                ]
+            },
+            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-composition-profile|0.1.0",
+            "location": [
+                "Composition.section[0].entry[1]",
+                "Line 1, Col 1932"
+            ]
+        },
+        {
+            "severity": "information",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId"
+                    }
+                ]
+            },
+            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-composition-profile|0.1.0",
+            "location": [
+                "Composition.section[0].entry[2]",
+                "Line 1, Col 1995"
+            ]
+        },
+        {
+            "severity": "information",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId"
+                    }
+                ]
+            },
+            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-composition-profile|0.1.0",
+            "location": [
+                "Composition.section[0].entry[3]",
+                "Line 1, Col 2058"
+            ]
+        },
+        {
+            "severity": "information",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId"
+                    }
+                ]
+            },
+            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-composition-profile|0.1.0",
+            "location": [
+                "Composition.section[0].entry[4]",
+                "Line 1, Col 2121"
+            ]
+        },
+        {
+            "severity": "information",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId"
+                    }
+                ]
+            },
+            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-composition-profile|0.1.0",
+            "location": [
+                "Composition.section[0].entry[5]",
+                "Line 1, Col 2186"
+            ]
+        },
+        {
+            "severity": "information",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId"
+                    }
+                ]
+            },
+            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-composition-profile|0.1.0",
+            "location": [
+                "Composition.section[0].entry[6]",
+                "Line 1, Col 2251"
+            ]
+        },
+        {
+            "severity": "information",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId"
+                    }
+                ]
+            },
+            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-composition-profile|0.1.0",
+            "location": [
+                "Composition.section[0].entry[7]",
+                "Line 1, Col 2316"
+            ]
+        },
+        {
+            "severity": "information",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId"
+                    }
+                ]
+            },
+            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-composition-profile|0.1.0",
+            "location": [
+                "Composition.section[0].entry[8]",
+                "Line 1, Col 2381"
+            ]
+        },
+        {
+            "severity": "information",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId"
+                    }
+                ]
+            },
+            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-composition-profile|0.1.0",
+            "location": [
+                "Composition.section[0].entry[9]",
+                "Line 1, Col 2446"
+            ]
+        },
+        {
+            "severity": "information",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId"
+                    }
+                ]
+            },
+            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-composition-profile|0.1.0",
+            "location": [
+                "Composition.section[0].entry[10]",
+                "Line 1, Col 2511"
+            ]
+        },
+        {
+            "severity": "information",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId"
+                    }
+                ]
+            },
+            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-composition-profile|0.1.0",
+            "location": [
+                "Composition.section[0].entry[11]",
+                "Line 1, Col 2576"
+            ]
+        },
+        {
+            "severity": "information",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId"
+                    }
+                ]
+            },
+            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-composition-profile|0.1.0",
+            "location": [
+                "Composition.section[1].entry[0]",
+                "Line 1, Col 2888"
+            ]
+        },
+        {
+            "severity": "information",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId"
+                    }
+                ]
+            },
+            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-composition-profile|0.1.0",
+            "location": [
+                "Composition.section[1].entry[1]",
+                "Line 1, Col 2951"
+            ]
+        },
+        {
+            "severity": "information",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId"
+                    }
+                ]
+            },
+            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-composition-profile|0.1.0",
+            "location": [
+                "Composition.section[1].entry[2]",
+                "Line 1, Col 3016"
+            ]
+        },
+        {
+            "severity": "information",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId"
+                    }
+                ]
+            },
+            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-composition-profile|0.1.0",
+            "location": [
+                "Composition.section[1].entry[3]",
+                "Line 1, Col 3081"
+            ]
+        },
+        {
+            "severity": "information",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId"
+                    }
+                ]
+            },
+            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-composition-profile|0.1.0",
+            "location": [
+                "Composition.section[1].entry[4]",
+                "Line 1, Col 3146"
+            ]
+        },
+        {
+            "severity": "information",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId"
+                    }
+                ]
+            },
+            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-composition-profile|0.1.0",
+            "location": [
+                "Composition.section[1].entry[5]",
+                "Line 1, Col 3211"
+            ]
+        },
+        {
+            "severity": "information",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId"
+                    }
+                ]
+            },
+            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-composition-profile|0.1.0",
+            "location": [
+                "Composition.section[1].entry[6]",
+                "Line 1, Col 3276"
+            ]
+        },
+        {
+            "severity": "information",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId"
+                    }
+                ]
+            },
+            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-composition-profile|0.1.0",
+            "location": [
+                "Composition.section[1].entry[7]",
+                "Line 1, Col 3341"
+            ]
+        },
+        {
+            "severity": "information",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId"
+                    }
+                ]
+            },
+            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-composition-profile|0.1.0",
+            "location": [
+                "Composition.section[1].entry[8]",
+                "Line 1, Col 3406"
+            ]
+        },
+        {
+            "severity": "information",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId"
+                    }
+                ]
+            },
+            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-composition-profile|0.1.0",
+            "location": [
+                "Composition.section[1].entry[9]",
+                "Line 1, Col 3471"
+            ]
+        },
+        {
+            "severity": "information",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId"
+                    }
+                ]
+            },
+            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-composition-profile|0.1.0",
+            "location": [
+                "Composition.section[1].entry[10]",
+                "Line 1, Col 3536"
+            ]
+        },
+        {
+            "severity": "information",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId"
+                    }
+                ]
+            },
+            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-composition-profile|0.1.0",
+            "location": [
+                "Composition.section[1].entry[11]",
+                "Line 1, Col 3601"
+            ]
+        },
+        {
+            "severity": "information",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId"
+                    }
+                ]
+            },
+            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-composition-profile|0.1.0",
+            "location": [
+                "Composition.section[1].entry[12]",
+                "Line 1, Col 3666"
+            ]
+        },
+        {
+            "severity": "information",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId"
+                    }
+                ]
+            },
+            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-composition-profile|0.1.0",
+            "location": [
+                "Composition.section[1].entry[13]",
+                "Line 1, Col 3731"
+            ]
+        },
+        {
+            "severity": "error",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "Terminology_PassThrough_TX_Message"
+                    }
+                ]
+            },
+            "diagnostics": "Unable to validate code https://hapi.fhir.tw/fhir/CodeSystem/twcr-lf-logical-model-codesystem#StageOfInitialDiagnosisOfCancer - Concept Display \"StageOfInitialDiagnosisOfCancer\" does not match expected \"癌症最初診斷期別\" for CodeSystem: https://hapi.fhir.tw/fhir/CodeSystem/twcr-lf-logical-model-codesystem for 'https://hapi.fhir.tw/fhir/CodeSystem/twcr-lf-logical-model-codesystem#StageOfInitialDiagnosisOfCancer'",
+            "location": [
+                "Composition.section[1].code.coding[0]",
+                "Line 1, Col 2814"
+            ]
+        },
+        {
+            "severity": "error",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "_DT_Fixed_Wrong"
+                    }
+                ]
+            },
+            "diagnostics": "Value is 'StageOfInitialDiagnosisOfCancer' but must be '癌症最初診斷期別'",
+            "location": [
+                "Composition.section[1].code.coding[0].display",
+                "Line 1, Col 2813"
+            ]
+        },
+        {
+            "severity": "information",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId"
+                    }
+                ]
+            },
+            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-composition-profile|0.1.0",
+            "location": [
+                "Composition.section[2].entry[0]",
+                "Line 1, Col 3975"
+            ]
+        },
+        {
+            "severity": "information",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId"
+                    }
+                ]
+            },
+            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-composition-profile|0.1.0",
+            "location": [
+                "Composition.section[2].entry[1]",
+                "Line 1, Col 4038"
+            ]
+        },
+        {
+            "severity": "information",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId"
+                    }
+                ]
+            },
+            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-composition-profile|0.1.0",
+            "location": [
+                "Composition.section[2].entry[2]",
+                "Line 1, Col 4101"
+            ]
+        },
+        {
+            "severity": "information",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId"
+                    }
+                ]
+            },
+            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-composition-profile|0.1.0",
+            "location": [
+                "Composition.section[2].entry[3]",
+                "Line 1, Col 4164"
+            ]
+        },
+        {
+            "severity": "information",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId"
+                    }
+                ]
+            },
+            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-composition-profile|0.1.0",
+            "location": [
+                "Composition.section[2].entry[4]",
+                "Line 1, Col 4227"
+            ]
+        },
+        {
+            "severity": "information",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId"
+                    }
+                ]
+            },
+            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-composition-profile|0.1.0",
+            "location": [
+                "Composition.section[2].entry[5]",
+                "Line 1, Col 4292"
+            ]
+        },
+        {
+            "severity": "information",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId"
+                    }
+                ]
+            },
+            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-composition-profile|0.1.0",
+            "location": [
+                "Composition.section[2].entry[6]",
+                "Line 1, Col 4357"
+            ]
+        },
+        {
+            "severity": "information",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId"
+                    }
+                ]
+            },
+            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-composition-profile|0.1.0",
+            "location": [
+                "Composition.section[2].entry[7]",
+                "Line 1, Col 4420"
+            ]
+        },
+        {
+            "severity": "information",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId"
+                    }
+                ]
+            },
+            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-composition-profile|0.1.0",
+            "location": [
+                "Composition.section[2].entry[8]",
+                "Line 1, Col 4483"
+            ]
+        },
+        {
+            "severity": "information",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId"
+                    }
+                ]
+            },
+            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-composition-profile|0.1.0",
+            "location": [
+                "Composition.section[2].entry[9]",
+                "Line 1, Col 4546"
+            ]
+        },
+        {
+            "severity": "information",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId"
+                    }
+                ]
+            },
+            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-composition-profile|0.1.0",
+            "location": [
+                "Composition.section[2].entry[10]",
+                "Line 1, Col 4609"
+            ]
+        },
+        {
+            "severity": "information",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId"
+                    }
+                ]
+            },
+            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-composition-profile|0.1.0",
+            "location": [
+                "Composition.section[2].entry[11]",
+                "Line 1, Col 4672"
+            ]
+        },
+        {
+            "severity": "information",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId"
+                    }
+                ]
+            },
+            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-composition-profile|0.1.0",
+            "location": [
+                "Composition.section[2].entry[12]",
+                "Line 1, Col 4735"
+            ]
+        },
+        {
+            "severity": "information",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId"
+                    }
+                ]
+            },
+            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-composition-profile|0.1.0",
+            "location": [
+                "Composition.section[2].entry[13]",
+                "Line 1, Col 4798"
+            ]
+        },
+        {
+            "severity": "information",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId"
+                    }
+                ]
+            },
+            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-composition-profile|0.1.0",
+            "location": [
+                "Composition.section[2].entry[14]",
+                "Line 1, Col 4861"
+            ]
+        },
+        {
+            "severity": "information",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId"
+                    }
+                ]
+            },
+            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-composition-profile|0.1.0",
+            "location": [
+                "Composition.section[2].entry[15]",
+                "Line 1, Col 4924"
+            ]
+        },
+        {
+            "severity": "information",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId"
+                    }
+                ]
+            },
+            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-composition-profile|0.1.0",
+            "location": [
+                "Composition.section[2].entry[16]",
+                "Line 1, Col 4987"
+            ]
+        },
+        {
+            "severity": "information",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId"
+                    }
+                ]
+            },
+            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-composition-profile|0.1.0",
+            "location": [
+                "Composition.section[2].entry[17]",
+                "Line 1, Col 5050"
+            ]
+        },
+        {
+            "severity": "information",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId"
+                    }
+                ]
+            },
+            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-composition-profile|0.1.0",
+            "location": [
+                "Composition.section[2].entry[18]",
+                "Line 1, Col 5113"
+            ]
+        },
+        {
+            "severity": "information",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId"
+                    }
+                ]
+            },
+            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-composition-profile|0.1.0",
+            "location": [
+                "Composition.section[2].entry[19]",
+                "Line 1, Col 5176"
+            ]
+        },
+        {
+            "severity": "information",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId"
+                    }
+                ]
+            },
+            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-composition-profile|0.1.0",
+            "location": [
+                "Composition.section[2].entry[20]",
+                "Line 1, Col 5239"
+            ]
+        },
+        {
+            "severity": "information",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId"
+                    }
+                ]
+            },
+            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-composition-profile|0.1.0",
+            "location": [
+                "Composition.section[2].entry[21]",
+                "Line 1, Col 5302"
+            ]
+        },
+        {
+            "severity": "information",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId"
+                    }
+                ]
+            },
+            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-composition-profile|0.1.0",
+            "location": [
+                "Composition.section[2].entry[22]",
+                "Line 1, Col 5365"
+            ]
+        },
+        {
+            "severity": "information",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId"
+                    }
+                ]
+            },
+            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-composition-profile|0.1.0",
+            "location": [
+                "Composition.section[2].entry[23]",
+                "Line 1, Col 5428"
+            ]
+        },
+        {
+            "severity": "information",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId"
+                    }
+                ]
+            },
+            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-composition-profile|0.1.0",
+            "location": [
+                "Composition.section[2].entry[24]",
+                "Line 1, Col 5491"
+            ]
+        },
+        {
+            "severity": "information",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId"
+                    }
+                ]
+            },
+            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-composition-profile|0.1.0",
+            "location": [
+                "Composition.section[2].entry[25]",
+                "Line 1, Col 5554"
+            ]
+        },
+        {
+            "severity": "information",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId"
+                    }
+                ]
+            },
+            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-composition-profile|0.1.0",
+            "location": [
+                "Composition.section[2].entry[26]",
+                "Line 1, Col 5617"
+            ]
+        },
+        {
+            "severity": "information",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId"
+                    }
+                ]
+            },
+            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-composition-profile|0.1.0",
+            "location": [
+                "Composition.section[2].entry[27]",
+                "Line 1, Col 5680"
+            ]
+        },
+        {
+            "severity": "information",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId"
+                    }
+                ]
+            },
+            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-composition-profile|0.1.0",
+            "location": [
+                "Composition.section[2].entry[28]",
+                "Line 1, Col 5743"
+            ]
+        },
+        {
+            "severity": "information",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId"
+                    }
+                ]
+            },
+            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-composition-profile|0.1.0",
+            "location": [
+                "Composition.section[3].entry[0]",
+                "Line 1, Col 6008"
+            ]
+        },
+        {
+            "severity": "information",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId"
+                    }
+                ]
+            },
+            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-composition-profile|0.1.0",
+            "location": [
+                "Composition.section[3].entry[1]",
+                "Line 1, Col 6073"
+            ]
+        },
+        {
+            "severity": "information",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId"
+                    }
+                ]
+            },
+            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-composition-profile|0.1.0",
+            "location": [
+                "Composition.section[3].entry[2]",
+                "Line 1, Col 6138"
+            ]
+        },
+        {
+            "severity": "information",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId"
+                    }
+                ]
+            },
+            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-composition-profile|0.1.0",
+            "location": [
+                "Composition.section[3].entry[3]",
+                "Line 1, Col 6203"
+            ]
+        },
+        {
+            "severity": "information",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId"
+                    }
+                ]
+            },
+            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-composition-profile|0.1.0",
+            "location": [
+                "Composition.section[3].entry[4]",
+                "Line 1, Col 6268"
+            ]
+        },
+        {
+            "severity": "information",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId"
+                    }
+                ]
+            },
+            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-composition-profile|0.1.0",
+            "location": [
+                "Composition.section[3].entry[5]",
+                "Line 1, Col 6331"
+            ]
+        },
+        {
+            "severity": "error",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "Terminology_PassThrough_TX_Message"
+                    }
+                ]
+            },
+            "diagnostics": "Unable to validate code https://hapi.fhir.tw/fhir/CodeSystem/twcr-lf-logical-model-codesystem#OtherFactors - Concept Display \"OtherFactors\" does not match expected \"其他因子\" for CodeSystem: https://hapi.fhir.tw/fhir/CodeSystem/twcr-lf-logical-model-codesystem for 'https://hapi.fhir.tw/fhir/CodeSystem/twcr-lf-logical-model-codesystem#OtherFactors'",
+            "location": [
+                "Composition.section[3].code.coding[0]",
+                "Line 1, Col 5932"
+            ]
+        },
+        {
+            "severity": "error",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "_DT_Fixed_Wrong"
+                    }
+                ]
+            },
+            "diagnostics": "Value is 'OtherFactors' but must be '其他因子'",
+            "location": [
+                "Composition.section[3].code.coding[0].display",
+                "Line 1, Col 5931"
+            ]
+        },
+        {
+            "severity": "information",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId"
+                    }
+                ]
+            },
+            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-composition-profile|0.1.0",
+            "location": [
+                "Composition.section[4].entry[0]",
+                "Line 1, Col 6543"
+            ]
+        },
+        {
+            "severity": "information",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId"
+                    }
+                ]
+            },
+            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-composition-profile|0.1.0",
+            "location": [
+                "Composition.section[5].entry[0]",
+                "Line 1, Col 6798"
+            ]
+        },
+        {
+            "severity": "information",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId"
+                    }
+                ]
+            },
+            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-composition-profile|0.1.0",
+            "location": [
+                "Composition.section[5].entry[1]",
+                "Line 1, Col 6863"
+            ]
+        },
+        {
+            "severity": "information",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId"
+                    }
+                ]
+            },
+            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-composition-profile|0.1.0",
+            "location": [
+                "Composition.section[5].entry[2]",
+                "Line 1, Col 6928"
+            ]
+        },
+        {
+            "severity": "information",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId"
+                    }
+                ]
+            },
+            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-composition-profile|0.1.0",
+            "location": [
+                "Composition.section[5].entry[3]",
+                "Line 1, Col 6993"
+            ]
+        },
+        {
+            "severity": "information",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId"
+                    }
+                ]
+            },
+            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-composition-profile|0.1.0",
+            "location": [
+                "Composition.section[5].entry[4]",
+                "Line 1, Col 7058"
+            ]
+        },
+        {
+            "severity": "information",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId"
+                    }
+                ]
+            },
+            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-composition-profile|0.1.0",
+            "location": [
+                "Composition.section[5].entry[5]",
+                "Line 1, Col 7123"
+            ]
+        },
+        {
+            "severity": "information",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId"
+                    }
+                ]
+            },
+            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-composition-profile|0.1.0",
+            "location": [
+                "Composition.section[5].entry[6]",
+                "Line 1, Col 7188"
+            ]
+        },
+        {
+            "severity": "information",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId"
+                    }
+                ]
+            },
+            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-composition-profile|0.1.0",
+            "location": [
+                "Composition.section[5].entry[7]",
+                "Line 1, Col 7253"
+            ]
+        },
+        {
+            "severity": "information",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId"
+                    }
+                ]
+            },
+            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-composition-profile|0.1.0",
+            "location": [
+                "Composition.section[5].entry[8]",
+                "Line 1, Col 7318"
+            ]
+        },
+        {
+            "severity": "information",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId"
+                    }
+                ]
+            },
+            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-composition-profile|0.1.0",
+            "location": [
+                "Composition.section[5].entry[9]",
+                "Line 1, Col 7383"
+            ]
+        },
+        {
+            "severity": "error",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "Terminology_PassThrough_TX_Message"
+                    }
+                ]
+            },
+            "diagnostics": "Unable to validate code https://hapi.fhir.tw/fhir/CodeSystem/twcr-lf-logical-model-codesystem#SSF - Concept Display \"Site-Specific Factor\" does not match expected \"癌症部位特定因子\" for CodeSystem: https://hapi.fhir.tw/fhir/CodeSystem/twcr-lf-logical-model-codesystem for 'https://hapi.fhir.tw/fhir/CodeSystem/twcr-lf-logical-model-codesystem#SSF'",
+            "location": [
+                "Composition.section[5].code.coding[0]",
+                "Line 1, Col 6722"
+            ]
+        },
+        {
+            "severity": "error",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "_DT_Fixed_Wrong"
+                    }
+                ]
+            },
+            "diagnostics": "Value is 'Site-Specific Factor' but must be '癌症部位特定因子'",
+            "location": [
+                "Composition.section[5].code.coding[0].display",
+                "Line 1, Col 6721"
+            ]
+        }
+    ]
+}

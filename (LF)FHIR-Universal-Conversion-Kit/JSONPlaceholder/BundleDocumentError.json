@@ -1,0 +1,1550 @@
+{
+    "resourceType": "OperationOutcome",
+    "issue": [
+        {
+            "severity": "information",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "Terminology_TX_NoValid_3_CC"
+                    }
+                ]
+            },
+            "diagnostics": "None of the codings provided are in the value set 'FHIR Document Type Codes' (http://hl7.org/fhir/ValueSet/doc-typecodes|4.0.1), and a coding is recommended to come from this value set) (codes = https://loinc.org#72134-0)",
+            "location": [
+                "Bundle.entry[0].resource/*Composition/eba0c624-3e85-4045-a9f1-05ab60d78d4c*/.type",
+                "Line 1, Col 1671"
+            ]
+        },
+        {
+            "severity": "error",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "Terminology_PassThrough_TX_Message"
+                    }
+                ]
+            },
+            "diagnostics": "Unable to validate code https://hapi.fhir.tw/fhir/CodeSystem/twcr-lf-logical-model-codesystem#StageOfInitialDiagnosisOfCancer - Concept Display \"StageOfInitialDiagnosisOfCancer\" does not match expected \"癌症最初診斷期別\" for CodeSystem: https://hapi.fhir.tw/fhir/CodeSystem/twcr-lf-logical-model-codesystem for 'https://hapi.fhir.tw/fhir/CodeSystem/twcr-lf-logical-model-codesystem#StageOfInitialDiagnosisOfCancer'",
+            "location": [
+                "Bundle.entry[0].resource/*Composition/eba0c624-3e85-4045-a9f1-05ab60d78d4c*/.section[1].code.coding[0]",
+                "Line 1, Col 3147"
+            ]
+        },
+        {
+            "severity": "error",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "Terminology_PassThrough_TX_Message"
+                    }
+                ]
+            },
+            "diagnostics": "Unable to validate code https://hapi.fhir.tw/fhir/CodeSystem/twcr-lf-logical-model-codesystem#OtherFactors - Concept Display \"OtherFactors\" does not match expected \"其他因子\" for CodeSystem: https://hapi.fhir.tw/fhir/CodeSystem/twcr-lf-logical-model-codesystem for 'https://hapi.fhir.tw/fhir/CodeSystem/twcr-lf-logical-model-codesystem#OtherFactors'",
+            "location": [
+                "Bundle.entry[0].resource/*Composition/eba0c624-3e85-4045-a9f1-05ab60d78d4c*/.section[3].code.coding[0]",
+                "Line 1, Col 6265"
+            ]
+        },
+        {
+            "severity": "error",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "Terminology_PassThrough_TX_Message"
+                    }
+                ]
+            },
+            "diagnostics": "Unable to validate code https://hapi.fhir.tw/fhir/CodeSystem/twcr-lf-logical-model-codesystem#SSF - Concept Display \"Site-Specific Factor\" does not match expected \"癌症部位特定因子\" for CodeSystem: https://hapi.fhir.tw/fhir/CodeSystem/twcr-lf-logical-model-codesystem for 'https://hapi.fhir.tw/fhir/CodeSystem/twcr-lf-logical-model-codesystem#SSF'",
+            "location": [
+                "Bundle.entry[0].resource/*Composition/eba0c624-3e85-4045-a9f1-05ab60d78d4c*/.section[5].code.coding[0]",
+                "Line 1, Col 7055"
+            ]
+        },
+        {
+            "severity": "error",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "_DT_Fixed_Wrong"
+                    }
+                ]
+            },
+            "diagnostics": "Value is 'StageOfInitialDiagnosisOfCancer' but must be '癌症最初診斷期別'",
+            "location": [
+                "Bundle.entry[0].resource/*Composition/eba0c624-3e85-4045-a9f1-05ab60d78d4c*/.section[1].code.coding[0].display",
+                "Line 1, Col 3146"
+            ]
+        },
+        {
+            "severity": "error",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "_DT_Fixed_Wrong"
+                    }
+                ]
+            },
+            "diagnostics": "Value is 'OtherFactors' but must be '其他因子'",
+            "location": [
+                "Bundle.entry[0].resource/*Composition/eba0c624-3e85-4045-a9f1-05ab60d78d4c*/.section[3].code.coding[0].display",
+                "Line 1, Col 6264"
+            ]
+        },
+        {
+            "severity": "error",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "_DT_Fixed_Wrong"
+                    }
+                ]
+            },
+            "diagnostics": "Value is 'Site-Specific Factor' but must be '癌症部位特定因子'",
+            "location": [
+                "Bundle.entry[0].resource/*Composition/eba0c624-3e85-4045-a9f1-05ab60d78d4c*/.section[5].code.coding[0].display",
+                "Line 1, Col 7054"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "Terminology_TX_NoValid_2_CC"
+                    }
+                ]
+            },
+            "diagnostics": "None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NNxxx)",
+            "location": [
+                "Bundle.entry[2].resource/*Patient/a6927d92-43aa-46d4-b253-64f3ed87677e*/.identifier[0].type",
+                "Line 1, Col 9074"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "Rule con-3: 'Condition.clinicalStatus SHALL be present if verificationStatus is not entered-in-error and category is problem-list-item' Failed"
+                    }
+                ]
+            },
+            "diagnostics": "Rule con-3: 'Condition.clinicalStatus SHALL be present if verificationStatus is not entered-in-error and category is problem-list-item' Failed",
+            "location": [
+                "Bundle.entry[5].resource",
+                "Line 1, Col 12378"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "Terminology_TX_NoValid_2_CC"
+                    }
+                ]
+            },
+            "diagnostics": "None of the codings provided are in the value set 'Condition Category Codes' (http://hl7.org/fhir/ValueSet/condition-category|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = https://hapi.fhir.tw/fhir/CodeSystem/twcr-lf-class-of-case-codesystem#0)",
+            "location": [
+                "Bundle.entry[5].resource/*Condition/7a325767-7d1e-4bf7-92c0-1ba6d8dca06b*/.category[0]",
+                "Line 1, Col 11430"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "Terminology_TX_NoValid_2_CC"
+                    }
+                ]
+            },
+            "diagnostics": "None of the codings provided are in the value set 'Condition Category Codes' (http://hl7.org/fhir/ValueSet/condition-category|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = https://hapi.fhir.tw/fhir/CodeSystem/twcr-lf-class-of-diangosis-status-codesystem#1)",
+            "location": [
+                "Bundle.entry[5].resource/*Condition/7a325767-7d1e-4bf7-92c0-1ba6d8dca06b*/.category[1]",
+                "Line 1, Col 11569"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "Terminology_TX_NoValid_2_CC"
+                    }
+                ]
+            },
+            "diagnostics": "None of the codings provided are in the value set 'Condition Category Codes' (http://hl7.org/fhir/ValueSet/condition-category|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = https://hapi.fhir.tw/fhir/CodeSystem/twcr-lf-class-of-treatment-status-codesystem#0)",
+            "location": [
+                "Bundle.entry[5].resource/*Condition/7a325767-7d1e-4bf7-92c0-1ba6d8dca06b*/.category[2]",
+                "Line 1, Col 11753"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "Terminology_TX_NoValid_2_CC"
+                    }
+                ]
+            },
+            "diagnostics": "None of the codings provided are in the value set 'Condition Category Codes' (http://hl7.org/fhir/ValueSet/condition-category|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = https://hapi.fhir.tw/fhir/CodeSystem/twcr-lf-class-of-case-codesystem#0)",
+            "location": [
+                "Bundle.entry[5].resource.category[0]",
+                "Line 1, Col 11430"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "Terminology_TX_NoValid_2_CC"
+                    }
+                ]
+            },
+            "diagnostics": "None of the codings provided are in the value set 'Condition Category Codes' (http://hl7.org/fhir/ValueSet/condition-category|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = https://hapi.fhir.tw/fhir/CodeSystem/twcr-lf-class-of-diangosis-status-codesystem#1)",
+            "location": [
+                "Bundle.entry[5].resource.category[1]",
+                "Line 1, Col 11569"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "Terminology_TX_NoValid_2_CC"
+                    }
+                ]
+            },
+            "diagnostics": "None of the codings provided are in the value set 'Condition Category Codes' (http://hl7.org/fhir/ValueSet/condition-category|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = https://hapi.fhir.tw/fhir/CodeSystem/twcr-lf-class-of-treatment-status-codesystem#0)",
+            "location": [
+                "Bundle.entry[5].resource.category[2]",
+                "Line 1, Col 11753"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_a_performer"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have a performer",
+            "location": [
+                "Bundle.entry[6].resource/*Observation/ef4dc23c-c96c-4455-9967-e7ee092a4726*/",
+                "Line 1, Col 13479"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_an_effectiveDateTime_or_an_effectivePeriod"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have an effectiveDateTime or an effectivePeriod",
+            "location": [
+                "Bundle.entry[6].resource/*Observation/ef4dc23c-c96c-4455-9967-e7ee092a4726*/",
+                "Line 1, Col 13479"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_a_performer"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have a performer",
+            "location": [
+                "Bundle.entry[7].resource/*Observation/bb1aabf3-a8f0-4b27-bdc7-8da6f573acc0*/",
+                "Line 1, Col 14585"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_an_effectiveDateTime_or_an_effectivePeriod"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have an effectiveDateTime or an effectivePeriod",
+            "location": [
+                "Bundle.entry[7].resource/*Observation/bb1aabf3-a8f0-4b27-bdc7-8da6f573acc0*/",
+                "Line 1, Col 14585"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_a_performer"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have a performer",
+            "location": [
+                "Bundle.entry[8].resource/*Observation/674a7ac6-91c3-418b-a4e7-60ddccfbe2e2*/",
+                "Line 1, Col 15689"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_an_effectiveDateTime_or_an_effectivePeriod"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have an effectiveDateTime or an effectivePeriod",
+            "location": [
+                "Bundle.entry[8].resource/*Observation/674a7ac6-91c3-418b-a4e7-60ddccfbe2e2*/",
+                "Line 1, Col 15689"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_a_performer"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have a performer",
+            "location": [
+                "Bundle.entry[9].resource/*Observation/5af4a8d2-6823-4718-8ef7-067bbcec4d31*/",
+                "Line 1, Col 16785"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_an_effectiveDateTime_or_an_effectivePeriod"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have an effectiveDateTime or an effectivePeriod",
+            "location": [
+                "Bundle.entry[9].resource/*Observation/5af4a8d2-6823-4718-8ef7-067bbcec4d31*/",
+                "Line 1, Col 16785"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_a_performer"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have a performer",
+            "location": [
+                "Bundle.entry[10].resource/*Observation/d8ca9cd5-a9df-4806-88a6-49cec5a12fee*/",
+                "Line 1, Col 17896"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_an_effectiveDateTime_or_an_effectivePeriod"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have an effectiveDateTime or an effectivePeriod",
+            "location": [
+                "Bundle.entry[10].resource/*Observation/d8ca9cd5-a9df-4806-88a6-49cec5a12fee*/",
+                "Line 1, Col 17896"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_a_performer"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have a performer",
+            "location": [
+                "Bundle.entry[11].resource/*Observation/4522525b-5663-430d-ba57-525455b84281*/",
+                "Line 1, Col 19022"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_an_effectiveDateTime_or_an_effectivePeriod"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have an effectiveDateTime or an effectivePeriod",
+            "location": [
+                "Bundle.entry[11].resource/*Observation/4522525b-5663-430d-ba57-525455b84281*/",
+                "Line 1, Col 19022"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_a_performer"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have a performer",
+            "location": [
+                "Bundle.entry[13].resource/*Observation/390d352d-2507-4120-9c72-3c493c50fe6c*/",
+                "Line 1, Col 21740"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_an_effectiveDateTime_or_an_effectivePeriod"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have an effectiveDateTime or an effectivePeriod",
+            "location": [
+                "Bundle.entry[13].resource/*Observation/390d352d-2507-4120-9c72-3c493c50fe6c*/",
+                "Line 1, Col 21740"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_a_performer"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have a performer",
+            "location": [
+                "Bundle.entry[16].resource/*Observation/f3736340-24e1-4c28-8eb5-9c59e119f793*/",
+                "Line 1, Col 24810"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_an_effectiveDateTime_or_an_effectivePeriod"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have an effectiveDateTime or an effectivePeriod",
+            "location": [
+                "Bundle.entry[16].resource/*Observation/f3736340-24e1-4c28-8eb5-9c59e119f793*/",
+                "Line 1, Col 24810"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_a_performer"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have a performer",
+            "location": [
+                "Bundle.entry[17].resource/*Observation/b6e6921d-e746-4a9c-91f3-d0d6ddc3f295*/",
+                "Line 1, Col 26127"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_an_effectiveDateTime_or_an_effectivePeriod"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have an effectiveDateTime or an effectivePeriod",
+            "location": [
+                "Bundle.entry[17].resource/*Observation/b6e6921d-e746-4a9c-91f3-d0d6ddc3f295*/",
+                "Line 1, Col 26127"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_a_performer"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have a performer",
+            "location": [
+                "Bundle.entry[18].resource/*Observation/fca854ba-dfad-445d-9261-42b6e26bac56*/",
+                "Line 1, Col 27283"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_an_effectiveDateTime_or_an_effectivePeriod"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have an effectiveDateTime or an effectivePeriod",
+            "location": [
+                "Bundle.entry[18].resource/*Observation/fca854ba-dfad-445d-9261-42b6e26bac56*/",
+                "Line 1, Col 27283"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_a_performer"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have a performer",
+            "location": [
+                "Bundle.entry[21].resource/*Observation/8e54d4cc-9454-4dd8-840a-9ca66ed5035a*/",
+                "Line 1, Col 29448"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_an_effectiveDateTime_or_an_effectivePeriod"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have an effectiveDateTime or an effectivePeriod",
+            "location": [
+                "Bundle.entry[21].resource/*Observation/8e54d4cc-9454-4dd8-840a-9ca66ed5035a*/",
+                "Line 1, Col 29448"
+            ]
+        },
+        {
+            "severity": "information",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId"
+                    }
+                ]
+            },
+            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-first-course-of-treatment-profile|0.1.0",
+            "location": [
+                "Bundle.entry[23].resource.performed.ofType(dateTime)",
+                "Line 1, Col 32997"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_a_performer"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have a performer",
+            "location": [
+                "Bundle.entry[24].resource/*Observation/e3c2ca45-f0be-46f8-a360-4e5cb85d2d60*/",
+                "Line 1, Col 33990"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_an_effectiveDateTime_or_an_effectivePeriod"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have an effectiveDateTime or an effectivePeriod",
+            "location": [
+                "Bundle.entry[24].resource/*Observation/e3c2ca45-f0be-46f8-a360-4e5cb85d2d60*/",
+                "Line 1, Col 33990"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_a_performer"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have a performer",
+            "location": [
+                "Bundle.entry[26].resource/*Observation/214f1f4e-e11b-4272-84ba-41a6d093cdf3*/",
+                "Line 1, Col 35805"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_an_effectiveDateTime_or_an_effectivePeriod"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have an effectiveDateTime or an effectivePeriod",
+            "location": [
+                "Bundle.entry[26].resource/*Observation/214f1f4e-e11b-4272-84ba-41a6d093cdf3*/",
+                "Line 1, Col 35805"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_a_performer"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have a performer",
+            "location": [
+                "Bundle.entry[27].resource/*Observation/cffc570a-116b-466b-8566-a0d90d9d1246*/",
+                "Line 1, Col 36781"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_an_effectiveDateTime_or_an_effectivePeriod"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have an effectiveDateTime or an effectivePeriod",
+            "location": [
+                "Bundle.entry[27].resource/*Observation/cffc570a-116b-466b-8566-a0d90d9d1246*/",
+                "Line 1, Col 36781"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_a_performer"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have a performer",
+            "location": [
+                "Bundle.entry[28].resource/*Observation/c76a3eca-1409-40bf-8c6c-7b034829302e*/",
+                "Line 1, Col 37669"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_an_effectiveDateTime_or_an_effectivePeriod"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have an effectiveDateTime or an effectivePeriod",
+            "location": [
+                "Bundle.entry[28].resource/*Observation/c76a3eca-1409-40bf-8c6c-7b034829302e*/",
+                "Line 1, Col 37669"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_a_performer"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have a performer",
+            "location": [
+                "Bundle.entry[34].resource/*Observation/14fa8fe7-2699-404c-b539-b44a2409c328*/",
+                "Line 1, Col 43980"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_an_effectiveDateTime_or_an_effectivePeriod"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have an effectiveDateTime or an effectivePeriod",
+            "location": [
+                "Bundle.entry[34].resource/*Observation/14fa8fe7-2699-404c-b539-b44a2409c328*/",
+                "Line 1, Col 43980"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_a_performer"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have a performer",
+            "location": [
+                "Bundle.entry[39].resource/*Observation/6d9a3124-207d-4ddd-83aa-be8a9bbc8dcc*/",
+                "Line 1, Col 49250"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_an_effectiveDateTime_or_an_effectivePeriod"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have an effectiveDateTime or an effectivePeriod",
+            "location": [
+                "Bundle.entry[39].resource/*Observation/6d9a3124-207d-4ddd-83aa-be8a9bbc8dcc*/",
+                "Line 1, Col 49250"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_a_performer"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have a performer",
+            "location": [
+                "Bundle.entry[40].resource/*Observation/a9542a1c-82cd-41b0-923c-65b5cd43da2a*/",
+                "Line 1, Col 50581"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_an_effectiveDateTime_or_an_effectivePeriod"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have an effectiveDateTime or an effectivePeriod",
+            "location": [
+                "Bundle.entry[40].resource/*Observation/a9542a1c-82cd-41b0-923c-65b5cd43da2a*/",
+                "Line 1, Col 50581"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_a_performer"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have a performer",
+            "location": [
+                "Bundle.entry[41].resource/*Observation/888df5b9-1010-413e-afa1-0b7ae3db9a31*/",
+                "Line 1, Col 51737"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_an_effectiveDateTime_or_an_effectivePeriod"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have an effectiveDateTime or an effectivePeriod",
+            "location": [
+                "Bundle.entry[41].resource/*Observation/888df5b9-1010-413e-afa1-0b7ae3db9a31*/",
+                "Line 1, Col 51737"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_a_performer"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have a performer",
+            "location": [
+                "Bundle.entry[42].resource/*Observation/98c3289f-0f0a-4c56-a3e5-e08bc237b121*/",
+                "Line 1, Col 52814"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_an_effectiveDateTime_or_an_effectivePeriod"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have an effectiveDateTime or an effectivePeriod",
+            "location": [
+                "Bundle.entry[42].resource/*Observation/98c3289f-0f0a-4c56-a3e5-e08bc237b121*/",
+                "Line 1, Col 52814"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_a_performer"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have a performer",
+            "location": [
+                "Bundle.entry[45].resource/*Observation/9b734faf-8515-4841-966c-12dc31707146*/",
+                "Line 1, Col 56049"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_an_effectiveDateTime_or_an_effectivePeriod"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have an effectiveDateTime or an effectivePeriod",
+            "location": [
+                "Bundle.entry[45].resource/*Observation/9b734faf-8515-4841-966c-12dc31707146*/",
+                "Line 1, Col 56049"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_a_performer"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have a performer",
+            "location": [
+                "Bundle.entry[46].resource/*Observation/61fc8f34-d70d-44f9-8fb1-8dd4654684ba*/",
+                "Line 1, Col 57004"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_an_effectiveDateTime_or_an_effectivePeriod"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have an effectiveDateTime or an effectivePeriod",
+            "location": [
+                "Bundle.entry[46].resource/*Observation/61fc8f34-d70d-44f9-8fb1-8dd4654684ba*/",
+                "Line 1, Col 57004"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_a_performer"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have a performer",
+            "location": [
+                "Bundle.entry[52].resource/*Observation/7e06f64d-8679-4f97-8d1e-4311aec82f6b*/",
+                "Line 1, Col 63543"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_an_effectiveDateTime_or_an_effectivePeriod"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have an effectiveDateTime or an effectivePeriod",
+            "location": [
+                "Bundle.entry[52].resource/*Observation/7e06f64d-8679-4f97-8d1e-4311aec82f6b*/",
+                "Line 1, Col 63543"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_a_performer"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have a performer",
+            "location": [
+                "Bundle.entry[53].resource/*Observation/6bc86180-12f7-49a7-92ad-1fbf9b165356*/",
+                "Line 1, Col 64354"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_an_effectiveDateTime_or_an_effectivePeriod"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have an effectiveDateTime or an effectivePeriod",
+            "location": [
+                "Bundle.entry[53].resource/*Observation/6bc86180-12f7-49a7-92ad-1fbf9b165356*/",
+                "Line 1, Col 64354"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_a_performer"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have a performer",
+            "location": [
+                "Bundle.entry[54].resource/*Observation/531693bc-1018-4322-8ca2-8a7e246a4050*/",
+                "Line 1, Col 65167"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_an_effectiveDateTime_or_an_effectivePeriod"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have an effectiveDateTime or an effectivePeriod",
+            "location": [
+                "Bundle.entry[54].resource/*Observation/531693bc-1018-4322-8ca2-8a7e246a4050*/",
+                "Line 1, Col 65167"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_a_performer"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have a performer",
+            "location": [
+                "Bundle.entry[55].resource/*Observation/b34de33d-ca15-4077-9e7c-52303ea63d79*/",
+                "Line 1, Col 65978"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_an_effectiveDateTime_or_an_effectivePeriod"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have an effectiveDateTime or an effectivePeriod",
+            "location": [
+                "Bundle.entry[55].resource/*Observation/b34de33d-ca15-4077-9e7c-52303ea63d79*/",
+                "Line 1, Col 65978"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_a_performer"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have a performer",
+            "location": [
+                "Bundle.entry[56].resource/*Observation/f682bc63-0044-489e-804e-d3f86c83aa4f*/",
+                "Line 1, Col 66789"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_an_effectiveDateTime_or_an_effectivePeriod"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have an effectiveDateTime or an effectivePeriod",
+            "location": [
+                "Bundle.entry[56].resource/*Observation/f682bc63-0044-489e-804e-d3f86c83aa4f*/",
+                "Line 1, Col 66789"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_a_performer"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have a performer",
+            "location": [
+                "Bundle.entry[57].resource/*Observation/a594a55d-2d7e-4874-b8ac-d542f14b6317*/",
+                "Line 1, Col 67525"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_an_effectiveDateTime_or_an_effectivePeriod"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have an effectiveDateTime or an effectivePeriod",
+            "location": [
+                "Bundle.entry[57].resource/*Observation/a594a55d-2d7e-4874-b8ac-d542f14b6317*/",
+                "Line 1, Col 67525"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_a_performer"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have a performer",
+            "location": [
+                "Bundle.entry[58].resource/*Observation/4bbe0da5-63be-492f-96f2-dd2253e57518*/",
+                "Line 1, Col 68261"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_an_effectiveDateTime_or_an_effectivePeriod"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have an effectiveDateTime or an effectivePeriod",
+            "location": [
+                "Bundle.entry[58].resource/*Observation/4bbe0da5-63be-492f-96f2-dd2253e57518*/",
+                "Line 1, Col 68261"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_a_performer"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have a performer",
+            "location": [
+                "Bundle.entry[59].resource/*Observation/77d50269-a0a4-46e4-9b3a-5c16453ad8d8*/",
+                "Line 1, Col 68997"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_an_effectiveDateTime_or_an_effectivePeriod"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have an effectiveDateTime or an effectivePeriod",
+            "location": [
+                "Bundle.entry[59].resource/*Observation/77d50269-a0a4-46e4-9b3a-5c16453ad8d8*/",
+                "Line 1, Col 68997"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_a_performer"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have a performer",
+            "location": [
+                "Bundle.entry[60].resource/*Observation/7c34a91c-2585-4b5f-a5d9-d246684fc58f*/",
+                "Line 1, Col 69808"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_an_effectiveDateTime_or_an_effectivePeriod"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have an effectiveDateTime or an effectivePeriod",
+            "location": [
+                "Bundle.entry[60].resource/*Observation/7c34a91c-2585-4b5f-a5d9-d246684fc58f*/",
+                "Line 1, Col 69808"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_a_performer"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have a performer",
+            "location": [
+                "Bundle.entry[61].resource/*Observation/46028f69-dddd-460c-99b0-8ccea7a9bda0*/",
+                "Line 1, Col 70619"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_an_effectiveDateTime_or_an_effectivePeriod"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have an effectiveDateTime or an effectivePeriod",
+            "location": [
+                "Bundle.entry[61].resource/*Observation/46028f69-dddd-460c-99b0-8ccea7a9bda0*/",
+                "Line 1, Col 70619"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_a_performer"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have a performer",
+            "location": [
+                "Bundle.entry[62].resource/*Observation/0bc93c1c-c651-4b3e-a972-6ac8441ab139*/",
+                "Line 1, Col 71430"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_an_effectiveDateTime_or_an_effectivePeriod"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have an effectiveDateTime or an effectivePeriod",
+            "location": [
+                "Bundle.entry[62].resource/*Observation/0bc93c1c-c651-4b3e-a972-6ac8441ab139*/",
+                "Line 1, Col 71430"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_a_performer"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have a performer",
+            "location": [
+                "Bundle.entry[65].resource/*Observation/356a287d-8e9b-448f-a5bc-bac66745600e*/",
+                "Line 1, Col 74476"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_an_effectiveDateTime_or_an_effectivePeriod"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have an effectiveDateTime or an effectivePeriod",
+            "location": [
+                "Bundle.entry[65].resource/*Observation/356a287d-8e9b-448f-a5bc-bac66745600e*/",
+                "Line 1, Col 74476"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_a_performer"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have a performer",
+            "location": [
+                "Bundle.entry[66].resource/*Observation/571239a0-cbc7-4704-a08a-e47292e2e495*/",
+                "Line 1, Col 75441"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_an_effectiveDateTime_or_an_effectivePeriod"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have an effectiveDateTime or an effectivePeriod",
+            "location": [
+                "Bundle.entry[66].resource/*Observation/571239a0-cbc7-4704-a08a-e47292e2e495*/",
+                "Line 1, Col 75441"
+            ]
+        },
+        {
+            "severity": "information",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId"
+                    }
+                ]
+            },
+            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-systemic-therapy-profile|0.1.0",
+            "location": [
+                "Bundle.entry[71].resource.performed.ofType(dateTime)",
+                "Line 1, Col 79972"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_a_performer"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have a performer",
+            "location": [
+                "Bundle.entry[74].resource/*Observation/d8c32cb6-99f4-4f02-9a5f-4efe88a14822*/",
+                "Line 1, Col 82860"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_an_effectiveDateTime_or_an_effectivePeriod"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have an effectiveDateTime or an effectivePeriod",
+            "location": [
+                "Bundle.entry[74].resource/*Observation/d8c32cb6-99f4-4f02-9a5f-4efe88a14822*/",
+                "Line 1, Col 82860"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_a_performer"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have a performer",
+            "location": [
+                "Bundle.entry[75].resource/*Observation/ceb980f7-be80-409c-8b1b-11794f525d9c*/",
+                "Line 1, Col 83686"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_an_effectiveDateTime_or_an_effectivePeriod"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have an effectiveDateTime or an effectivePeriod",
+            "location": [
+                "Bundle.entry[75].resource/*Observation/ceb980f7-be80-409c-8b1b-11794f525d9c*/",
+                "Line 1, Col 83686"
+            ]
+        }
+    ]
+}
