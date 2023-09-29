@@ -2,23 +2,6 @@
     "resourceType": "OperationOutcome",
     "issue": [
         {
-            "severity": "error",
-            "code": "processing",
-            "details": {
-                "coding": [
-                    {
-                        "system": "http://hl7.org/fhir/java-core-messageId",
-                        "code": "Rule bdl-11: 'A document must have a Composition as the first resource' Failed"
-                    }
-                ]
-            },
-            "diagnostics": "Rule bdl-11: 'A document must have a Composition as the first resource' Failed",
-            "location": [
-                "Bundle",
-                "Line 1, Col 2710"
-            ]
-        },
-        {
             "severity": "information",
             "code": "processing",
             "details": {
@@ -31,407 +14,7 @@
             "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-bundle-profile|0.1.0",
             "location": [
                 "Bundle.entry[0]",
-                "Line 1, Col 415"
-            ]
-        },
-        {
-            "severity": "information",
-            "code": "processing",
-            "details": {
-                "coding": [
-                    {
-                        "system": "http://hl7.org/fhir/java-core-messageId"
-                    }
-                ]
-            },
-            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-bundle-profile|0.1.0",
-            "location": [
-                "Bundle.entry[1]",
-                "Line 1, Col 509"
-            ]
-        },
-        {
-            "severity": "information",
-            "code": "processing",
-            "details": {
-                "coding": [
-                    {
-                        "system": "http://hl7.org/fhir/java-core-messageId"
-                    }
-                ]
-            },
-            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-bundle-profile|0.1.0",
-            "location": [
-                "Bundle.entry[2]",
-                "Line 1, Col 598"
-            ]
-        },
-        {
-            "severity": "information",
-            "code": "processing",
-            "details": {
-                "coding": [
-                    {
-                        "system": "http://hl7.org/fhir/java-core-messageId"
-                    }
-                ]
-            },
-            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-bundle-profile|0.1.0",
-            "location": [
-                "Bundle.entry[3]",
-                "Line 1, Col 692"
-            ]
-        },
-        {
-            "severity": "information",
-            "code": "processing",
-            "details": {
-                "coding": [
-                    {
-                        "system": "http://hl7.org/fhir/java-core-messageId"
-                    }
-                ]
-            },
-            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-bundle-profile|0.1.0",
-            "location": [
-                "Bundle.entry[4]",
-                "Line 1, Col 783"
-            ]
-        },
-        {
-            "severity": "information",
-            "code": "processing",
-            "details": {
-                "coding": [
-                    {
-                        "system": "http://hl7.org/fhir/java-core-messageId"
-                    }
-                ]
-            },
-            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-bundle-profile|0.1.0",
-            "location": [
-                "Bundle.entry[5]",
-                "Line 1, Col 876"
-            ]
-        },
-        {
-            "severity": "information",
-            "code": "processing",
-            "details": {
-                "coding": [
-                    {
-                        "system": "http://hl7.org/fhir/java-core-messageId"
-                    }
-                ]
-            },
-            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-bundle-profile|0.1.0",
-            "location": [
-                "Bundle.entry[6]",
-                "Line 1, Col 967"
-            ]
-        },
-        {
-            "severity": "information",
-            "code": "processing",
-            "details": {
-                "coding": [
-                    {
-                        "system": "http://hl7.org/fhir/java-core-messageId"
-                    }
-                ]
-            },
-            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-bundle-profile|0.1.0",
-            "location": [
-                "Bundle.entry[7]",
-                "Line 1, Col 1058"
-            ]
-        },
-        {
-            "severity": "information",
-            "code": "processing",
-            "details": {
-                "coding": [
-                    {
-                        "system": "http://hl7.org/fhir/java-core-messageId"
-                    }
-                ]
-            },
-            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-bundle-profile|0.1.0",
-            "location": [
-                "Bundle.entry[8]",
-                "Line 1, Col 1149"
-            ]
-        },
-        {
-            "severity": "information",
-            "code": "processing",
-            "details": {
-                "coding": [
-                    {
-                        "system": "http://hl7.org/fhir/java-core-messageId"
-                    }
-                ]
-            },
-            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-bundle-profile|0.1.0",
-            "location": [
-                "Bundle.entry[9]",
-                "Line 1, Col 1240"
-            ]
-        },
-        {
-            "severity": "information",
-            "code": "processing",
-            "details": {
-                "coding": [
-                    {
-                        "system": "http://hl7.org/fhir/java-core-messageId"
-                    }
-                ]
-            },
-            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-bundle-profile|0.1.0",
-            "location": [
-                "Bundle.entry[10]",
-                "Line 1, Col 1333"
-            ]
-        },
-        {
-            "severity": "information",
-            "code": "processing",
-            "details": {
-                "coding": [
-                    {
-                        "system": "http://hl7.org/fhir/java-core-messageId"
-                    }
-                ]
-            },
-            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-bundle-profile|0.1.0",
-            "location": [
-                "Bundle.entry[11]",
-                "Line 1, Col 1424"
-            ]
-        },
-        {
-            "severity": "information",
-            "code": "processing",
-            "details": {
-                "coding": [
-                    {
-                        "system": "http://hl7.org/fhir/java-core-messageId"
-                    }
-                ]
-            },
-            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-bundle-profile|0.1.0",
-            "location": [
-                "Bundle.entry[12]",
-                "Line 1, Col 1517"
-            ]
-        },
-        {
-            "severity": "information",
-            "code": "processing",
-            "details": {
-                "coding": [
-                    {
-                        "system": "http://hl7.org/fhir/java-core-messageId"
-                    }
-                ]
-            },
-            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-bundle-profile|0.1.0",
-            "location": [
-                "Bundle.entry[13]",
-                "Line 1, Col 1610"
-            ]
-        },
-        {
-            "severity": "information",
-            "code": "processing",
-            "details": {
-                "coding": [
-                    {
-                        "system": "http://hl7.org/fhir/java-core-messageId"
-                    }
-                ]
-            },
-            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-bundle-profile|0.1.0",
-            "location": [
-                "Bundle.entry[14]",
-                "Line 1, Col 1703"
-            ]
-        },
-        {
-            "severity": "information",
-            "code": "processing",
-            "details": {
-                "coding": [
-                    {
-                        "system": "http://hl7.org/fhir/java-core-messageId"
-                    }
-                ]
-            },
-            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-bundle-profile|0.1.0",
-            "location": [
-                "Bundle.entry[15]",
-                "Line 1, Col 1794"
-            ]
-        },
-        {
-            "severity": "information",
-            "code": "processing",
-            "details": {
-                "coding": [
-                    {
-                        "system": "http://hl7.org/fhir/java-core-messageId"
-                    }
-                ]
-            },
-            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-bundle-profile|0.1.0",
-            "location": [
-                "Bundle.entry[16]",
-                "Line 1, Col 1885"
-            ]
-        },
-        {
-            "severity": "information",
-            "code": "processing",
-            "details": {
-                "coding": [
-                    {
-                        "system": "http://hl7.org/fhir/java-core-messageId"
-                    }
-                ]
-            },
-            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-bundle-profile|0.1.0",
-            "location": [
-                "Bundle.entry[17]",
-                "Line 1, Col 1976"
-            ]
-        },
-        {
-            "severity": "information",
-            "code": "processing",
-            "details": {
-                "coding": [
-                    {
-                        "system": "http://hl7.org/fhir/java-core-messageId"
-                    }
-                ]
-            },
-            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-bundle-profile|0.1.0",
-            "location": [
-                "Bundle.entry[18]",
-                "Line 1, Col 2067"
-            ]
-        },
-        {
-            "severity": "information",
-            "code": "processing",
-            "details": {
-                "coding": [
-                    {
-                        "system": "http://hl7.org/fhir/java-core-messageId"
-                    }
-                ]
-            },
-            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-bundle-profile|0.1.0",
-            "location": [
-                "Bundle.entry[19]",
-                "Line 1, Col 2158"
-            ]
-        },
-        {
-            "severity": "information",
-            "code": "processing",
-            "details": {
-                "coding": [
-                    {
-                        "system": "http://hl7.org/fhir/java-core-messageId"
-                    }
-                ]
-            },
-            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-bundle-profile|0.1.0",
-            "location": [
-                "Bundle.entry[20]",
-                "Line 1, Col 2249"
-            ]
-        },
-        {
-            "severity": "information",
-            "code": "processing",
-            "details": {
-                "coding": [
-                    {
-                        "system": "http://hl7.org/fhir/java-core-messageId"
-                    }
-                ]
-            },
-            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-bundle-profile|0.1.0",
-            "location": [
-                "Bundle.entry[21]",
-                "Line 1, Col 2340"
-            ]
-        },
-        {
-            "severity": "information",
-            "code": "processing",
-            "details": {
-                "coding": [
-                    {
-                        "system": "http://hl7.org/fhir/java-core-messageId"
-                    }
-                ]
-            },
-            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-bundle-profile|0.1.0",
-            "location": [
-                "Bundle.entry[22]",
-                "Line 1, Col 2433"
-            ]
-        },
-        {
-            "severity": "information",
-            "code": "processing",
-            "details": {
-                "coding": [
-                    {
-                        "system": "http://hl7.org/fhir/java-core-messageId"
-                    }
-                ]
-            },
-            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-bundle-profile|0.1.0",
-            "location": [
-                "Bundle.entry[23]",
-                "Line 1, Col 2524"
-            ]
-        },
-        {
-            "severity": "information",
-            "code": "processing",
-            "details": {
-                "coding": [
-                    {
-                        "system": "http://hl7.org/fhir/java-core-messageId"
-                    }
-                ]
-            },
-            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-bundle-profile|0.1.0",
-            "location": [
-                "Bundle.entry[24]",
-                "Line 1, Col 2615"
-            ]
-        },
-        {
-            "severity": "information",
-            "code": "processing",
-            "details": {
-                "coding": [
-                    {
-                        "system": "http://hl7.org/fhir/java-core-messageId"
-                    }
-                ]
-            },
-            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-bundle-profile|0.1.0",
-            "location": [
-                "Bundle.entry[25]",
-                "Line 1, Col 2708"
+                "Line 1, Col 3231"
             ]
         },
         {
@@ -448,7 +31,7 @@
             "diagnostics": "Bundle.entry:Composition: minimum required = 1, but only found 0 (from https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-bundle-profile|0.1.0)",
             "location": [
                 "Bundle",
-                "Line 1, Col 2710"
+                "Line 1, Col 25627"
             ]
         },
         {
@@ -458,14 +41,13 @@
                 "coding": [
                     {
                         "system": "http://hl7.org/fhir/java-core-messageId",
-                        "code": "Validation_VAL_Profile_Minimum"
+                        "code": "Bundle_BUNDLE_MultipleMatches"
                     }
                 ]
             },
-            "diagnostics": "Bundle.entry:Patient: minimum required = 1, but only found 0 (from https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-bundle-profile|0.1.0)",
+            "diagnostics": "Multiple matches in bundle for reference Condition/undefined",
             "location": [
-                "Bundle",
-                "Line 1, Col 2710"
+                "Bundle.entry[0].resource/*Composition/b555880c-7f0a-451e-a3de-48ceeb386128*/.section[0].entry[1]"
             ]
         },
         {
@@ -475,14 +57,13 @@
                 "coding": [
                     {
                         "system": "http://hl7.org/fhir/java-core-messageId",
-                        "code": "Validation_VAL_Profile_Minimum"
+                        "code": "Bundle_BUNDLE_MultipleMatches"
                     }
                 ]
             },
-            "diagnostics": "Bundle.entry:Organization: minimum required = 1, but only found 0 (from https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-bundle-profile|0.1.0)",
+            "diagnostics": "Multiple matches in bundle for reference Condition/undefined",
             "location": [
-                "Bundle",
-                "Line 1, Col 2710"
+                "Bundle.entry[0].resource/*Composition/b555880c-7f0a-451e-a3de-48ceeb386128*/.section[0].entry[2]"
             ]
         },
         {
@@ -492,14 +73,13 @@
                 "coding": [
                     {
                         "system": "http://hl7.org/fhir/java-core-messageId",
-                        "code": "Validation_VAL_Profile_Minimum"
+                        "code": "Bundle_BUNDLE_MultipleMatches"
                     }
                 ]
             },
-            "diagnostics": "Bundle.entry:Practitioner: minimum required = 1, but only found 0 (from https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-bundle-profile|0.1.0)",
+            "diagnostics": "Multiple matches in bundle for reference Condition/undefined",
             "location": [
-                "Bundle",
-                "Line 1, Col 2710"
+                "Bundle.entry[0].resource/*Composition/b555880c-7f0a-451e-a3de-48ceeb386128*/.section[0].entry[3]"
             ]
         },
         {
@@ -509,14 +89,13 @@
                 "coding": [
                     {
                         "system": "http://hl7.org/fhir/java-core-messageId",
-                        "code": "Validation_VAL_Profile_Minimum"
+                        "code": "Bundle_BUNDLE_MultipleMatches"
                     }
                 ]
             },
-            "diagnostics": "Bundle.entry:Encounter: minimum required = 1, but only found 0 (from https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-bundle-profile|0.1.0)",
+            "diagnostics": "Multiple matches in bundle for reference Condition/undefined",
             "location": [
-                "Bundle",
-                "Line 1, Col 2710"
+                "Bundle.entry[0].resource/*Composition/b555880c-7f0a-451e-a3de-48ceeb386128*/.section[0].entry[4]"
             ]
         },
         {
@@ -526,14 +105,13 @@
                 "coding": [
                     {
                         "system": "http://hl7.org/fhir/java-core-messageId",
-                        "code": "Validation_VAL_Profile_Minimum"
+                        "code": "Bundle_BUNDLE_MultipleMatches"
                     }
                 ]
             },
-            "diagnostics": "Bundle.entry:Condition: minimum required = 1, but only found 0 (from https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-bundle-profile|0.1.0)",
+            "diagnostics": "Multiple matches in bundle for reference Observation/undefined",
             "location": [
-                "Bundle",
-                "Line 1, Col 2710"
+                "Bundle.entry[0].resource/*Composition/b555880c-7f0a-451e-a3de-48ceeb386128*/.section[0].entry[5]"
             ]
         },
         {
@@ -543,14 +121,13 @@
                 "coding": [
                     {
                         "system": "http://hl7.org/fhir/java-core-messageId",
-                        "code": "Validation_VAL_Profile_Minimum"
+                        "code": "Bundle_BUNDLE_MultipleMatches"
                     }
                 ]
             },
-            "diagnostics": "Bundle.entry:DateOfDiagnosisCondition: minimum required = 1, but only found 0 (from https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-bundle-profile|0.1.0)",
+            "diagnostics": "Multiple matches in bundle for reference Observation/undefined",
             "location": [
-                "Bundle",
-                "Line 1, Col 2710"
+                "Bundle.entry[0].resource/*Composition/b555880c-7f0a-451e-a3de-48ceeb386128*/.section[0].entry[6]"
             ]
         },
         {
@@ -560,14 +137,13 @@
                 "coding": [
                     {
                         "system": "http://hl7.org/fhir/java-core-messageId",
-                        "code": "Validation_VAL_Profile_Minimum"
+                        "code": "Bundle_BUNDLE_MultipleMatches"
                     }
                 ]
             },
-            "diagnostics": "Bundle.entry:MicroscopicCondition: minimum required = 1, but only found 0 (from https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-bundle-profile|0.1.0)",
+            "diagnostics": "Multiple matches in bundle for reference Procedure/undefined",
             "location": [
-                "Bundle",
-                "Line 1, Col 2710"
+                "Bundle.entry[0].resource/*Composition/b555880c-7f0a-451e-a3de-48ceeb386128*/.section[1].entry[0]"
             ]
         },
         {
@@ -577,14 +153,13 @@
                 "coding": [
                     {
                         "system": "http://hl7.org/fhir/java-core-messageId",
-                        "code": "Validation_VAL_Profile_Minimum"
+                        "code": "Bundle_BUNDLE_MultipleMatches"
                     }
                 ]
             },
-            "diagnostics": "Bundle.entry:PrimaryCancer: minimum required = 1, but only found 0 (from https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-bundle-profile|0.1.0)",
+            "diagnostics": "Multiple matches in bundle for reference Procedure/undefined",
             "location": [
-                "Bundle",
-                "Line 1, Col 2710"
+                "Bundle.entry[0].resource/*Composition/b555880c-7f0a-451e-a3de-48ceeb386128*/.section[1].entry[1]"
             ]
         },
         {
@@ -594,14 +169,13 @@
                 "coding": [
                     {
                         "system": "http://hl7.org/fhir/java-core-messageId",
-                        "code": "Validation_VAL_Profile_Minimum"
+                        "code": "Bundle_BUNDLE_MultipleMatches"
                     }
                 ]
             },
-            "diagnostics": "Bundle.entry:GradeClinical: minimum required = 1, but only found 0 (from https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-bundle-profile|0.1.0)",
+            "diagnostics": "Multiple matches in bundle for reference Procedure/undefined",
             "location": [
-                "Bundle",
-                "Line 1, Col 2710"
+                "Bundle.entry[0].resource/*Composition/b555880c-7f0a-451e-a3de-48ceeb386128*/.section[1].entry[2]"
             ]
         },
         {
@@ -611,14 +185,13 @@
                 "coding": [
                     {
                         "system": "http://hl7.org/fhir/java-core-messageId",
-                        "code": "Validation_VAL_Profile_Minimum"
+                        "code": "Bundle_BUNDLE_MultipleMatches"
                     }
                 ]
             },
-            "diagnostics": "Bundle.entry:GradePathological: minimum required = 1, but only found 0 (from https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-bundle-profile|0.1.0)",
+            "diagnostics": "Multiple matches in bundle for reference Procedure/undefined",
             "location": [
-                "Bundle",
-                "Line 1, Col 2710"
+                "Bundle.entry[0].resource/*Composition/b555880c-7f0a-451e-a3de-48ceeb386128*/.section[1].entry[3]"
             ]
         },
         {
@@ -628,14 +201,13 @@
                 "coding": [
                     {
                         "system": "http://hl7.org/fhir/java-core-messageId",
-                        "code": "Validation_VAL_Profile_Minimum"
+                        "code": "Bundle_BUNDLE_MultipleMatches"
                     }
                 ]
             },
-            "diagnostics": "Bundle.entry:FirstSurgicalProcedure: minimum required = 1, but only found 0 (from https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-bundle-profile|0.1.0)",
+            "diagnostics": "Multiple matches in bundle for reference Procedure/undefined",
             "location": [
-                "Bundle",
-                "Line 1, Col 2710"
+                "Bundle.entry[0].resource/*Composition/b555880c-7f0a-451e-a3de-48ceeb386128*/.section[1].entry[4]"
             ]
         },
         {
@@ -645,14 +217,13 @@
                 "coding": [
                     {
                         "system": "http://hl7.org/fhir/java-core-messageId",
-                        "code": "Validation_VAL_Profile_Minimum"
+                        "code": "Bundle_BUNDLE_MultipleMatches"
                     }
                 ]
             },
-            "diagnostics": "Bundle.entry:SurgicalProcedureOfPrimarySite: minimum required = 1, but only found 0 (from https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-bundle-profile|0.1.0)",
+            "diagnostics": "Multiple matches in bundle for reference Procedure/undefined",
             "location": [
-                "Bundle",
-                "Line 1, Col 2710"
+                "Bundle.entry[0].resource/*Composition/b555880c-7f0a-451e-a3de-48ceeb386128*/.section[1].entry[5]"
             ]
         },
         {
@@ -662,14 +233,13 @@
                 "coding": [
                     {
                         "system": "http://hl7.org/fhir/java-core-messageId",
-                        "code": "Validation_VAL_Profile_Minimum"
+                        "code": "Bundle_BUNDLE_MultipleMatches"
                     }
                 ]
             },
-            "diagnostics": "Bundle.entry:RT: minimum required = 1, but only found 0 (from https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-bundle-profile|0.1.0)",
+            "diagnostics": "Multiple matches in bundle for reference Procedure/undefined",
             "location": [
-                "Bundle",
-                "Line 1, Col 2710"
+                "Bundle.entry[0].resource/*Composition/b555880c-7f0a-451e-a3de-48ceeb386128*/.section[1].entry[6]"
             ]
         },
         {
@@ -679,14 +249,13 @@
                 "coding": [
                     {
                         "system": "http://hl7.org/fhir/java-core-messageId",
-                        "code": "Validation_VAL_Profile_Minimum"
+                        "code": "Bundle_BUNDLE_MultipleMatches"
                     }
                 ]
             },
-            "diagnostics": "Bundle.entry:Chemotherapy: minimum required = 1, but only found 0 (from https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-bundle-profile|0.1.0)",
+            "diagnostics": "Multiple matches in bundle for reference Procedure/undefined",
             "location": [
-                "Bundle",
-                "Line 1, Col 2710"
+                "Bundle.entry[0].resource/*Composition/b555880c-7f0a-451e-a3de-48ceeb386128*/.section[1].entry[7]"
             ]
         },
         {
@@ -696,14 +265,13 @@
                 "coding": [
                     {
                         "system": "http://hl7.org/fhir/java-core-messageId",
-                        "code": "Validation_VAL_Profile_Minimum"
+                        "code": "Bundle_BUNDLE_MultipleMatches"
                     }
                 ]
             },
-            "diagnostics": "Bundle.entry:HormoneSteroidTherapy: minimum required = 1, but only found 0 (from https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-bundle-profile|0.1.0)",
+            "diagnostics": "Multiple matches in bundle for reference Procedure/undefined",
             "location": [
-                "Bundle",
-                "Line 1, Col 2710"
+                "Bundle.entry[0].resource/*Composition/b555880c-7f0a-451e-a3de-48ceeb386128*/.section[1].entry[8]"
             ]
         },
         {
@@ -713,14 +281,13 @@
                 "coding": [
                     {
                         "system": "http://hl7.org/fhir/java-core-messageId",
-                        "code": "Validation_VAL_Profile_Minimum"
+                        "code": "Bundle_BUNDLE_MultipleMatches"
                     }
                 ]
             },
-            "diagnostics": "Bundle.entry:Immunotherapy: minimum required = 1, but only found 0 (from https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-bundle-profile|0.1.0)",
+            "diagnostics": "Multiple matches in bundle for reference Procedure/undefined",
             "location": [
-                "Bundle",
-                "Line 1, Col 2710"
+                "Bundle.entry[0].resource/*Composition/b555880c-7f0a-451e-a3de-48ceeb386128*/.section[1].entry[9]"
             ]
         },
         {
@@ -730,14 +297,13 @@
                 "coding": [
                     {
                         "system": "http://hl7.org/fhir/java-core-messageId",
-                        "code": "Validation_VAL_Profile_Minimum"
+                        "code": "Bundle_BUNDLE_MultipleMatches"
                     }
                 ]
             },
-            "diagnostics": "Bundle.entry:HematologicTransplantEndocrineProcedure: minimum required = 1, but only found 0 (from https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-bundle-profile|0.1.0)",
+            "diagnostics": "Multiple matches in bundle for reference Observation/undefined",
             "location": [
-                "Bundle",
-                "Line 1, Col 2710"
+                "Bundle.entry[0].resource/*Composition/b555880c-7f0a-451e-a3de-48ceeb386128*/.section[2].entry[0]"
             ]
         },
         {
@@ -747,14 +313,13 @@
                 "coding": [
                     {
                         "system": "http://hl7.org/fhir/java-core-messageId",
-                        "code": "Validation_VAL_Profile_Minimum"
+                        "code": "Bundle_BUNDLE_MultipleMatches"
                     }
                 ]
             },
-            "diagnostics": "Bundle.entry:TargetedTherapy: minimum required = 1, but only found 0 (from https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-bundle-profile|0.1.0)",
+            "diagnostics": "Multiple matches in bundle for reference Observation/undefined",
             "location": [
-                "Bundle",
-                "Line 1, Col 2710"
+                "Bundle.entry[0].resource/*Composition/b555880c-7f0a-451e-a3de-48ceeb386128*/.section[2].entry[1]"
             ]
         },
         {
@@ -764,14 +329,13 @@
                 "coding": [
                     {
                         "system": "http://hl7.org/fhir/java-core-messageId",
-                        "code": "Validation_VAL_Profile_Minimum"
+                        "code": "Bundle_BUNDLE_MultipleMatches"
                     }
                 ]
             },
-            "diagnostics": "Bundle.entry:PalliativeCare: minimum required = 1, but only found 0 (from https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-bundle-profile|0.1.0)",
+            "diagnostics": "Multiple matches in bundle for reference Observation/undefined",
             "location": [
-                "Bundle",
-                "Line 1, Col 2710"
+                "Bundle.entry[0].resource/*Composition/b555880c-7f0a-451e-a3de-48ceeb386128*/.section[2].entry[2]"
             ]
         },
         {
@@ -781,14 +345,13 @@
                 "coding": [
                     {
                         "system": "http://hl7.org/fhir/java-core-messageId",
-                        "code": "Validation_VAL_Profile_Minimum"
+                        "code": "Bundle_BUNDLE_MultipleMatches"
                     }
                 ]
             },
-            "diagnostics": "Bundle.entry:OtherTreatment: minimum required = 1, but only found 0 (from https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-bundle-profile|0.1.0)",
+            "diagnostics": "Multiple matches in bundle for reference Observation/undefined",
             "location": [
-                "Bundle",
-                "Line 1, Col 2710"
+                "Bundle.entry[0].resource/*Composition/b555880c-7f0a-451e-a3de-48ceeb386128*/.section[2].entry[3]"
             ]
         },
         {
@@ -798,14 +361,45 @@
                 "coding": [
                     {
                         "system": "http://hl7.org/fhir/java-core-messageId",
-                        "code": "Validation_VAL_Profile_Minimum"
+                        "code": "Bundle_BUNDLE_MultipleMatches"
                     }
                 ]
             },
-            "diagnostics": "Bundle.entry:Height: minimum required = 1, but only found 0 (from https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-bundle-profile|0.1.0)",
+            "diagnostics": "Multiple matches in bundle for reference Observation/undefined",
             "location": [
-                "Bundle",
-                "Line 1, Col 2710"
+                "Bundle.entry[0].resource/*Composition/b555880c-7f0a-451e-a3de-48ceeb386128*/.section[2].entry[4]"
+            ]
+        },
+        {
+            "severity": "information",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId"
+                    }
+                ]
+            },
+            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-composition-profile|0.1.0",
+            "location": [
+                "Bundle.entry[0].resource.section[0].entry[5]",
+                "Line 1, Col 2327"
+            ]
+        },
+        {
+            "severity": "information",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId"
+                    }
+                ]
+            },
+            "diagnostics": "This element does not match any known slice defined in the profile https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-composition-profile|0.1.0",
+            "location": [
+                "Bundle.entry[0].resource.section[0].entry[6]",
+                "Line 1, Col 2365"
             ]
         },
         {
@@ -815,14 +409,14 @@
                 "coding": [
                     {
                         "system": "http://hl7.org/fhir/java-core-messageId",
-                        "code": "Validation_VAL_Profile_Minimum"
+                        "code": "Validation_VAL_Profile_Maximum"
                     }
                 ]
             },
-            "diagnostics": "Bundle.entry:Weight: minimum required = 1, but only found 0 (from https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-bundle-profile|0.1.0)",
+            "diagnostics": "Composition.section:sectionCancerConfirmation.entry:PrimaryCancer: max allowed = 1, but found 4 (from https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-composition-profile|0.1.0)",
             "location": [
-                "Bundle",
-                "Line 1, Col 2710"
+                "Bundle.entry[0].resource.section[0]",
+                "Line 1, Col 2367"
             ]
         },
         {
@@ -832,14 +426,13 @@
                 "coding": [
                     {
                         "system": "http://hl7.org/fhir/java-core-messageId",
-                        "code": "Validation_VAL_Profile_Minimum"
+                        "code": "Bundle_BUNDLE_MultipleMatches"
                     }
                 ]
             },
-            "diagnostics": "Bundle.entry:SmokingBehavior: minimum required = 1, but only found 0 (from https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-bundle-profile|0.1.0)",
+            "diagnostics": "Multiple matches in bundle for reference Condition/undefined",
             "location": [
-                "Bundle",
-                "Line 1, Col 2710"
+                "Bundle.entry[0].resource.section[0].entry[1]"
             ]
         },
         {
@@ -849,14 +442,13 @@
                 "coding": [
                     {
                         "system": "http://hl7.org/fhir/java-core-messageId",
-                        "code": "Validation_VAL_Profile_Minimum"
+                        "code": "Bundle_BUNDLE_MultipleMatches"
                     }
                 ]
             },
-            "diagnostics": "Bundle.entry:BetelNutChewingBehavior: minimum required = 1, but only found 0 (from https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-bundle-profile|0.1.0)",
+            "diagnostics": "Multiple matches in bundle for reference Condition/undefined",
             "location": [
-                "Bundle",
-                "Line 1, Col 2710"
+                "Bundle.entry[0].resource.section[0].entry[2]"
             ]
         },
         {
@@ -866,14 +458,13 @@
                 "coding": [
                     {
                         "system": "http://hl7.org/fhir/java-core-messageId",
-                        "code": "Validation_VAL_Profile_Minimum"
+                        "code": "Bundle_BUNDLE_MultipleMatches"
                     }
                 ]
             },
-            "diagnostics": "Bundle.entry:DrinkingBehavior: minimum required = 1, but only found 0 (from https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-bundle-profile|0.1.0)",
+            "diagnostics": "Multiple matches in bundle for reference Condition/undefined",
             "location": [
-                "Bundle",
-                "Line 1, Col 2710"
+                "Bundle.entry[0].resource.section[0].entry[3]"
             ]
         },
         {
@@ -883,14 +474,13 @@
                 "coding": [
                     {
                         "system": "http://hl7.org/fhir/java-core-messageId",
-                        "code": "Rule bdl-5: 'must be a resource unless there's a request or response' Failed"
+                        "code": "Bundle_BUNDLE_MultipleMatches"
                     }
                 ]
             },
-            "diagnostics": "Rule bdl-5: 'must be a resource unless there's a request or response' Failed",
+            "diagnostics": "Multiple matches in bundle for reference Condition/undefined",
             "location": [
-                "Bundle.entry[0]",
-                "Line 1, Col 415"
+                "Bundle.entry[0].resource.section[0].entry[4]"
             ]
         },
         {
@@ -900,14 +490,13 @@
                 "coding": [
                     {
                         "system": "http://hl7.org/fhir/java-core-messageId",
-                        "code": "Rule bdl-5: 'must be a resource unless there's a request or response' Failed"
+                        "code": "Bundle_BUNDLE_MultipleMatches"
                     }
                 ]
             },
-            "diagnostics": "Rule bdl-5: 'must be a resource unless there's a request or response' Failed",
+            "diagnostics": "Multiple matches in bundle for reference Observation/undefined",
             "location": [
-                "Bundle.entry[1]",
-                "Line 1, Col 509"
+                "Bundle.entry[0].resource.section[0].entry[5]"
             ]
         },
         {
@@ -917,14 +506,13 @@
                 "coding": [
                     {
                         "system": "http://hl7.org/fhir/java-core-messageId",
-                        "code": "Rule bdl-5: 'must be a resource unless there's a request or response' Failed"
+                        "code": "Bundle_BUNDLE_MultipleMatches"
                     }
                 ]
             },
-            "diagnostics": "Rule bdl-5: 'must be a resource unless there's a request or response' Failed",
+            "diagnostics": "Multiple matches in bundle for reference Observation/undefined",
             "location": [
-                "Bundle.entry[2]",
-                "Line 1, Col 598"
+                "Bundle.entry[0].resource.section[0].entry[6]"
             ]
         },
         {
@@ -934,14 +522,14 @@
                 "coding": [
                     {
                         "system": "http://hl7.org/fhir/java-core-messageId",
-                        "code": "Rule bdl-5: 'must be a resource unless there's a request or response' Failed"
+                        "code": "Validation_VAL_Profile_Maximum"
                     }
                 ]
             },
-            "diagnostics": "Rule bdl-5: 'must be a resource unless there's a request or response' Failed",
+            "diagnostics": "Composition.section:sectionFirstCourseOfTreatment.entry:TargetedTherapy: max allowed = 1, but found 10 (from https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-composition-profile|0.1.0)",
             "location": [
-                "Bundle.entry[3]",
-                "Line 1, Col 692"
+                "Bundle.entry[0].resource.section[1]",
+                "Line 1, Col 2863"
             ]
         },
         {
@@ -951,14 +539,13 @@
                 "coding": [
                     {
                         "system": "http://hl7.org/fhir/java-core-messageId",
-                        "code": "Rule bdl-5: 'must be a resource unless there's a request or response' Failed"
+                        "code": "Bundle_BUNDLE_MultipleMatches"
                     }
                 ]
             },
-            "diagnostics": "Rule bdl-5: 'must be a resource unless there's a request or response' Failed",
+            "diagnostics": "Multiple matches in bundle for reference Procedure/undefined",
             "location": [
-                "Bundle.entry[4]",
-                "Line 1, Col 783"
+                "Bundle.entry[0].resource.section[1].entry[0]"
             ]
         },
         {
@@ -968,14 +555,13 @@
                 "coding": [
                     {
                         "system": "http://hl7.org/fhir/java-core-messageId",
-                        "code": "Rule bdl-5: 'must be a resource unless there's a request or response' Failed"
+                        "code": "Bundle_BUNDLE_MultipleMatches"
                     }
                 ]
             },
-            "diagnostics": "Rule bdl-5: 'must be a resource unless there's a request or response' Failed",
+            "diagnostics": "Multiple matches in bundle for reference Procedure/undefined",
             "location": [
-                "Bundle.entry[5]",
-                "Line 1, Col 876"
+                "Bundle.entry[0].resource.section[1].entry[1]"
             ]
         },
         {
@@ -985,14 +571,13 @@
                 "coding": [
                     {
                         "system": "http://hl7.org/fhir/java-core-messageId",
-                        "code": "Rule bdl-5: 'must be a resource unless there's a request or response' Failed"
+                        "code": "Bundle_BUNDLE_MultipleMatches"
                     }
                 ]
             },
-            "diagnostics": "Rule bdl-5: 'must be a resource unless there's a request or response' Failed",
+            "diagnostics": "Multiple matches in bundle for reference Procedure/undefined",
             "location": [
-                "Bundle.entry[6]",
-                "Line 1, Col 967"
+                "Bundle.entry[0].resource.section[1].entry[2]"
             ]
         },
         {
@@ -1002,14 +587,13 @@
                 "coding": [
                     {
                         "system": "http://hl7.org/fhir/java-core-messageId",
-                        "code": "Rule bdl-5: 'must be a resource unless there's a request or response' Failed"
+                        "code": "Bundle_BUNDLE_MultipleMatches"
                     }
                 ]
             },
-            "diagnostics": "Rule bdl-5: 'must be a resource unless there's a request or response' Failed",
+            "diagnostics": "Multiple matches in bundle for reference Procedure/undefined",
             "location": [
-                "Bundle.entry[7]",
-                "Line 1, Col 1058"
+                "Bundle.entry[0].resource.section[1].entry[3]"
             ]
         },
         {
@@ -1019,14 +603,13 @@
                 "coding": [
                     {
                         "system": "http://hl7.org/fhir/java-core-messageId",
-                        "code": "Rule bdl-5: 'must be a resource unless there's a request or response' Failed"
+                        "code": "Bundle_BUNDLE_MultipleMatches"
                     }
                 ]
             },
-            "diagnostics": "Rule bdl-5: 'must be a resource unless there's a request or response' Failed",
+            "diagnostics": "Multiple matches in bundle for reference Procedure/undefined",
             "location": [
-                "Bundle.entry[8]",
-                "Line 1, Col 1149"
+                "Bundle.entry[0].resource.section[1].entry[4]"
             ]
         },
         {
@@ -1036,14 +619,13 @@
                 "coding": [
                     {
                         "system": "http://hl7.org/fhir/java-core-messageId",
-                        "code": "Rule bdl-5: 'must be a resource unless there's a request or response' Failed"
+                        "code": "Bundle_BUNDLE_MultipleMatches"
                     }
                 ]
             },
-            "diagnostics": "Rule bdl-5: 'must be a resource unless there's a request or response' Failed",
+            "diagnostics": "Multiple matches in bundle for reference Procedure/undefined",
             "location": [
-                "Bundle.entry[9]",
-                "Line 1, Col 1240"
+                "Bundle.entry[0].resource.section[1].entry[5]"
             ]
         },
         {
@@ -1053,14 +635,13 @@
                 "coding": [
                     {
                         "system": "http://hl7.org/fhir/java-core-messageId",
-                        "code": "Rule bdl-5: 'must be a resource unless there's a request or response' Failed"
+                        "code": "Bundle_BUNDLE_MultipleMatches"
                     }
                 ]
             },
-            "diagnostics": "Rule bdl-5: 'must be a resource unless there's a request or response' Failed",
+            "diagnostics": "Multiple matches in bundle for reference Procedure/undefined",
             "location": [
-                "Bundle.entry[10]",
-                "Line 1, Col 1333"
+                "Bundle.entry[0].resource.section[1].entry[6]"
             ]
         },
         {
@@ -1070,14 +651,13 @@
                 "coding": [
                     {
                         "system": "http://hl7.org/fhir/java-core-messageId",
-                        "code": "Rule bdl-5: 'must be a resource unless there's a request or response' Failed"
+                        "code": "Bundle_BUNDLE_MultipleMatches"
                     }
                 ]
             },
-            "diagnostics": "Rule bdl-5: 'must be a resource unless there's a request or response' Failed",
+            "diagnostics": "Multiple matches in bundle for reference Procedure/undefined",
             "location": [
-                "Bundle.entry[11]",
-                "Line 1, Col 1424"
+                "Bundle.entry[0].resource.section[1].entry[7]"
             ]
         },
         {
@@ -1087,14 +667,13 @@
                 "coding": [
                     {
                         "system": "http://hl7.org/fhir/java-core-messageId",
-                        "code": "Rule bdl-5: 'must be a resource unless there's a request or response' Failed"
+                        "code": "Bundle_BUNDLE_MultipleMatches"
                     }
                 ]
             },
-            "diagnostics": "Rule bdl-5: 'must be a resource unless there's a request or response' Failed",
+            "diagnostics": "Multiple matches in bundle for reference Procedure/undefined",
             "location": [
-                "Bundle.entry[12]",
-                "Line 1, Col 1517"
+                "Bundle.entry[0].resource.section[1].entry[8]"
             ]
         },
         {
@@ -1104,14 +683,13 @@
                 "coding": [
                     {
                         "system": "http://hl7.org/fhir/java-core-messageId",
-                        "code": "Rule bdl-5: 'must be a resource unless there's a request or response' Failed"
+                        "code": "Bundle_BUNDLE_MultipleMatches"
                     }
                 ]
             },
-            "diagnostics": "Rule bdl-5: 'must be a resource unless there's a request or response' Failed",
+            "diagnostics": "Multiple matches in bundle for reference Procedure/undefined",
             "location": [
-                "Bundle.entry[13]",
-                "Line 1, Col 1610"
+                "Bundle.entry[0].resource.section[1].entry[9]"
             ]
         },
         {
@@ -1121,14 +699,14 @@
                 "coding": [
                     {
                         "system": "http://hl7.org/fhir/java-core-messageId",
-                        "code": "Rule bdl-5: 'must be a resource unless there's a request or response' Failed"
+                        "code": "Validation_VAL_Profile_Maximum"
                     }
                 ]
             },
-            "diagnostics": "Rule bdl-5: 'must be a resource unless there's a request or response' Failed",
+            "diagnostics": "Composition.section:sectionOtherFactors.entry:Weight: max allowed = 1, but found 5 (from https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-composition-profile|0.1.0)",
             "location": [
-                "Bundle.entry[14]",
-                "Line 1, Col 1703"
+                "Bundle.entry[0].resource.section[2]",
+                "Line 1, Col 3228"
             ]
         },
         {
@@ -1138,14 +716,13 @@
                 "coding": [
                     {
                         "system": "http://hl7.org/fhir/java-core-messageId",
-                        "code": "Rule bdl-5: 'must be a resource unless there's a request or response' Failed"
+                        "code": "Bundle_BUNDLE_MultipleMatches"
                     }
                 ]
             },
-            "diagnostics": "Rule bdl-5: 'must be a resource unless there's a request or response' Failed",
+            "diagnostics": "Multiple matches in bundle for reference Observation/undefined",
             "location": [
-                "Bundle.entry[15]",
-                "Line 1, Col 1794"
+                "Bundle.entry[0].resource.section[2].entry[0]"
             ]
         },
         {
@@ -1155,14 +732,13 @@
                 "coding": [
                     {
                         "system": "http://hl7.org/fhir/java-core-messageId",
-                        "code": "Rule bdl-5: 'must be a resource unless there's a request or response' Failed"
+                        "code": "Bundle_BUNDLE_MultipleMatches"
                     }
                 ]
             },
-            "diagnostics": "Rule bdl-5: 'must be a resource unless there's a request or response' Failed",
+            "diagnostics": "Multiple matches in bundle for reference Observation/undefined",
             "location": [
-                "Bundle.entry[16]",
-                "Line 1, Col 1885"
+                "Bundle.entry[0].resource.section[2].entry[1]"
             ]
         },
         {
@@ -1172,14 +748,13 @@
                 "coding": [
                     {
                         "system": "http://hl7.org/fhir/java-core-messageId",
-                        "code": "Rule bdl-5: 'must be a resource unless there's a request or response' Failed"
+                        "code": "Bundle_BUNDLE_MultipleMatches"
                     }
                 ]
             },
-            "diagnostics": "Rule bdl-5: 'must be a resource unless there's a request or response' Failed",
+            "diagnostics": "Multiple matches in bundle for reference Observation/undefined",
             "location": [
-                "Bundle.entry[17]",
-                "Line 1, Col 1976"
+                "Bundle.entry[0].resource.section[2].entry[2]"
             ]
         },
         {
@@ -1189,14 +764,13 @@
                 "coding": [
                     {
                         "system": "http://hl7.org/fhir/java-core-messageId",
-                        "code": "Rule bdl-5: 'must be a resource unless there's a request or response' Failed"
+                        "code": "Bundle_BUNDLE_MultipleMatches"
                     }
                 ]
             },
-            "diagnostics": "Rule bdl-5: 'must be a resource unless there's a request or response' Failed",
+            "diagnostics": "Multiple matches in bundle for reference Observation/undefined",
             "location": [
-                "Bundle.entry[18]",
-                "Line 1, Col 2067"
+                "Bundle.entry[0].resource.section[2].entry[3]"
             ]
         },
         {
@@ -1206,133 +780,744 @@
                 "coding": [
                     {
                         "system": "http://hl7.org/fhir/java-core-messageId",
-                        "code": "Rule bdl-5: 'must be a resource unless there's a request or response' Failed"
+                        "code": "Bundle_BUNDLE_MultipleMatches"
                     }
                 ]
             },
-            "diagnostics": "Rule bdl-5: 'must be a resource unless there's a request or response' Failed",
+            "diagnostics": "Multiple matches in bundle for reference Observation/undefined",
             "location": [
-                "Bundle.entry[19]",
-                "Line 1, Col 2158"
+                "Bundle.entry[0].resource.section[2].entry[4]"
             ]
         },
         {
-            "severity": "error",
+            "severity": "warning",
             "code": "processing",
             "details": {
                 "coding": [
                     {
                         "system": "http://hl7.org/fhir/java-core-messageId",
-                        "code": "Rule bdl-5: 'must be a resource unless there's a request or response' Failed"
+                        "code": "Terminology_TX_NoValid_2_CC"
                     }
                 ]
             },
-            "diagnostics": "Rule bdl-5: 'must be a resource unless there's a request or response' Failed",
+            "diagnostics": "None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NNxxx)",
             "location": [
-                "Bundle.entry[20]",
-                "Line 1, Col 2249"
+                "Bundle.entry[0].resource.entry[2].resource/*Patient/undefined*/.identifier[0].type",
+                "Line 1, Col 4279"
             ]
         },
         {
-            "severity": "error",
+            "severity": "warning",
             "code": "processing",
             "details": {
                 "coding": [
                     {
                         "system": "http://hl7.org/fhir/java-core-messageId",
-                        "code": "Rule bdl-5: 'must be a resource unless there's a request or response' Failed"
+                        "code": "Terminology_TX_NoValid_2_CC"
                     }
                 ]
             },
-            "diagnostics": "Rule bdl-5: 'must be a resource unless there's a request or response' Failed",
+            "diagnostics": "None of the codings provided are in the value set 'IdentifierType' (http://hl7.org/fhir/ValueSet/identifier-type|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = http://terminology.hl7.org/CodeSystem/v2-0203#NNxxx)",
             "location": [
-                "Bundle.entry[21]",
-                "Line 1, Col 2340"
+                "Bundle.entry[2].resource/*Patient/undefined*/.identifier[0].type",
+                "Line 1, Col 4279"
             ]
         },
         {
-            "severity": "error",
+            "severity": "warning",
             "code": "processing",
             "details": {
                 "coding": [
                     {
                         "system": "http://hl7.org/fhir/java-core-messageId",
-                        "code": "Rule bdl-5: 'must be a resource unless there's a request or response' Failed"
+                        "code": "Terminology_TX_Confirm_5"
                     }
                 ]
             },
-            "diagnostics": "Rule bdl-5: 'must be a resource unless there's a request or response' Failed",
+            "diagnostics": "Could not confirm that the codes provided are in the value set 'V3 Value SetActEncounterCode' (http://terminology.hl7.org/ValueSet/v3-ActEncounterCode|2014-03-26), and a code should come from this value set unless it has no suitable code (the validator cannot judge what is suitable)",
             "location": [
-                "Bundle.entry[22]",
-                "Line 1, Col 2433"
+                "Bundle.entry[4].resource.class",
+                "Line 1, Col 5654"
             ]
         },
         {
-            "severity": "error",
+            "severity": "warning",
             "code": "processing",
             "details": {
                 "coding": [
                     {
                         "system": "http://hl7.org/fhir/java-core-messageId",
-                        "code": "Rule bdl-5: 'must be a resource unless there's a request or response' Failed"
+                        "code": "Terminology_TX_Confirm_5"
                     }
                 ]
             },
-            "diagnostics": "Rule bdl-5: 'must be a resource unless there's a request or response' Failed",
+            "diagnostics": "Could not confirm that the codes provided are in the value set 'V3 Value SetActEncounterCode' (http://terminology.hl7.org/ValueSet/v3-ActEncounterCode|2014-03-26), and a code should come from this value set unless it has no suitable code (the validator cannot judge what is suitable)",
             "location": [
-                "Bundle.entry[23]",
-                "Line 1, Col 2524"
+                "Bundle.entry[4].resource/*Encounter/undefined*/.class",
+                "Line 1, Col 5654"
             ]
         },
         {
-            "severity": "error",
+            "severity": "warning",
             "code": "processing",
             "details": {
                 "coding": [
                     {
                         "system": "http://hl7.org/fhir/java-core-messageId",
-                        "code": "Rule bdl-5: 'must be a resource unless there's a request or response' Failed"
+                        "code": "All_observations_should_have_a_performer"
                     }
                 ]
             },
-            "diagnostics": "Rule bdl-5: 'must be a resource unless there's a request or response' Failed",
+            "diagnostics": "All observations should have a performer",
             "location": [
-                "Bundle.entry[24]",
-                "Line 1, Col 2615"
+                "Bundle.entry[5].resource/*Observation/undefined*/",
+                "Line 1, Col 7381"
             ]
         },
         {
-            "severity": "error",
+            "severity": "warning",
             "code": "processing",
             "details": {
                 "coding": [
                     {
                         "system": "http://hl7.org/fhir/java-core-messageId",
-                        "code": "Rule bdl-5: 'must be a resource unless there's a request or response' Failed"
+                        "code": "All_observations_should_have_an_effectiveDateTime_or_an_effectivePeriod"
                     }
                 ]
             },
-            "diagnostics": "Rule bdl-5: 'must be a resource unless there's a request or response' Failed",
+            "diagnostics": "All observations should have an effectiveDateTime or an effectivePeriod",
             "location": [
-                "Bundle.entry[25]",
-                "Line 1, Col 2708"
+                "Bundle.entry[5].resource/*Observation/undefined*/",
+                "Line 1, Col 7381"
             ]
         },
         {
-            "severity": "error",
+            "severity": "warning",
             "code": "processing",
             "details": {
                 "coding": [
                     {
                         "system": "http://hl7.org/fhir/java-core-messageId",
-                        "code": "Bundle_BUNDLE_Entry_NoFirstResource"
+                        "code": "Rule con-3: 'Condition.clinicalStatus SHALL be present if verificationStatus is not entered-in-error and category is problem-list-item' Failed"
                     }
                 ]
             },
-            "diagnostics": "No resource on first entry",
+            "diagnostics": "Rule con-3: 'Condition.clinicalStatus SHALL be present if verificationStatus is not entered-in-error and category is problem-list-item' Failed",
             "location": [
-                "Bundle.entry[0]",
-                "Line 1, Col 415"
+                "Bundle.entry[7].resource",
+                "Line 1, Col 9645"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "Terminology_TX_NoValid_2_CC"
+                    }
+                ]
+            },
+            "diagnostics": "None of the codings provided are in the value set 'Condition Category Codes' (http://hl7.org/fhir/ValueSet/condition-category|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = https://hapi.fhir.tw/fhir/CodeSystem/twcr-sf-class-of-case-codesystem#0)",
+            "location": [
+                "Bundle.entry[7].resource.category[0]",
+                "Line 1, Col 8778"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "Terminology_TX_NoValid_2_CC"
+                    }
+                ]
+            },
+            "diagnostics": "None of the codings provided are in the value set 'Condition Category Codes' (http://hl7.org/fhir/ValueSet/condition-category|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = https://hapi.fhir.tw/fhir/CodeSystem/twcr-sf-class-of-diangosis-status-codesystem#1)",
+            "location": [
+                "Bundle.entry[7].resource.category[1]",
+                "Line 1, Col 8917"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "Terminology_TX_NoValid_2_CC"
+                    }
+                ]
+            },
+            "diagnostics": "None of the codings provided are in the value set 'Condition Category Codes' (http://hl7.org/fhir/ValueSet/condition-category|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = https://hapi.fhir.tw/fhir/CodeSystem/twcr-sf-class-of-treatment-status-codesystem#0)",
+            "location": [
+                "Bundle.entry[7].resource.category[2]",
+                "Line 1, Col 9101"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "Terminology_TX_NoValid_2_CC"
+                    }
+                ]
+            },
+            "diagnostics": "None of the codings provided are in the value set 'Condition Category Codes' (http://hl7.org/fhir/ValueSet/condition-category|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = https://hapi.fhir.tw/fhir/CodeSystem/twcr-sf-class-of-case-codesystem#0)",
+            "location": [
+                "Bundle.entry[7].resource/*Condition/undefined*/.category[0]",
+                "Line 1, Col 8778"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "Terminology_TX_NoValid_2_CC"
+                    }
+                ]
+            },
+            "diagnostics": "None of the codings provided are in the value set 'Condition Category Codes' (http://hl7.org/fhir/ValueSet/condition-category|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = https://hapi.fhir.tw/fhir/CodeSystem/twcr-sf-class-of-diangosis-status-codesystem#1)",
+            "location": [
+                "Bundle.entry[7].resource/*Condition/undefined*/.category[1]",
+                "Line 1, Col 8917"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "Terminology_TX_NoValid_2_CC"
+                    }
+                ]
+            },
+            "diagnostics": "None of the codings provided are in the value set 'Condition Category Codes' (http://hl7.org/fhir/ValueSet/condition-category|4.0.1), and a coding should come from this value set unless it has no suitable code (note that the validator cannot judge what is suitable) (codes = https://hapi.fhir.tw/fhir/CodeSystem/twcr-sf-class-of-treatment-status-codesystem#0)",
+            "location": [
+                "Bundle.entry[7].resource/*Condition/undefined*/.category[2]",
+                "Line 1, Col 9101"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_a_performer"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have a performer",
+            "location": [
+                "Bundle.entry[10].resource/*Observation/undefined*/",
+                "Line 1, Col 11543"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_an_effectiveDateTime_or_an_effectivePeriod"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have an effectiveDateTime or an effectivePeriod",
+            "location": [
+                "Bundle.entry[10].resource/*Observation/undefined*/",
+                "Line 1, Col 11543"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_a_performer"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have a performer",
+            "location": [
+                "Bundle.entry[12].resource/*Observation/undefined*/",
+                "Line 1, Col 13149"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_an_effectiveDateTime_or_an_effectivePeriod"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have an effectiveDateTime or an effectivePeriod",
+            "location": [
+                "Bundle.entry[12].resource/*Observation/undefined*/",
+                "Line 1, Col 13149"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_a_performer"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have a performer",
+            "location": [
+                "Bundle.entry[13].resource/*Observation/undefined*/",
+                "Line 1, Col 14023"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_an_effectiveDateTime_or_an_effectivePeriod"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have an effectiveDateTime or an effectivePeriod",
+            "location": [
+                "Bundle.entry[13].resource/*Observation/undefined*/",
+                "Line 1, Col 14023"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_a_performer"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have a performer",
+            "location": [
+                "Bundle.entry[14].resource/*Observation/undefined*/",
+                "Line 1, Col 14809"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_an_effectiveDateTime_or_an_effectivePeriod"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have an effectiveDateTime or an effectivePeriod",
+            "location": [
+                "Bundle.entry[14].resource/*Observation/undefined*/",
+                "Line 1, Col 14809"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_a_performer"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have a performer",
+            "location": [
+                "Bundle.entry[22].resource/*Observation/undefined*/",
+                "Line 1, Col 23087"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_an_effectiveDateTime_or_an_effectivePeriod"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have an effectiveDateTime or an effectivePeriod",
+            "location": [
+                "Bundle.entry[22].resource/*Observation/undefined*/",
+                "Line 1, Col 23087"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_a_performer"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have a performer",
+            "location": [
+                "Bundle.entry[25].resource/*Observation/undefined*/",
+                "Line 1, Col 25624"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "All_observations_should_have_an_effectiveDateTime_or_an_effectivePeriod"
+                    }
+                ]
+            },
+            "diagnostics": "All observations should have an effectiveDateTime or an effectivePeriod",
+            "location": [
+                "Bundle.entry[25].resource/*Observation/undefined*/",
+                "Line 1, Col 25624"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "BUNDLE_BUNDLE_ENTRY_REVERSE_R4"
+                    }
+                ]
+            },
+            "diagnostics": "Entry 'http://152.38.3.250:8080/fhir/Observation/undefined' isn't reachable by traversing forwards from the Composition. Only Provenance is approved to be used this way (R4 section 3.3.1)",
+            "location": [
+                "Bundle.entry[27]",
+                "Line 1, Col 7382"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "BUNDLE_BUNDLE_ENTRY_REVERSE_R4"
+                    }
+                ]
+            },
+            "diagnostics": "Entry 'http://152.38.3.250:8080/fhir/Procedure/undefined' isn't reachable by traversing forwards from the Composition. Only Provenance is approved to be used this way (R4 section 3.3.1)",
+            "location": [
+                "Bundle.entry[27]",
+                "Line 1, Col 8203"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "BUNDLE_BUNDLE_ENTRY_REVERSE_R4"
+                    }
+                ]
+            },
+            "diagnostics": "Entry 'http://152.38.3.250:8080/fhir/Condition/undefined' isn't reachable by traversing forwards from the Composition. Only Provenance is approved to be used this way (R4 section 3.3.1)",
+            "location": [
+                "Bundle.entry[27]",
+                "Line 1, Col 9646"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "BUNDLE_BUNDLE_ENTRY_REVERSE_R4"
+                    }
+                ]
+            },
+            "diagnostics": "Entry 'http://152.38.3.250:8080/fhir/Condition/undefined' isn't reachable by traversing forwards from the Composition. Only Provenance is approved to be used this way (R4 section 3.3.1)",
+            "location": [
+                "Bundle.entry[27]",
+                "Line 1, Col 10170"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "BUNDLE_BUNDLE_ENTRY_REVERSE_R4"
+                    }
+                ]
+            },
+            "diagnostics": "Entry 'http://152.38.3.250:8080/fhir/Condition/undefined' isn't reachable by traversing forwards from the Composition. Only Provenance is approved to be used this way (R4 section 3.3.1)",
+            "location": [
+                "Bundle.entry[27]",
+                "Line 1, Col 10691"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "BUNDLE_BUNDLE_ENTRY_REVERSE_R4"
+                    }
+                ]
+            },
+            "diagnostics": "Entry 'http://152.38.3.250:8080/fhir/Observation/undefined' isn't reachable by traversing forwards from the Composition. Only Provenance is approved to be used this way (R4 section 3.3.1)",
+            "location": [
+                "Bundle.entry[27]",
+                "Line 1, Col 11544"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "BUNDLE_BUNDLE_ENTRY_REVERSE_R4"
+                    }
+                ]
+            },
+            "diagnostics": "Entry 'http://152.38.3.250:8080/fhir/Procedure/undefined' isn't reachable by traversing forwards from the Composition. Only Provenance is approved to be used this way (R4 section 3.3.1)",
+            "location": [
+                "Bundle.entry[27]",
+                "Line 1, Col 12283"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "BUNDLE_BUNDLE_ENTRY_REVERSE_R4"
+                    }
+                ]
+            },
+            "diagnostics": "Entry 'http://152.38.3.250:8080/fhir/Observation/undefined' isn't reachable by traversing forwards from the Composition. Only Provenance is approved to be used this way (R4 section 3.3.1)",
+            "location": [
+                "Bundle.entry[27]",
+                "Line 1, Col 13150"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "BUNDLE_BUNDLE_ENTRY_REVERSE_R4"
+                    }
+                ]
+            },
+            "diagnostics": "Entry 'http://152.38.3.250:8080/fhir/Observation/undefined' isn't reachable by traversing forwards from the Composition. Only Provenance is approved to be used this way (R4 section 3.3.1)",
+            "location": [
+                "Bundle.entry[27]",
+                "Line 1, Col 14024"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "BUNDLE_BUNDLE_ENTRY_REVERSE_R4"
+                    }
+                ]
+            },
+            "diagnostics": "Entry 'http://152.38.3.250:8080/fhir/Observation/undefined' isn't reachable by traversing forwards from the Composition. Only Provenance is approved to be used this way (R4 section 3.3.1)",
+            "location": [
+                "Bundle.entry[27]",
+                "Line 1, Col 14810"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "BUNDLE_BUNDLE_ENTRY_REVERSE_R4"
+                    }
+                ]
+            },
+            "diagnostics": "Entry 'http://152.38.3.250:8080/fhir/Procedure/undefined' isn't reachable by traversing forwards from the Composition. Only Provenance is approved to be used this way (R4 section 3.3.1)",
+            "location": [
+                "Bundle.entry[27]",
+                "Line 1, Col 15769"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "BUNDLE_BUNDLE_ENTRY_REVERSE_R4"
+                    }
+                ]
+            },
+            "diagnostics": "Entry 'http://152.38.3.250:8080/fhir/Procedure/undefined' isn't reachable by traversing forwards from the Composition. Only Provenance is approved to be used this way (R4 section 3.3.1)",
+            "location": [
+                "Bundle.entry[27]",
+                "Line 1, Col 16660"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "BUNDLE_BUNDLE_ENTRY_REVERSE_R4"
+                    }
+                ]
+            },
+            "diagnostics": "Entry 'http://152.38.3.250:8080/fhir/Procedure/undefined' isn't reachable by traversing forwards from the Composition. Only Provenance is approved to be used this way (R4 section 3.3.1)",
+            "location": [
+                "Bundle.entry[27]",
+                "Line 1, Col 17515"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "BUNDLE_BUNDLE_ENTRY_REVERSE_R4"
+                    }
+                ]
+            },
+            "diagnostics": "Entry 'http://152.38.3.250:8080/fhir/Procedure/undefined' isn't reachable by traversing forwards from the Composition. Only Provenance is approved to be used this way (R4 section 3.3.1)",
+            "location": [
+                "Bundle.entry[27]",
+                "Line 1, Col 18425"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "BUNDLE_BUNDLE_ENTRY_REVERSE_R4"
+                    }
+                ]
+            },
+            "diagnostics": "Entry 'http://152.38.3.250:8080/fhir/Procedure/undefined' isn't reachable by traversing forwards from the Composition. Only Provenance is approved to be used this way (R4 section 3.3.1)",
+            "location": [
+                "Bundle.entry[27]",
+                "Line 1, Col 19278"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "BUNDLE_BUNDLE_ENTRY_REVERSE_R4"
+                    }
+                ]
+            },
+            "diagnostics": "Entry 'http://152.38.3.250:8080/fhir/Procedure/undefined' isn't reachable by traversing forwards from the Composition. Only Provenance is approved to be used this way (R4 section 3.3.1)",
+            "location": [
+                "Bundle.entry[27]",
+                "Line 1, Col 21479"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "BUNDLE_BUNDLE_ENTRY_REVERSE_R4"
+                    }
+                ]
+            },
+            "diagnostics": "Entry 'http://152.38.3.250:8080/fhir/Observation/undefined' isn't reachable by traversing forwards from the Composition. Only Provenance is approved to be used this way (R4 section 3.3.1)",
+            "location": [
+                "Bundle.entry[27]",
+                "Line 1, Col 23088"
+            ]
+        },
+        {
+            "severity": "warning",
+            "code": "processing",
+            "details": {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/java-core-messageId",
+                        "code": "BUNDLE_BUNDLE_ENTRY_REVERSE_R4"
+                    }
+                ]
+            },
+            "diagnostics": "Entry 'http://152.38.3.250:8080/fhir/Procedure/undefined' isn't reachable by traversing forwards from the Composition. Only Provenance is approved to be used this way (R4 section 3.3.1)",
+            "location": [
+                "Bundle.entry[27]",
+                "Line 1, Col 23936"
             ]
         }
     ]

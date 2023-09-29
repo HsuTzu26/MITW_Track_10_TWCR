@@ -5,7 +5,7 @@ const uuid = require("../Bundle/UUIDForm.json");
 module.exports.profile = {
     name: "TWCR-SurgicalProcedureOfPrimarySite",
     version: "1.0.0",
-    fhirServerBaseUrl: "https://hapi.fhir.tw/fhir",
+    fhirServerBaseUrl: "http://152.38.3.250:8080/fhir/",
     action: "upload", // return, upload
 };
 // 此Profile的JSON結構資料參考自以下網頁:
@@ -24,10 +24,19 @@ module.exports.globalResource = {
             status: "empty",
             div: '<div xmlns="http://www.w3.org/1999/xhtml">目前為空值，可根據使用需求自行產生這筆資料的摘要資訊並填入此欄位</div>',
         },
-        subject: {
-            reference: `Patient/${uuid["TWCR-Patient"]}`
+        status: "completed",
+        category: {
+            coding: [
+                {
+                    system: "https://hapi.fhir.tw/fhir/CodeSystem/twcr-lf-procedure-code-codesystem",
+                    code: "SurgicalProcedureOfPrimarySite",
+                    display: "申報醫院原發部位手術方式",
+                },
+            ],
         },
-        performed: "2020-03-06 --> (ongoing)",
+        subject: {
+            reference: `Patient/${uuid["TWCR-Patient"]}`,
+        },
     },
 };
 
@@ -55,10 +64,21 @@ module.exports.fields = [
         beforeConvert: (data) => {
             let SPPSTFCode = JSON.parse(`
             {
-                "text" : "text"
+                
+                    "coding" : [
+                      {
+                        "system" : "https://hapi.fhir.tw/fhir/CodeSystem/twcr-lf-surgical-procedure-of-primary-site-codesystem",
+                        "code" : "99",
+                        "display" : "不詳或不清楚"
+                      }
+                    ],
+                    "text" : "99"
+                  
             }
             `);
-            SPPSTFCode.text = data;
+            SPPSTFCode.coding[0].code = data;
+            let displayValue = tools.searchCodeSystemDisplayValue("../TWCR_ValueSets/definitionsJSON/CodeSystem-twcr-lf-surgical-procedure-of-primary-site-codesystem.json", data);
+            SPPSTFCode.coding[0].display = displayValue;
 
             return SPPSTFCode;
         },

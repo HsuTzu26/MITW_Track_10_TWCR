@@ -5,7 +5,7 @@ const uuid = require("../Bundle/UUIDForm.json");
 module.exports.profile = {
     name: "TWCR-SSF5",
     version: "1.0.0",
-    fhirServerBaseUrl: "https://hapi.fhir.tw/fhir",
+    fhirServerBaseUrl: "http://152.38.3.250:8080/fhir/",
     action: "upload", // return, upload
 };
 // 此Profile的JSON結構資料參考自以下網頁:
@@ -25,11 +25,10 @@ module.exports.globalResource = {
             div: '<div xmlns="http://www.w3.org/1999/xhtml">目前為空值，可根據使用需求自行產生這筆資料的摘要資訊並填入此欄位</div>',
         },
         status: "final", //registered | preliminary | final | amended +
-        value: "000",
         code: {
             coding: [
                 {
-                    system: "http://loinc.org",
+                    system: "https://loinc.org",
                     code: "42090-1",
                     display: "Collaborative staging site-Specific factor 5 Cancer",
                 },
@@ -65,12 +64,12 @@ module.exports.fields = [
         beforeConvert: (data) => {
             let ssf = JSON.parse(`
             {
-                "valueCodeableConcept" : {            
-                    "text": "text"
-                }
+                     
+                "text": "text"
+                
             }
             `);
-            ssf.valueCodeableConcept.text = data;
+            ssf.text = data;
 
             return ssf;
         },

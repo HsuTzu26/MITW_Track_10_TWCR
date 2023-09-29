@@ -6,7 +6,7 @@ const uuid = require("../Bundle/UUIDForm.json");
 module.exports.profile = {
     name: "TWCR-Practitioner",
     version: "1.0.0",
-    fhirServerBaseUrl: "https://hapi.fhir.tw/fhir",
+    fhirServerBaseUrl: "http://152.38.3.250:8080/fhir/",
     action: "upload", // return, upload
 };
 // 此Profile的JSON結構資料參考自以下網頁:
@@ -52,7 +52,7 @@ module.exports.fields = [
         beforeConvert: (data) => {
             let identifier = JSON.parse(`
             {
-                "system" : "http://www.moi.gov.tw/",
+                "system" : "http://www.moi.gov.tw",
                 "value" : "KP00017"
             }
             `);

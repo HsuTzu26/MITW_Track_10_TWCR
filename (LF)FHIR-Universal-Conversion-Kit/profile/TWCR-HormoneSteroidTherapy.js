@@ -6,7 +6,7 @@ const uuid = require("../Bundle/UUIDForm.json");
 module.exports.profile = {
     name: "TWCR-HormoneSteroidTherapy",
     version: "1.0.0",
-    fhirServerBaseUrl: "https://hapi.fhir.tw/fhir",
+    fhirServerBaseUrl: "http://152.38.3.250:8080/fhir/",
     action: "upload", // return, upload
 };
 // 此Profile的JSON結構資料參考自以下網頁:
@@ -29,14 +29,17 @@ module.exports.globalResource = {
         category: {
             coding: [
                 {
-                    system: "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/procedure-code-codesystem",
+                    system: "https://hapi.fhir.tw/fhir/CodeSystem/twcr-lf-procedure-code-codesystem",
                     code: "HormoneSteroid",
                     display: "申報醫院荷爾蒙/類固醇治療",
                 },
             ],
         },
         subject: {
-            reference: `Patient/${uuid["TWCR-Patient"]}`
+            reference: `Patient/${uuid["TWCR-Patient"]}`,
+        },
+        encounter: {
+            reference: `Encounter/${uuid["TWCR-Encounter"]}`,
         },
     },
 };
@@ -63,30 +66,28 @@ module.exports.fields = [
         source: "HOMSTTF",
         target: "Procedure.code",
         beforeConvert: (data) => {
-            let DHSTSTCode = JSON.parse(`
+            let HOMSTTFCode = JSON.parse(`
             {
-                "valueCodeableConcept" : {
-                    "coding" : [
-                        {
-                        "system" : "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/hormone-steroid-therapy-codesystem",
-                        "code" : "HormoneSteroidTherapy",
-                        "display" : "申報醫院荷爾蒙/類固醇治療"
-                        }
-                    ]
-                }
+                "coding" : [
+                    {
+                      "system" : "https://hapi.fhir.tw/fhir/CodeSystem/twcr-lf-hormone-steroid-therapy-codesystem",
+                      "code" : "20",
+                      "display" : "僅接受臨床試驗荷爾蒙/類固醇治療"
+                    }
+                  ]
             }
            `);
-            DHSTSTCode.valueCodeableConcept.coding[0].code = data;
-            let displayValue = tools.searchCodeSystemDisplayValue("../TWCR_ValueSets/definitionsJSON/CodeSystem-hormone-steroid-therapy-codesystem.json", data);
-            DHSTSTCode.valueCodeableConcept.coding[0].display = displayValue;
+           HOMSTTFCode.coding[0].code = data;
+            let displayValue = tools.searchCodeSystemDisplayValue("../TWCR_ValueSets/definitionsJSON/CodeSystem-twcr-lf-hormone-steroid-therapy-codesystem.json", data);
+            HOMSTTFCode.coding[0].display = displayValue;
 
-            return DHSTSTCode;
+            return HOMSTTFCode;
         },
     },
     {
         //申報醫院荷爾蒙/類固醇治療開始日期
         source: "DHSTSTF",
-        target: "Procedure.performedDateTime",
+        target: "Procedure.performedPeriod",
         beforeConvert: (data) => {
             let perDateTime = JSON.parse(`
             {

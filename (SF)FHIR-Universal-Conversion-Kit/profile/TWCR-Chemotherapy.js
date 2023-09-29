@@ -1,12 +1,12 @@
 const checkTWCR = require("../TWCR_ValueSets/fetchLatestTWCR.js");
 const tools = require("../TWCR_ValueSets/tools.js");
-const uuid = require("../Bundle/UUIDForm.json")
+const uuid = require("../Bundle/UUIDForm.json");
 // 檔案路徑要以FUCK核心所在的位置為基準
 
 module.exports.profile = {
     name: "TWCR-Chemotherapy",
     version: "1.0.0",
-    fhirServerBaseUrl: "https://hapi.fhir.tw/fhir",
+    fhirServerBaseUrl: "http://152.38.3.250:8080/fhir/",
     action: "upload", // return, upload
 };
 // 此Profile的JSON結構資料參考自以下網頁:
@@ -29,9 +29,18 @@ module.exports.globalResource = {
         category: {
             coding: [
                 {
-                    system: "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/procedure-code-codesystem",
+                    system: "https://hapi.fhir.tw/fhir/CodeSystem/twcr-sf-procedure-code-codesystem",
                     code: "Chemotherapy",
                     display: "申報醫院化學治療",
+                },
+            ],
+        },
+        code: {
+            coding: [
+                {
+                    system: "https://hapi.fhir.tw/fhir/CodeSystem/twcr-sf-chemotherapy-codesystem",
+                    code: "01",
+                    display: "接受全身性化學治療",
                 },
             ],
         },
@@ -68,7 +77,7 @@ module.exports.fields = [
       {
         "coding" : [
           {
-            "system" : "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/chemotherapy-codesystem",
+            "system" : "https://hapi.fhir.tw/fhir/CodeSystem/twcr-sf-chemotherapy-codesystem",
             "code" : "codeValue",
             "display" : "displayValue"
           }

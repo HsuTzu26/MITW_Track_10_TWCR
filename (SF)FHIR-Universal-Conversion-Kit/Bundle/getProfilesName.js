@@ -52,7 +52,22 @@ function getProfilesName() {
 
 const profiles = getProfilesName();
 
-// console.log(profiles, `\nResource num: ${profiles.length}`);
+
+const Form = {};
+
+const { v4: uuidv4 } = require("uuid");
+profiles.map((p) => (Form[p] = `${uuidv4()}`))
+
+// Store Bundle.json
+const UUIDFrom = __dirname + "/UUIDForm.json";
+const UUIDFromJson = JSON.stringify(Form, null, 4);
+fs.writeFileSync(UUIDFrom, UUIDFromJson, "utf-8", (e) => {
+    if (e) {
+        console.log(e);
+        return;
+    }
+});
+
 
 module.exports = {
     getProfilesName,

@@ -6,7 +6,7 @@ const uuid = require("../Bundle/UUIDForm.json");
 module.exports.profile = {
     name: "TWCR-SurgicalDiagnosticAndStagingProcedureAtOtherFacility",
     version: "1.0.0",
-    fhirServerBaseUrl: "https://hapi.fhir.tw/fhir",
+    fhirServerBaseUrl: "http://152.38.3.250:8080/fhir/",
     action: "upload", // return, upload
 };
 // 此Profile的JSON結構資料參考自以下網頁:
@@ -19,7 +19,7 @@ module.exports.globalResource = {
     Procedure: {
         id: uuid["TWCR-SurgicalDiagnosticAndStagingProcedureAtOtherFacility"],
         meta: {
-            profile: ["https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-surgical-diagnostic-and-staging-at-other-facility-profile"],
+            profile: ["https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-surgical-diagnostic-staging-at-other-facility-profile"],
         },
         text: {
             status: "empty",
@@ -29,14 +29,17 @@ module.exports.globalResource = {
         category: {
             coding: [
                 {
-                    system: "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/procedure-code-codesystem",
+                    system: "https://hapi.fhir.tw/fhir/CodeSystem/twcr-lf-procedure-code-codesystem",
                     code: "OtherFacilitySurgicalDiagnosticAndStagingProcedure",
                     display: "外院診斷性及分期性手術處置",
                 },
             ],
         },
         subject: {
-            reference: `Patient/${uuid["TWCR-Patient"]}`
+            reference: `Patient/${uuid["TWCR-Patient"]}`,
+        },
+        encounter: {
+            reference: `Encounter/${uuid["TWCR-Encounter"]}`,
         },
     },
 };
@@ -65,20 +68,18 @@ module.exports.fields = [
         beforeConvert: (data) => {
             let SDSPTFCode = JSON.parse(`
             {
-                "valueCodeableConcept" : {
-                    "coding" : [
-                        {
-                        "system" : "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/other-surgical-diagnostic-and-staging-codesystem",
-                        "code" : "SurgicalDiagnosticAndStagingProcedureAtOtherFacility",
-                        "display" : "外院診斷性及分期性手術處置"
-                        }
-                    ]
-                }
+                "coding" : [
+                    {
+                      "system" : "https://hapi.fhir.tw/fhir/CodeSystem/twcr-lf-other-surgical-diagnostic-and-staging-codesystem",
+                      "code" : "00",
+                      "display" : "未進行診斷性或分期性的手術處置"
+                    }
+                  ]
             } 
             `);
-            SDSPTFCode.valueCodeableConcept.coding[0].code = data;
-            let displayValue = tools.searchCodeSystemDisplayValue("../TWCR_ValueSets/definitionsJSON/CodeSystem-surgical-procedure-of-primary-site-codesystem.json", data);
-            SDSPTFCode.valueCodeableConcept.coding[0].display = displayValue;
+            SDSPTFCode.coding[0].code = data;
+            let displayValue = tools.searchCodeSystemDisplayValue("../TWCR_ValueSets/definitionsJSON/CodeSystem-twcr-lf-other-surgical-diagnostic-and-staging-codesystem.json", data);
+            SDSPTFCode.coding[0].display = displayValue;
 
             return SDSPTFCode;
         },

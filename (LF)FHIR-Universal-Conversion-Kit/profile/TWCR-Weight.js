@@ -5,7 +5,7 @@ const uuid = require("../Bundle/UUIDForm.json");
 module.exports.profile = {
     name: "TWCR-Weight",
     version: "1.0.0",
-    fhirServerBaseUrl: "https://hapi.fhir.tw/fhir",
+    fhirServerBaseUrl: "http://152.38.3.250:8080/fhir/",
     action: "upload", // return, upload
 };
 // 此Profile的JSON結構資料參考自以下網頁:
@@ -25,18 +25,20 @@ module.exports.globalResource = {
             div: '<div xmlns="http://www.w3.org/1999/xhtml">目前為空值，可根據使用需求自行產生這筆資料的摘要資訊並填入此欄位</div>',
         },
         status: "final", //registered | preliminary | final | amended +
-        value: "68",
         code: {
             coding: [
                 {
-                    system: "http://loinc.org",
+                    system: "https://loinc.org",
                     code: "29463-7",
                     display: "Body Weight",
                 },
             ],
         },
         subject: {
-            reference: `Patient/${uuid["TWCR-Patient"]}`
+            reference: `Patient/${uuid["TWCR-Patient"]}`,
+        },
+        encounter: {
+            reference: `Encounter/${uuid["TWCR-Encounter"]}`,
         },
     },
 };
@@ -72,44 +74,44 @@ module.exports.fields = [
             return `TWCR-Weight-${data}-${tools.getCurrentTimestamp()}`;
         },
     },
-    {
-        // 體重	WEIGHT	valueCodeableConcept / valueQuantity
-        // *依據申報內容不同有可能為 valueCodeableConcept 或 valueQuantity
-        source: "WEIGHT_valueCodeableConcept",
-        target: "Observation.valueCodeableConcept",
-        beforeConvert: (data) => {
-            let valueCodeableConcept = JSON.parse(`
-            {
-              "coding" : [
-                {
-                  "system" : "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/weight-codesystem",
-                  "code" : "code",
-                  "display" : "display"
-                }
-              ]
-            }
-            `);
-            valueCodeableConcept.coding[0].code = data;
-            let displayValue = tools.searchCodeSystemDisplayValue("../TWCR_ValueSets/definitionsJSON/CodeSystem-weight-codesystem.json", data);
-            valueCodeableConcept.coding[0].display = displayValue;
+    // {
+    //     // 體重	WEIGHT	valueCodeableConcept / valueQuantity
+    //     // *依據申報內容不同有可能為 valueCodeableConcept 或 valueQuantity
+    //     source: "WEIGHT_valueCodeableConcept",
+    //     target: "Observation.valueCodeableConcept",
+    //     beforeConvert: (data) => {
+    //         let valueCodeableConcept = JSON.parse(`
+    //         {
+    //           "coding" : [
+    //             {
+    //               "system" : "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/weight-codesystem",
+    //               "code" : "code",
+    //               "display" : "display"
+    //             }
+    //           ]
+    //         }
+    //         `);
+    //         valueCodeableConcept.coding[0].code = data;
+    //         let displayValue = tools.searchCodeSystemDisplayValue("../TWCR_ValueSets/definitionsJSON/CodeSystem-weight-codesystem.json", data);
+    //         valueCodeableConcept.coding[0].display = displayValue;
 
-            return valueCodeableConcept;
-        },
-    },
+    //         return valueCodeableConcept;
+    //     },
+    // },
     {
         // 體重	WEIGHT	valueCodeableConcept / valueQuantity
         // *依據申報內容不同有可能為 valueCodeableConcept 或 valueQuantity
-        source: "WEIGHT_valueQuantity",
+        source: "WEIGHT",
         target: "Observation.valueQuantity",
         beforeConvert: (data) => {
             let valueQuantity = JSON.parse(`
-      {
-        "value" : 168,
-        "unit" : "kg",
-        "system" : "http://unitsofmeasure.org",
-        "code" : "kg"
-      }
-      `);
+            {
+                "value" : 50,
+                "unit" : "kg",
+                "system" : "https://unitsofmeasure.org",
+                "code" : "kg"
+            }
+            `);
 
             valueQuantity.value = parseInt(String(data));
 

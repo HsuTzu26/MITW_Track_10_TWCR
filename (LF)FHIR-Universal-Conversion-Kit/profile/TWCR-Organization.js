@@ -7,7 +7,7 @@ module.exports.profile = {
     id: uuid["TWCR-Organization"],
     name: "TWCR-Organization",
     version: "1.0.0",
-    fhirServerBaseUrl: "https://hapi.fhir.tw/fhir",
+    fhirServerBaseUrl: "http://152.38.3.250:8080/fhir/",
     action: "upload", // return, upload
 };
 // 此Profile的JSON結構資料參考自以下網頁:
@@ -20,7 +20,7 @@ module.exports.globalResource = {
     Organization: {
         id: uuid["TWCR-Organization"],
         meta: {
-            profile: ["https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-organization-profile"],
+            profile: ["https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-organization-profile"],
         },
         text: {
             status: "empty",
@@ -52,9 +52,11 @@ module.exports.fields = [
         target: "Organization.identifier",
         beforeConvert: (data) => {
             let identifier = JSON.parse(`
-            {
-            "value" : "0000016"
-            }
+            
+                {
+                    "value" : "0000016"
+                }
+            
             `);
 
             identifier.value = String(data);

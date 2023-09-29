@@ -3,11 +3,10 @@ const tools = require("../TWCR_ValueSets/tools.js");
 const uuid = require("../Bundle/UUIDForm.json");
 // 檔案路徑要以FUCK核心所在的位置為基準
 
-
 module.exports.profile = {
     name: "TWCR-HematologicTransplantEndocrineProcedure",
     version: "1.0.0",
-    fhirServerBaseUrl: "https://hapi.fhir.tw/fhir",
+    fhirServerBaseUrl: "http://152.38.3.250:8080/fhir/",
     action: "upload", // return, upload
 };
 // 此Profile的JSON結構資料參考自以下網頁:
@@ -30,14 +29,17 @@ module.exports.globalResource = {
         category: {
             coding: [
                 {
-                    system: "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/procedure-code-codesystem",
+                    system: "https://hapi.fhir.tw/fhir/CodeSystem/twcr-lf-procedure-code-codesystem",
                     code: "HematologicTransplantAndEndocrineProcedure",
-                    display: " 骨髓/幹細胞移植或內分泌處置",
+                    display: "骨髓/幹細胞移植或內分泌處置",
                 },
             ],
         },
         subject: {
-            reference: `Patient/${uuid["TWCR-Patient"]}`
+            reference: `Patient/${uuid["TWCR-Patient"]}`,
+        },
+        encounter: {
+            reference: `Encounter/${uuid["TWCR-Encounter"]}`,
         },
     },
 };
@@ -66,20 +68,18 @@ module.exports.fields = [
         beforeConvert: (data) => {
             let htaepCode = JSON.parse(`
             {
-                "valueCodeableConcept" : {
-                    "coding" : [
-                        {
-                        "system" : "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/hematologic-transplant-and-endocrine-procedure-codesystem",
-                        "code" : "HematologicTransplantAndEndocrineProcedure",
-                        "display" : "骨髓/幹細胞移植或內分泌處置"
-                        }
-                    ]
-                }
+                "coding" : [
+                    {
+                      "system" : "https://hapi.fhir.tw/fhir/CodeSystem/twcr-lf-hematologic-transplant-and-endocrine-codesystem",
+                      "code" : "10",
+                      "display" : "有骨髓移植，但病歷上未註明是自體骨髓移植或是異體骨髓移植"
+                    }
+                  ]
             }
             `);
-            htaepCode.valueCodeableConcept.coding[0].code = data;
-            let displayValue = tools.searchCodeSystemDisplayValue("../TWCR_ValueSets/definitionsJSON/CodeSystem-hematologic-transplant-and-endocrine-procedure-codesystem.json", data);
-            htaepCode.valueCodeableConcept.coding[0].display = displayValue;
+            htaepCode.coding[0].code = data;
+            let displayValue = tools.searchCodeSystemDisplayValue("../TWCR_ValueSets/definitionsJSON/CodeSystem-twcr-lf-hematologic-transplant-and-endocrine-codesystem.json", data);
+            htaepCode.coding[0].display = displayValue;
 
             return htaepCode;
         },
@@ -87,7 +87,7 @@ module.exports.fields = [
     {
         //申報醫院骨髓/幹細胞移植或內分泌處置開始日期
         source: "DHTEPS",
-        target: "Procedure.performedDateTime",
+        target: "Procedure.performedPeriod",
         beforeConvert: (data) => {
             let perDateTime = JSON.parse(`
             {

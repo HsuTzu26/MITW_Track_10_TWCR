@@ -5,7 +5,7 @@ const uuid = require("../Bundle/UUIDForm.json");
 module.exports.profile = {
     name: "TWCR-LymphVascularInvasion",
     version: "1.0.0",
-    fhirServerBaseUrl: "https://hapi.fhir.tw/fhir",
+    fhirServerBaseUrl: "http://152.38.3.250:8080/fhir/",
     action: "upload", // return, upload
 };
 // 此Profile的JSON結構資料參考自以下網頁:
@@ -28,14 +28,17 @@ module.exports.globalResource = {
         code: {
             coding: [
                 {
-                    system: "http://loinc.org",
-                    code: "LP100459-9",
-                    display: "Lymph-vascular invasion",
+                    system: "https://loinc.org",
+                    code: "59544-7",
+                    display: "Lymph-vascular invasion Cancer specimen",
                 },
             ],
         },
         subject: {
-            reference: `Patient/${uuid["TWCR-Patient"]}`
+            reference: `Patient/${uuid["TWCR-Patient"]}`,
+        },
+        encounter: {
+            reference: `Encounter/${uuid["TWCR-Encounter"]}`,
         },
     },
 };
@@ -64,17 +67,17 @@ module.exports.fields = [
         beforeConvert: (data) => {
             let valueCodeableConcept = JSON.parse(`
             {
-            "coding" : [
-                {
-                "system" : "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/lymph-vascular-invasion-codesystem",
-                "code" : "code",
-                "display" : "display"
-                }
-            ]
+                "coding" : [
+                    {
+                      "system" : "https://hapi.fhir.tw/fhir/CodeSystem/twcr-lf-lymph-vascular-invasion-codesystem",
+                      "code" : "0",
+                      "display" : "無淋巴管或血管侵犯"
+                    }
+                  ]
             }
             `);
             valueCodeableConcept.coding[0].code = data;
-            let displayValue = tools.searchCodeSystemDisplayValue("../TWCR_ValueSets/definitionsJSON/CodeSystem-lymph-vascular-invasion-codesystem.json", data);
+            let displayValue = tools.searchCodeSystemDisplayValue("../TWCR_ValueSets/definitionsJSON/CodeSystem-twcr-lf-lymph-vascular-invasion-codesystem.json", data);
             valueCodeableConcept.coding[0].display = displayValue;
 
             return valueCodeableConcept;

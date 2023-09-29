@@ -5,7 +5,7 @@ const uuid = require("../Bundle/UUIDForm.json");
 module.exports.profile = {
     name: "TWCR-OtherRT",
     version: "1.0.0",
-    fhirServerBaseUrl: "https://hapi.fhir.tw/fhir",
+    fhirServerBaseUrl: "http://152.38.3.250:8080/fhir/",
     action: "upload", // return, upload
 };
 // 此Profile的JSON結構資料參考自以下網頁:
@@ -28,7 +28,7 @@ module.exports.globalResource = {
         category: {
             coding: [
                 {
-                    system: "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/procedure-code-codesystem",
+                    system: "https://hapi.fhir.tw/fhir/CodeSystem/twcr-lf-procedure-code-codesystem",
                     code: "OtherRT",
                     display: "其他放射治療",
                 },
@@ -36,6 +36,9 @@ module.exports.globalResource = {
         },
         subject: {
             reference: `Patient/${uuid["TWCR-Patient"]}`,
+        },
+        encounter: {
+            reference: `Encounter/${uuid["TWCR-Encounter"]}`,
         },
     },
 };
@@ -64,20 +67,18 @@ module.exports.fields = [
         beforeConvert: (data) => {
             let ORTMODCode = JSON.parse(`
             {
-                "valueCodeableConcept" : {
-                    "coding" : [
-                        {
-                        "system" : "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/other-rt-modality-codesystem",
-                        "code" : "code",
-                        "display" : "display"
-                        }
-                    ]
+              "coding" : [
+                {
+                  "system" : "https://hapi.fhir.tw/fhir/CodeSystem/twcr-lf-other-rt-modality-codesystem",
+                  "code" : "0",
+                  "display" : "No Other RT 無其他特殊放射治療"
                 }
+              ]
             }
             `);
-            ORTMODCode.valueCodeableConcept.coding[0].code = data;
-            let displayValue = tools.searchCodeSystemDisplayValue("../TWCR_ValueSets/definitionsJSON/CodeSystem-other-rt-modality-codesystem.json", data);
-            ORTMODCode.valueCodeableConcept.coding[0].display = displayValue;
+            ORTMODCode.coding[0].code = data;
+            let displayValue = tools.searchCodeSystemDisplayValue("../TWCR_ValueSets/definitionsJSON/CodeSystem-twcr-lf-other-rt-modality-codesystem.json", data);
+            ORTMODCode.coding[0].display = displayValue;
 
             return ORTMODCode;
         },
@@ -150,25 +151,23 @@ module.exports.fields = [
         source: "ORTTEC",
         target: "Procedure.extension",
         beforeConvert: (data) => {
-            let orttec = JSON.parse(`
-            [
+            let orttec = JSON.parse(`            
               {  
                 "url" : "https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-other-rt-technique-extension",
                 "valueCodeableConcept" : {
                   "coding" : [
                     {
-                      "system" : "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/procedure-code-codesystem",
-                      "code" : "codeValue",
-                      "display" : "displayValue"
+                      "system" : "https://hapi.fhir.tw/fhir/CodeSystem/twcr-lf-other-rt-technique-1-codesystem",
+                      "code" : "0",
+                      "display" : "No Other RT 無其他特殊放射治療"
                     }
                   ]
                 }
-              }
-            ]
+              }            
           `);
-            orttec[0].valueCodeableConcept.coding[0].code = data;
-            let displayValue = tools.searchCodeSystemDisplayValue("../TWCR_ValueSets/definitionsJSON/CodeSystem-other-rt-technique-6-codesystem.json", data);
-            orttec[0].valueCodeableConcept.coding[0].display = displayValue;
+            orttec.valueCodeableConcept.coding[0].code = data;
+            let displayValue = tools.searchCodeSystemDisplayValue("../TWCR_ValueSets/definitionsJSON/CodeSystem-twcr-lf-other-rt-technique-1-codesystem.json", data);
+            orttec.valueCodeableConcept.coding[0].display = displayValue;
             return orttec;
         },
     },
@@ -180,20 +179,21 @@ module.exports.fields = [
             let ORTtoctvh = JSON.parse(`
             "extension":[
             {                
-              "url" : "https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-target-of-other-rt-extension",    
+              "url" : "https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-target-of-other-rt-extension",
               "valueCodeableConcept" : {
                 "coding" : [
                   {
-                    "system" : "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/procedure-code-codesystem",
-                    "code" : "codeValue",
-                    "display" : "displayValue"
+                    "system" : "https://hapi.fhir.tw/fhir/CodeSystem/twcr-lf-target-of-other-rt-codesystem",
+                    "code" : "0",
+                    "display" : "No Other RT 無其他特殊放射治療"
                   }
-                ]
-              }
-            }]
+            ]
+          }
+            }
+          ]
             `);
             ORTtoctvh[0].extension[0].valueCodeableConcept.coding[0].code = data;
-            let displayValue = tools.searchCodeSystemDisplayValue("../TWCR_ValueSets/definitionsJSON/CodeSystem-target-of-CTVH-codesystem.json", data);
+            let displayValue = tools.searchCodeSystemDisplayValue("../TWCR_ValueSets/definitionsJSON/CodeSystem-twcr-lf-target-of-CTVH-codesystem.json", data);
             ORTtoctvh[0].extension[0].valueCodeableConcept.coding[0].display = displayValue;
             return ORTtoctvh;
         },
@@ -204,21 +204,23 @@ module.exports.fields = [
         target: "Procedure.extension",
         beforeConvert: (data) => {
             let ORTdoctvh = JSON.parse(`
-            "extension":[{
-              "url" : "https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-dose-to-other-rt-extension",
-              "valueCodeableConcept" : {
-                "coding" : [
-                  {
-                    "system" : "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/procedure-code-codesystem",
-                    "code" : "codeValue",
-                    "display" : "displayValue"
-                  }
-                ]
-              }      
-            }]
+            "extension":[
+              {
+                "url" : "https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-dose-to-other-rt-extension",
+                "valueCodeableConcept" : {
+                  "coding" : [
+                    {
+                      "system" : "https://hapi.fhir.tw/fhir/CodeSystem/twcr-lf-dose-to-other-rt-codesystem",
+                      "code" : "00000",
+                      "display" : "沒有其他特殊放射治療"
+                    }
+                  ]
+                }
+            }
+          ]
             `);
             ORTdoctvh[0].extension[0].valueCodeableConcept.coding[0].code = data;
-            let displayValue = tools.searchCodeSystemDisplayValue("../TWCR_ValueSets/definitionsJSON/CodeSystem-dose-to-CTVH-codesystem.json", data);
+            let displayValue = tools.searchCodeSystemDisplayValue("../TWCR_ValueSets/definitionsJSON/CodeSystem-twcr-lf-dose-to-CTVH-codesystem.json", data);
             ORTdoctvh[0].extension[0].valueCodeableConcept.coding[0].display = displayValue;
             return ORTdoctvh;
         },
@@ -230,20 +232,20 @@ module.exports.fields = [
         beforeConvert: (data) => {
             let ORTnfoctvh = JSON.parse(`
             "extension":[{
-              "url" : "https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-number-of-fractions-to-other-rt-extension", 
+              "url" : "https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-number-of-fractions-to-other-rt-extension",
               "valueCodeableConcept" : {
                 "coding" : [
                   {
-                    "system" : "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/procedure-code-codesystem",
-                    "code" : "codeValue",
-                    "display" : "displayValue"
+                    "system" : "https://hapi.fhir.tw/fhir/CodeSystem/twcr-lf-number-of-fractions-to-other-rt-codesystem",
+                    "code" : "00",
+                    "display" : "沒有其他特殊放射治療"
                   }
                 ]
-              }        
+          }
             }]
             `);
             ORTnfoctvh[0].extension[0].valueCodeableConcept.coding[0].code = data;
-            let displayValue = tools.searchCodeSystemDisplayValue("../TWCR_ValueSets/definitionsJSON/CodeSystem-number-of-fractions-to-CTVH-codesystem.json", data);
+            let displayValue = tools.searchCodeSystemDisplayValue("../TWCR_ValueSets/definitionsJSON/CodeSystem-twcr-lf-number-of-fractions-to-CTVH-codesystem.json", data);
             ORTnfoctvh[0].extension[0].valueCodeableConcept.coding[0].display = displayValue;
             return ORTnfoctvh;
         },

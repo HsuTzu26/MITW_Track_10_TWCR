@@ -5,7 +5,7 @@ const uuid = require("../Bundle/UUIDForm.json");
 module.exports.profile = {
     name: "TWCR-Immunotherapy",
     version: "1.0.0",
-    fhirServerBaseUrl: "https://hapi.fhir.tw/fhir",
+    fhirServerBaseUrl: "http://152.38.3.250:8080/fhir/",
     action: "upload", // return, upload
 };
 // 此Profile的JSON結構資料參考自以下網頁:
@@ -28,14 +28,17 @@ module.exports.globalResource = {
         category: {
             coding: [
                 {
-                    system: "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/procedure-code-codesystem",
+                    system: "https://hapi.fhir.tw/fhir/CodeSystem/twcr-lf-procedure-code-codesystem",
                     code: "Immunotherapy",
                     display: "申報醫院免疫治療",
                 },
             ],
         },
         subject: {
-            reference: `Patient/${uuid["TWCR-Patient"]}`
+            reference: `Patient/${uuid["TWCR-Patient"]}`,
+        },
+        encounter: {
+            reference: `Encounter/${uuid["TWCR-Encounter"]}`,
         },
     },
 };
@@ -64,20 +67,18 @@ module.exports.fields = [
         beforeConvert: (data) => {
             let IMATFCode = JSON.parse(`
             {
-                "valueCodeableConcept" : {
-                    "coding" : [
-                        {
-                        "system" : "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/immunotherapy-codesystem",
-                        "code" : "HormoneSteroid",
-                        "display" : "申報醫院免疫治療"
-                        }
-                    ]
-                }
+                "coding" : [
+                    {
+                      "system" : "https://hapi.fhir.tw/fhir/CodeSystem/twcr-lf-immunotherapy-codesystem",
+                      "code" : "01",
+                      "display" : "接受全身性免疫藥物治療"
+                    }
+                  ]
             }
             `);
-            IMATFCode.valueCodeableConcept.coding[0].code = data;
-            let displayValue = tools.searchCodeSystemDisplayValue("../TWCR_ValueSets/definitionsJSON/CodeSystem-immunotherapy-codesystem.json", data);
-            IMATFCode.valueCodeableConcept.coding[0].display = displayValue;
+            IMATFCode.coding[0].code = data;
+            let displayValue = tools.searchCodeSystemDisplayValue("../TWCR_ValueSets/definitionsJSON/CodeSystem-twcr-lf-immunotherapy-codesystem.json", data);
+            IMATFCode.coding[0].display = displayValue;
 
             return IMATFCode;
         },
@@ -85,7 +86,7 @@ module.exports.fields = [
     {
         //申報醫院免疫治療開始日期
         source: "DIMSTF",
-        target: "Procedure.performedDateTime",
+        target: "Procedure.performedPeriod",
         beforeConvert: (data) => {
             let perDateTime = JSON.parse(`
             {

@@ -5,7 +5,7 @@ const uuid = require("../Bundle/UUIDForm.json");
 module.exports.profile = {
     name: "TWCR-MinimallyInvasiveSurgery",
     version: "1.0.0",
-    fhirServerBaseUrl: "https://hapi.fhir.tw/fhir",
+    fhirServerBaseUrl: "http://152.38.3.250:8080/fhir/",
     action: "upload", // return, upload
 };
 // 此Profile的JSON結構資料參考自以下網頁:
@@ -26,7 +26,10 @@ module.exports.globalResource = {
         },
         status: "completed", //preparation | in-progress | not-done | on-hold | stopped | completed | entered-in-error | unknown
         subject: {
-            reference: `Patient/${uuid["TWCR-Patient"]}`
+            reference: `Patient/${uuid["TWCR-Patient"]}`,
+        },
+        encounter: {
+            reference: `Encounter/${uuid["TWCR-Encounter"]}`,
         },
     },
 };
@@ -55,20 +58,18 @@ module.exports.fields = [
         beforeConvert: (data) => {
             let CISTCR38Code = JSON.parse(`
             {
-                "valueCodeableConcept" : {
-                    "coding" : [
-                        {
-                        "system" : "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/minimally-invasive-surgery-codesystem",
-                        "code" : "code",
-                        "display" : "display"
-                        }
-                    ]
-                }
+                "coding" : [
+                    {
+                      "system" : "https://hapi.fhir.tw/fhir/CodeSystem/twcr-lf-minimally-invasive-surgery-codesystem",
+                      "code" : "1",
+                      "display" : "有接受內視鏡手術"
+                    }
+                  ]
             }
             `);
-            CISTCR38Code.valueCodeableConcept.coding[0].code = data;
-            let displayValue = tools.searchCodeSystemDisplayValue("../TWCR_ValueSets/definitionsJSON/CodeSystem-minimally-invasive-surgery-codesystem.json", data);
-            CISTCR38Code.valueCodeableConcept.coding[0].display = displayValue;
+            CISTCR38Code.coding[0].code = data;
+            let displayValue = tools.searchCodeSystemDisplayValue("../TWCR_ValueSets/definitionsJSON/CodeSystem-twcr-lf-minimally-invasive-surgery-codesystem.json", data);
+            CISTCR38Code.coding[0].display = displayValue;
 
             return CISTCR38Code;
         },

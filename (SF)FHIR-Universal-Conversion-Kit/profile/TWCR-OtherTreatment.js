@@ -6,7 +6,7 @@ const uuid = require("../Bundle/UUIDForm.json")
 module.exports.profile = {
   name: 'TWCR-OtherTreatment',
   version: '1.0.0',
-  fhirServerBaseUrl: 'https://hapi.fhir.tw/fhir',
+  fhirServerBaseUrl: "http://152.38.3.250:8080/fhir/",
   action: "upload", // return, upload
 }
 // 此Profile的JSON結構資料參考自以下網頁:
@@ -31,7 +31,7 @@ module.exports.globalResource = {
     category: {
       coding: [
         {
-          system: "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/procedure-code-codesystem",
+          system: "https://hapi.fhir.tw/fhir/CodeSystem/twcr-sf-procedure-code-codesystem",
           code: "OtherTreatment",
           display: "申報醫院其他治療"
         }
@@ -69,7 +69,7 @@ module.exports.fields = [
       {
         "coding" : [
           {
-            "system" : "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/other-treatment-codesystem",
+            "system" : "https://hapi.fhir.tw/fhir/CodeSystem/twcr-sf-other-treatment-codesystem",
             "code" : "",
             "display" : ""
           }

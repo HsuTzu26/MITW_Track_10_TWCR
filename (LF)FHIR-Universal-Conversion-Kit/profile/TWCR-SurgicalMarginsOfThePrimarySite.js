@@ -5,7 +5,7 @@ const uuid = require("../Bundle/UUIDForm.json");
 module.exports.profile = {
     name: "TWCR-SurgicalMarginsOfThePrimarySite",
     version: "1.0.0",
-    fhirServerBaseUrl: "https://hapi.fhir.tw/fhir",
+    fhirServerBaseUrl: "http://152.38.3.250:8080/fhir/",
     action: "upload", // return, upload
 };
 // 此Profile的JSON結構資料參考自以下網頁:
@@ -25,18 +25,20 @@ module.exports.globalResource = {
             div: '<div xmlns="http://www.w3.org/1999/xhtml">目前為空值，可根據使用需求自行產生這筆資料的摘要資訊並填入此欄位</div>',
         },
         status: "final", //registered | preliminary | final | amended +
-        value: "有殘存的侵襲性癌細胞，其他更詳細的情形則不清楚",
         code: {
             coding: [
                 {
-                    system: "http://loinc.org",
+                    system: "https://loinc.org",
                     code: "21939-4",
-                    display: "Surgical margins cancer",
+                    display: "Surgical margins cancer involvement",
                 },
             ],
         },
         subject: {
-            reference: `Patient/${uuid["TWCR-Patient"]}`
+            reference: `Patient/${uuid["TWCR-Patient"]}`,
+        },
+        encounter: {
+            reference: `Encounter/${uuid["TWCR-Encounter"]}`,
         },
     },
 };
@@ -65,20 +67,18 @@ module.exports.fields = [
         beforeConvert: (data) => {
             let valueCodeableConcept = JSON.parse(`
             {
-                "valueCodeableConcept":{
-                    "coding" : [
-                        {
-                        "system" : "https://mitw.dicom.org.tw/IG/TWCR_LF/CodeSystem-surgical-margins-of-the-primary-site-codesystem.html",
-                        "code" : "code",
-                        "display" : "display"
-                        }
-                    ]
-                }
+                "coding" : [
+                    {
+                      "system" : "https://hapi.fhir.tw/fhir/CodeSystem/twcr-lf-surgical-margins-of-the-primary-site-codesystem",
+                      "code" : "1",
+                      "display" : "有殘存的侵襲性癌細胞，其他更詳細的情形則不清楚"
+                    }
+                  ]
             }
             `);
-            valueCodeableConcept.valueCodeableConcept.coding[0].code = data;
-            let displayValue = tools.searchCodeSystemDisplayValue("../TWCR_ValueSets/definitionsJSON/CodeSystem-surgical-margins-of-the-primary-site-codesystem.json", data);
-            valueCodeableConcept.valueCodeableConcept.coding[0].display = displayValue;
+            valueCodeableConcept.coding[0].code = data;
+            let displayValue = tools.searchCodeSystemDisplayValue("../TWCR_ValueSets/definitionsJSON/CodeSystem-twcr-lf-surgical-margins-of-the-primary-site-codesystem.json", data);
+            valueCodeableConcept.coding[0].display = displayValue;
 
             return valueCodeableConcept;
         },

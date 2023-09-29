@@ -1,12 +1,12 @@
 const checkTWCR = require("../TWCR_ValueSets/fetchLatestTWCR.js");
 const tools = require("../TWCR_ValueSets/tools.js");
-const uuid = require("../Bundle/UUIDForm.json")
+const uuid = require("../Bundle/UUIDForm.json");
 // 檔案路徑要以FUCK核心所在的位置為基準
 
 module.exports.profile = {
     name: "TWCR-Weight",
     version: "1.0.0",
-    fhirServerBaseUrl: "https://hapi.fhir.tw/fhir",
+    fhirServerBaseUrl: "http://152.38.3.250:8080/fhir/",
     action: "upload", // return, upload
 };
 // 此Profile的JSON結構資料參考自以下網頁:
@@ -20,7 +20,7 @@ module.exports.globalResource = {
     Observation: {
         id: uuid["TWCR-Weight"],
         meta: {
-            profile: [" https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-weight-profile"],
+            profile: ["https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-weight-profile"],
         },
         text: {
             status: "empty",
@@ -30,11 +30,17 @@ module.exports.globalResource = {
         code: {
             coding: [
                 {
-                    system: "http://loinc.org",
+                    system: "https://loinc.org",
                     code: "29463-7",
                     display: "Body Weight",
                 },
             ],
+        },
+        subject: {
+            reference: `Patient/${uuid["TWCR-Patient"]}`,
+        },
+        encounter: {
+            reference: `Encounter/${uuid["TWCR-Encounter"]}`,
         },
     },
 };
@@ -80,7 +86,7 @@ module.exports.fields = [
             {
               "coding" : [
                 {
-                  "system" : "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/weight-codesystem",
+                  "system" : "https://hapi.fhir.tw/fhir/CodeSystem/twcr-sf-weight-codesystem",
                   "code" : "code",
                   "display" : "display"
                 }
@@ -104,7 +110,7 @@ module.exports.fields = [
       {
         "value" : 168,
         "unit" : "kg",
-        "system" : "http://unitsofmeasure.org",
+        "system" : "https://unitsofmeasure.org",
         "code" : "kg"
       }
       `);

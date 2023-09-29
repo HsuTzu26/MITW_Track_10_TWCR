@@ -5,7 +5,7 @@ const uuid = require("../Bundle/UUIDForm.json");
 module.exports.profile = {
     name: "TWCR-TumorSize",
     version: "1.0.0",
-    fhirServerBaseUrl: "https://hapi.fhir.tw/fhir",
+    fhirServerBaseUrl: "http://152.38.3.250:8080/fhir/",
     action: "upload", // return, upload
 };
 // 此Profile的JSON結構資料參考自以下網頁:
@@ -25,18 +25,20 @@ module.exports.globalResource = {
             div: '<div xmlns="http://www.w3.org/1999/xhtml">目前為空值，可根據使用需求自行產生這筆資料的摘要資訊並填入此欄位</div>',
         },
         status: "final", //registered | preliminary | final | amended +
-        value: "20 millimeter", //20 millimeter | 描述為＜1 cm
         code: {
             coding: [
                 {
-                    system: "http://loinc.org",
+                    system: "https://loinc.org",
                     code: "33728-7",
                     display: "Size.maximum dimension in Tumor",
                 },
             ],
         },
         subject: {
-            reference: `Patient/${uuid["TWCR-Patient"]}`
+            reference: `Patient/${uuid["TWCR-Patient"]}`,
+        },
+        encounter: {
+            reference: `Encounter/${uuid["TWCR-Encounter"]}`,
         },
     },
 };
@@ -47,7 +49,7 @@ module.exports.beforeProcess = (data) => {
     checkTWCR();
     // 在開始轉換前檢查TWCR的package是否有更新
     // CRDB中 TMSIZE 最大為1xx, 998/999的病理分級都是X
-    data.TMSIZE_copy = String(data.TMSIZE)
+    data.TMSIZE_copy = String(data.TMSIZE);
 
     return data;
 };
@@ -61,19 +63,18 @@ module.exports.fields = [
         },
     },
     {
-        source: "TMSIZE_copy",
+        source: "TMSIZE",
         target: "Observation.valueQuantity",
         beforeConvert: (data) => {
             let valueQuantity = JSON.parse(`
             {
-                "value" : "999",
+                "value" : 20,
                 "unit" : "millimeter",
-                "system" : "http://unitsofmeasure.org",
+                "system" : "https://unitsofmeasure.org",
                 "code" : "mm"
+            
             }
       `);
-
-            
 
             if (parseInt(String(data)) <= 300) {
                 valueQuantity.value = parseInt(String(data));
@@ -81,26 +82,26 @@ module.exports.fields = [
             } else return null;
         },
     },
-    {
-        source: "TMSIZE",
-        target: "Observation.valueCodeableConcept",
-        beforeConvert: (data) => {
-            let valueCodeableConcept = JSON.parse(`
-            {
-                "coding" : [
-                    {
-                    "system" : "https://hapi.fhir.tw/fhir/CodeSystem/twcr-lf-tumor-size-codesystem",
-                    "code" : "code",
-                    "display" : "display"
-                    }
-                ]
-            }
-            `);
-            valueCodeableConcept.coding[0].code = data;
-            let displayValue = tools.searchCodeSystemDisplayValue("../TWCR_ValueSets/definitionsJSON/CodeSystem-tumor-size-codesystem.json", data);
-            valueCodeableConcept.coding[0].display = displayValue;
+    // {
+    //     source: "TMSIZE_copy",
+    //     target: "Observation.valueCodeableConcept",
+    //     beforeConvert: (data) => {
+    //         let valueCodeableConcept = JSON.parse(`
+    //         {
+    //             "coding" : [
+    //                 {
+    //                 "system" : "https://hapi.fhir.tw/fhir/CodeSystem/twcr-lf-tumor-size-codesystem",
+    //                 "code" : "code",
+    //                 "display" : "display"
+    //                 }
+    //             ]
+    //         }
+    //         `);
+    //         valueCodeableConcept.coding[0].code = data;
+    //         let displayValue = tools.searchCodeSystemDisplayValue("../TWCR_ValueSets/definitionsJSON/CodeSystem-tumor-size-codesystem.json", data);
+    //         valueCodeableConcept.coding[0].display = displayValue;
 
-            return valueCodeableConcept;
-        },
-    },
+    //         return valueCodeableConcept;
+    //     },
+    // },
 ];

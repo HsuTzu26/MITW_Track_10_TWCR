@@ -30,6 +30,7 @@ class Convert {
             // console.log(useProfile);
             this.bundle = JSON.parse(JSON.stringify(resources.Bundle(useProfile)));
         }
+        // console.log(this.useProfile)
     }
 
     async convert() {
@@ -38,15 +39,16 @@ class Convert {
         let bundle = JSON.parse(JSON.stringify(this.bundle));
         let resourceIdList = JSON.parse(JSON.stringify(this.resourceIdList));
         let profiles = JSON.parse(JSON.stringify(this.profiles));
-
+        // console.log(this.useProfile)
         // find the profile
         let profile = JSON.parse(JSON.stringify(profiles[this.useProfile]));
         if (!profile) {
             throw new Error("Profile not found.");
         }
-
+        
         // run beforeProcess
         data = _profiles[this.useProfile].beforeProcess ? _profiles[this.useProfile].beforeProcess(data) : data;
+
         for (const field in data) {
             // find target field in the config
             let targetField = profile.fields.find((f) => {
@@ -63,10 +65,10 @@ class Convert {
             // find resource in the bundle
             let resource = bundle.entry.find((entry) => entry.resource.resourceType === resourceType);
             // if resource does not exist, create it
-
+            // console.log(JSON.stringify(resource))
             if (!resource) {
                 bundle.entry.push({
-                    fullUrl: `${profile.profile.fhirServerBaseUrl}/${resourceType}/${uuid[this.useProfile]}`,
+                    fullUrl: `${profile.profile.fhirServerBaseUrl}${resourceType}/${uuid[this.useProfile]}`,
                     resource: {
                         resourceType: resourceType,
                         id: `${uuid[this.useProfile]}`,
@@ -96,10 +98,12 @@ class Convert {
                 continue;
             }
 
-            // console.log("schema",schema.definitions[resourceType].properties[fhirPath])
+            // console.log(JSON.stringify(preprocessedData,null,4))
+
+            // console.log("schema",schema.definitions[resourceType].properties[fhirPath].type)
 
             // write the resource to the bundle
-            switch (schema.definitions[resourceType].properties[fhirPath]) {
+            switch (schema.definitions[resourceType].properties[fhirPath].type) {
                 case "array":
                     objectPath.push(bundle.entry[resourceIndex].resource, fhirPath, preprocessedData);
                     break;
@@ -107,10 +111,11 @@ class Convert {
                     objectPath.set(bundle.entry[resourceIndex].resource, fhirPath, preprocessedData);
                     break;
             }
+            // console.log(JSON.stringify(bundle.entry[0]))
 
             // if id was changed, update the fullUrl
-            bundle.entry[resourceIndex].fullUrl = `${profile.profile.fhirServerBaseUrl}/${resourceType}/${bundle.entry[resourceIndex].resource.id}`;
-            bundle.entry[resourceIndex].request.url = `/${resourceType}/${bundle.entry[resourceIndex].resource.id}`;
+            bundle.entry[resourceIndex].fullUrl = `${profile.profile.fhirServerBaseUrl}${resourceType}/${bundle.entry[resourceIndex].resource.id}`;
+            bundle.entry[resourceIndex].request.url = `${resourceType}/${bundle.entry[resourceIndex].resource.id}`;
             resourceIdList[resourceType] = bundle.entry[resourceIndex].resource.id;
         }
         // build id list
@@ -144,14 +149,14 @@ class Convert {
         if (profile.profile.action === "return") {
             return bundle;
         }
-
+        // console.log(bundle.entry[0])
         if (profile.profile.action === "upload") {
             const result = await axios
                 .put(`${profile.profile.fhirServerBaseUrl}/${bundle.entry[0].resource.resourceType}/${uuid[this.useProfile]}`, bundle.entry[0].resource, headerConfigs)
                 .catch((err) => {
-                    console.log(err.response.data);
-                    console.log(bundle.entry[0]);
-                    throw new Error(JSON.stringify(err.response.data));
+                    // console.log(err.response.data);
+                    console.log(JSON.stringify(bundle.entry[0], null, 4));
+                    throw new Error(JSON.stringify(err.response.data, null, 4));
                 });
             return result.data;
         }

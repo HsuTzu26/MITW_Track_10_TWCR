@@ -29,7 +29,7 @@ function getProfilesName() {
         }
 
         // 定义优先排序的值
-        const priorityValues = ["TWCR-Organization", "TWCR-Patient", "TWCR-Practitioner", "TWCR-Encounter"];
+        const priorityValues = ["TWCR-Organization", "TWCR-Patient", "TWCR-Practitioner", "TWCR-Encounter",  "TWCR-Condition" , 'TWCR-ClinicalT',   'TWCR-ClinicalN',   'TWCR-ClinicalM', 'TWCR-PathologicT', 'TWCR-PathologicN', 'TWCR-PathologicM',];
 
         // 使用自定义排序函数进行排序
         files.sort((a, b) => {
@@ -50,36 +50,22 @@ function getProfilesName() {
     return files;
 }
 
-function originalSort() {
-    // Define the directory that need to searched
-    const scriptDirectory = __dirname;
-    const targetDirectory = path.join(scriptDirectory, "../profile");
-    const files = [];
+const profiles = getProfilesName();
 
-    // Get the files and subdirectory in targetDirectory
-    const items = fs.readdirSync(targetDirectory);
+const Form = {};
 
-    // Recursively search and get the profile names
-    items.forEach((item) => {
-        // Get the path of each directory
-        const itemPath = path.join(targetDirectory, item);
+const { v4: uuidv4 } = require("uuid");
+profiles.map((p) => (Form[p] = `${uuidv4()}`))
 
-        // Check whether items is directory
-        if (fs.statSync(itemPath).isDirectory()) {
-            // If it is a directory, search recursively
-            files.push(...getProfilesName(itemPath));
-        } else {
-            // If it is file, check whether is the .js file and contains "TWCR", then get the file name and remove the extension
-            if (item.endsWith(".js") && fs.readFileSync(itemPath, "utf8").includes("TWCR")) {
-                const fileName = path.basename(itemPath, ".js");
-                files.push(fileName);
-            }
-        }
-    });
-    return files;
-}
-
+// // Store Bundle.json
+// const UUIDFrom = __dirname + "/UUIDForm.json";
+// const UUIDFromJson = JSON.stringify(Form, null, 4);
+// fs.writeFileSync(UUIDFrom, UUIDFromJson, "utf-8", (e) => {
+//     if (e) {
+//         console.log(e);
+//         return;
+//     }
+// });
 module.exports = {
     getProfilesName,
-    originalSort
 };

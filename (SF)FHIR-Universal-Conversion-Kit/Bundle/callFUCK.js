@@ -11,9 +11,11 @@ const { v4: uuidv4 } = require("uuid");
 
 const Lorex = "https://hapi.fhir.tw/fhir/"; //Lorex
 const internal1 = "http://152.38.3.102:8080/fhir/"; //內網1
-const internal2 = "http://152.38.3.103:4180/fhir" //內網2
+const internal2 = "http://152.38.3.103:4180/fhir/"; //內網2
+const internal3 = "http://152.38.3.250:8080/fhir/"; //內網3
+const Burni = "http://localhost:8080/";
 
-const fhirServer = Lorex;
+const fhirServer = internal3;
 
 // Running server and POST to F.U.C.K. then return the result of F.U.C.K. response
 function runFuck(data, profileName) {
@@ -66,7 +68,7 @@ function createComposition(sectionEntry, compId = `${uuidv4()}`, status = "final
         type: {
             coding: [
                 {
-                    system: "http://loinc.org",
+                    system: "https://loinc.org",
                     code: "72134-0",
                     display: "Cancer event report",
                 },
@@ -92,7 +94,7 @@ function createComposition(sectionEntry, compId = `${uuidv4()}`, status = "final
                 code: {
                     coding: [
                         {
-                            system: "http://snomed.info/sct",
+                            system: "https://snomed.info/sct",
                             code: "395099008",
                         },
                     ],
@@ -112,7 +114,7 @@ function createComposition(sectionEntry, compId = `${uuidv4()}`, status = "final
                 code: {
                     coding: [
                         {
-                            system: "http://snomed.info/sct",
+                            system: "https://snomed.info/sct",
                             code: "708255002",
                         },
                     ],
@@ -135,7 +137,7 @@ function createComposition(sectionEntry, compId = `${uuidv4()}`, status = "final
                 code: {
                     coding: [
                         {
-                            system: "https://hapi.fhir.tw/fhir/CodeSystem/logical-model-codesystem",
+                            system: "https://hapi.fhir.tw/fhir/CodeSystem/twcr-sf-logical-model-codesystem",
                             code: "OtherFactors",
                         },
                     ],
@@ -149,11 +151,12 @@ function createComposition(sectionEntry, compId = `${uuidv4()}`, status = "final
                 ],
             },
         ],
+        // ,
 
-        request: {
-            method: "PUT",
-            url: `Composition/${compId}`,
-        },
+        // request: {
+        //     method: "PUT",
+        //     url: `Composition/${compId}`,
+        // },
     };
 
     return composition;
@@ -206,6 +209,8 @@ let data = postData; // data: Object, type: JSON
     const tmpProfiles = profiles.map((profile) => profile.split("TWCR-")[1]);
     const UUID = getUUID(entry);
 
+    // console.log(UUID)
+
     /* Valid UUID */
     let count = 0;
     for (let e in entry) {
@@ -233,11 +238,23 @@ let data = postData; // data: Object, type: JSON
     const hapiCompURL = `${fhirServer}Composition/${CompId}`;
     const postCompHapi = axios.put(hapiCompURL, Composition);
     postCompHapi
-        .then((res) => (Composition = res.data))
+        .then((res) => {
+            Composition = res.data;
+            console.log("***Completely create Composition***");
+        })
         .catch((e) => {
-            console.log(e.response.data);
+            // console.log(e.response.data);
+            console.log("Composition PUT Error");
+            const CompErrorPath = path.join(__dirname, "../JSONPlaceholder/CompError.json");
+            const CompErrorJson = JSON.stringify(e.response.data, null, 4);
+            fs.writeFileSync(CompErrorPath, CompErrorJson, "utf-8", (e) => {
+                if (e) {
+                    console.log(e);
+                    return;
+                }
+            });
         });
-    console.log("***Completely create Composition***");
+
     PNum++;
 
     // save Composition
@@ -261,11 +278,20 @@ let data = postData; // data: Object, type: JSON
         delete entry[e].request;
     }
 
-    // Create resource
+    let storedfullUrl = [];
+    //Create resource
     for (let e in entry) {
-        let resource = [{ resource: entry[e] }];
-        entry[e] = resource[0];
+        let fullUrlValue = `${fhirServer}${entry[e].resourceType}/${entry[e].id}`;
+
+        entry[e] = {
+            fullUrl: fullUrlValue,
+            resource: entry[e],
+        };
+
+        storedfullUrl.push(fullUrlValue);
     }
+
+    // console.log(entry)
 
     let BundleDocument = createBundle(entry);
 
@@ -280,10 +306,25 @@ let data = postData; // data: Object, type: JSON
     const putBundleHapi = axios.put(hapiBundlePutURL, BundleDocument);
 
     putBundleHapi
-        .then((res) => (BundleDocument = res.data))
+        .then((res) => {
+            BundleDocument = res.data;
+            console.log("***Completely create Bundle document***");
+        })
         .catch((e) => {
-            console.log(e.response.data);
+            // console.log(e.response.data);
+            console.log("Bundle Document PUT Run Error");
+            // save Error
+            const BundleDocumentErrorPath = path.join(__dirname, "../JSONPlaceholder/BundleDocumentError.json");
+            const BundleDocumentErrorJson = JSON.stringify(e.response.data, null, 4);
+            fs.writeFileSync(BundleDocumentErrorPath, BundleDocumentErrorJson, "utf-8", (e) => {
+                if (e) {
+                    console.log(e);
+                    return;
+                }
+            });
         });
+
+    storedfullUrl.unshift(`${fhirServer}${BundleDocument.resourceType}/${BundleDocument.id}`);
 
     // save Bundle document
     const BundleDocumentPath = path.join(__dirname, "../JSONPlaceholder/BundleDocument.json");
@@ -295,9 +336,17 @@ let data = postData; // data: Object, type: JSON
         }
     });
 
-    console.log("***Completely create Bundle document***");
     PNum++;
 
     /* Final Check */
     PNum === 25 + 2 ? console.log(PNum, `Validation Short Form Profiles: ${PNum} Success`) : "Validation Failed";
+
+    const fullUrlPath = path.join(__dirname, "../JSONPlaceholder/storedfullUrl.json");
+    const fullUrlJson = JSON.stringify(storedfullUrl, null, 4);
+    fs.writeFileSync(fullUrlPath, fullUrlJson, "utf-8", (e) => {
+        if (e) {
+            console.log(e);
+            return;
+        }
+    });
 })();

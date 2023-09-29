@@ -6,7 +6,7 @@ const uuid = require("../Bundle/UUIDForm.json");
 module.exports.profile = {
     name: "TWCR-ClinicalM",
     version: "1.0.0",
-    fhirServerBaseUrl: "https://hapi.fhir.tw/fhir",
+    fhirServerBaseUrl: "http://152.38.3.250:8080/fhir/",
     action: "upload", // return, upload
 };
 // 此Profile的JSON結構資料參考自以下網頁:
@@ -24,19 +24,22 @@ module.exports.globalResource = {
         text: {
             status: "empty", // registered | preliminary | final | amended
             div: '<div xmlns="http://www.w3.org/1999/xhtml">目前為空值，可根據使用需求自行產生這筆資料的摘要資訊並填入此欄位</div>',
-        },        
-        // value: "M1a",
+        },
+        status: "registered",
         code: {
             coding: [
                 {
-                    system: "http://loinc.org",
+                    system: "https://loinc.org",
                     code: "21907-1",
                     display: "Distant metastases.clinical [Class] Cancer",
                 },
             ],
         },
         subject: {
-            reference: `Patient/${uuid["TWCR-Patient"]}`
+            reference: `Patient/${uuid["TWCR-Patient"]}`,
+        },
+        encounter: {
+            reference: `Encounter/${uuid["TWCR-Encounter"]}`,
         },
     },
 };
@@ -65,20 +68,18 @@ module.exports.fields = [
         beforeConvert: (data) => {
             let valueCodeableConcept = JSON.parse(`
             {
-                "valueCodeableConcept":{ 
-                    "coding" : [
+                "coding" : [
                     {
-                    "system" : "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/clinical-m-codesystem",
-                    "code" : "code",
-                    "display" : "display"
+                      "system" : "https://hapi.fhir.tw/fhir/CodeSystem/twcr-lf-clinical-m-codesystem",
+                      "code" : "1A",
+                      "display" : "M1a"
                     }
-                    ]
-                }           
+                  ]     
             }
             `);
-            valueCodeableConcept.valueCodeableConcept.coding[0].code = data;
-            let displayValue = tools.searchCodeSystemDisplayValue("../TWCR_ValueSets/definitionsJSON/CodeSystem-clinical-m-codesystem.json", data);
-            valueCodeableConcept.valueCodeableConcept.coding[0].display = displayValue;
+            valueCodeableConcept.coding[0].code = data;
+            let displayValue = tools.searchCodeSystemDisplayValue("../TWCR_ValueSets/definitionsJSON/CodeSystem-twcr-lf-clinical-m-codesystem.json", data);
+            valueCodeableConcept.coding[0].display = displayValue;
 
             return valueCodeableConcept;
         },
@@ -90,20 +91,19 @@ module.exports.fields = [
         beforeConvert: (data) => {
             let method = JSON.parse(`
             {
-                "valueCodeableConcept":{
-                    "coding" : [
-                        {
-                        "system" : "https://mitw.dicom.org.tw/IG/TWCR_LF/ValueSet-the-edition-and-chapter-of-AJCC-cancer-staging-valueset.html",
-                        "code" : "code",
-                        "display" : "display"
-                        }
-                    ]
-                }
+                "coding" : [
+                    {
+                      "system" : "https://hapi.fhir.tw/fhir/CodeSystem/twcr-lf-edition-and-chapter-of-AJCC-cancer-staging-codesystem",
+                      "code" : "08006",
+                      "display" : "第八版第 6 章"
+                    }
+                  ],
+                  "text" : "第八版第 6 章"
             }
             `);
-            method.valueCodeableConcept.coding[0].code = data;
-            let displayValue = tools.searchCodeSystemDisplayValue("../TWCR_ValueSets/definitionsJSON/CodeSystem-clinical-m-codesystem.json", data);
-            method.valueCodeableConcept.coding[0].display = displayValue;
+            method.coding[0].code = data;
+            let displayValue = tools.searchCodeSystemDisplayValue("../TWCR_ValueSets/definitionsJSON/CodeSystem-twcr-lf-edition-and-chapter-of-AJCC-cancer-staging-codesystem.json", data);
+            method.coding[0].display = displayValue;
 
             return method;
         },

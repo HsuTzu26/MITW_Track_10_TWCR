@@ -5,7 +5,7 @@ const uuid = require("../Bundle/UUIDForm.json");
 module.exports.profile = {
     name: "TWCR-ReasonForNoSurgeryOfPrimarySite",
     version: "1.0.0",
-    fhirServerBaseUrl: "https://hapi.fhir.tw/fhir",
+    fhirServerBaseUrl: "http://152.38.3.250:8080/fhir/",
     action: "upload", // return, upload
 };
 // 此Profile的JSON結構資料參考自以下網頁:
@@ -26,7 +26,10 @@ module.exports.globalResource = {
         },
         status: "completed", //preparation | in-progress | not-done | on-hold | stopped | completed | entered-in-error | unknown
         subject: {
-            reference: `Patient/${uuid["TWCR-Patient"]}`
+            reference: `Patient/${uuid["TWCR-Patient"]}`,
+        },
+        encounter: {
+            reference: `Encounter/${uuid["TWCR-Encounter"]}`,
         },
     },
 };
@@ -51,24 +54,22 @@ module.exports.fields = [
     {
         //	原發部位未手術原因
         source: "RNSOFS",
-        target: "Procedure.code",
+        target: "Procedure.reasonCode",
         beforeConvert: (data) => {
             let RNSOFSCode = JSON.parse(`
             {
-                "valueCodeableConcept" : {
-                    "coding" : [
-                        {
-                        "system" : "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/reason-for-no-surgery-of-primary-site-codesystem",
-                        "code" : "code",
-                        "display" : "display"
-                        }
-                    ]
-                }
+                "coding" : [
+                    {
+                      "system" : "https://hapi.fhir.tw/fhir/CodeSystem/twcr-lf-reason-for-no-surgery-of-primary-site-codesystem",
+                      "code" : "0",
+                      "display" : "個案在首次療程中接受手術治療"
+                    }
+                  ]
             }
             `);
-            RNSOFSCode.valueCodeableConcept.coding[0].code = data;
-            let displayValue = tools.searchCodeSystemDisplayValue("../TWCR_ValueSets/definitionsJSON/CodeSystem-reason-for-no-surgery-of-primary-site-codesystem.json", data);
-            RNSOFSCode.valueCodeableConcept.coding[0].display = displayValue;
+            RNSOFSCode.coding[0].code = data;
+            let displayValue = tools.searchCodeSystemDisplayValue("../TWCR_ValueSets/definitionsJSON/CodeSystem-twcr-lf-reason-for-no-surgery-of-primary-site-codesystem.json", data);
+            RNSOFSCode.coding[0].display = displayValue;
 
             return RNSOFSCode;
         },

@@ -5,7 +5,7 @@ const uuid = require("../Bundle/UUIDForm.json");
 module.exports.profile = {
     name: "TWCR-SmokingBehavior",
     version: "1.0.0",
-    fhirServerBaseUrl: "https://hapi.fhir.tw/fhir",
+    fhirServerBaseUrl: "http://152.38.3.250:8080/fhir/",
     action: "upload", // return, upload
 };
 // 此Profile的JSON結構資料參考自以下網頁:
@@ -28,7 +28,7 @@ module.exports.globalResource = {
         code: {
             coding: [
                 {
-                    system: "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/behavior-codesystem",
+                    system: "https://hapi.fhir.tw/fhir/CodeSystem/twcr-lf-observation-behavior-codesystem",
                     code: "Smoking",
                     display: "吸菸行為",
                 },
@@ -36,6 +36,9 @@ module.exports.globalResource = {
         },
         subject: {
             reference: `Patient/${uuid["TWCR-Patient"]}`,
+        },
+        encounter: {
+            reference: `Encounter/${uuid["TWCR-Encounter"]}`,
         },
     },
 };
@@ -73,7 +76,7 @@ module.exports.fields = [
           "code" : {
             "coding" : [
               {
-                "system" : "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/smoking-behavior-codesystem",
+                "system" : "https://hapi.fhir.tw/fhir/CodeSystem/twcr-lf-smoking-behavior-codesystem",
                 "code" : "amount",
                 "display" : "每日吸菸量，以”支”計算"
               }
@@ -82,16 +85,16 @@ module.exports.fields = [
           "valueCodeableConcept" : {
             "coding" : [
               {
-                "system" : "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/smoking-amount-codesystem",
-                "code" : "code",
-                "display" : "display"
+                "system" : "https://hapi.fhir.tw/fhir/CodeSystem/twcr-lf-smoking-amount-codesystem",
+                "code" : "00",
+                "display" : "無吸菸"
               }
             ]
           }
         }
         `);
             component.valueCodeableConcept.coding[0].code = String(data);
-            let displayValue = tools.searchCodeSystemDisplayValue("../TWCR_ValueSets/definitionsJSON/CodeSystem-smoking-amount-codesystem.json", String(data));
+            let displayValue = tools.searchCodeSystemDisplayValue("../TWCR_ValueSets/definitionsJSON/CodeSystem-twcr-lf-smoking-amount-codesystem.json", String(data));
             component.valueCodeableConcept.coding[0].display = displayValue;
 
             return component;
@@ -103,29 +106,29 @@ module.exports.fields = [
         target: "Observation.component",
         beforeConvert: (data) => {
             let component = JSON.parse(`
-      {
-        "code" : {
-          "coding" : [
             {
-              "system" : "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/smoking-behavior-codesystem",
-              "code" : "year",
-              "display" : "吸菸年"
+              "code" : {
+                "coding" : [
+                  {
+                    "system" : "https://hapi.fhir.tw/fhir/CodeSystem/twcr-lf-smoking-behavior-codesystem",
+                    "code" : "year",
+                    "display" : "吸菸年"
+                  }
+                ]
+              },
+              "valueCodeableConcept" : {
+                "coding" : [
+                  {
+                    "system" : "https://hapi.fhir.tw/fhir/CodeSystem/twcr-lf-smoking-year-codesystem",
+                    "code" : "00",
+                    "display" : "無吸菸"
+                  }
+                ]
+              }
             }
-          ]
-        },
-        "valueCodeableConcept" : {
-          "coding" : [
-            {
-              "system" : "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/smoking-year-codesystem",
-              "code" : "code",
-              "display" : "display"
-            }
-          ]
-        }
-      }
-      `);
+          `);
             component.valueCodeableConcept.coding[0].code = String(data);
-            let displayValue = tools.searchCodeSystemDisplayValue("../TWCR_ValueSets/definitionsJSON/CodeSystem-smoking-year-codesystem.json", String(data));
+            let displayValue = tools.searchCodeSystemDisplayValue("../TWCR_ValueSets/definitionsJSON/CodeSystem-twcr-lf-smoking-year-codesystem.json", String(data));
             component.valueCodeableConcept.coding[0].display = displayValue;
 
             return component;
@@ -141,7 +144,7 @@ module.exports.fields = [
           "code" : {
             "coding" : [
               {
-                "system" : "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/smoking-behavior-codesystem",
+                "system" : "https://hapi.fhir.tw/fhir/CodeSystem/twcr-lf-smoking-behavior-codesystem",
                 "code" : "quit",
                 "display" : "戒菸年"
               }
@@ -150,16 +153,16 @@ module.exports.fields = [
           "valueCodeableConcept" : {
             "coding" : [
               {
-                "system" : "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/smoking-quit-codesystem",
-                "code" : "code",
-                "display" : "display"
+                "system" : "https://hapi.fhir.tw/fhir/CodeSystem/twcr-lf-smoking-quit-codesystem",
+                "code" : "88",
+                "display" : "無吸菸"
               }
             ]
           }
         }
         `);
             component.valueCodeableConcept.coding[0].code = String(data);
-            let displayValue = tools.searchCodeSystemDisplayValue("../TWCR_ValueSets/definitionsJSON/CodeSystem-smoking-quit-codesystem.json", String(data));
+            let displayValue = tools.searchCodeSystemDisplayValue("../TWCR_ValueSets/definitionsJSON/CodeSystem-twcr-lf-smoking-quit-codesystem.json", String(data));
             component.valueCodeableConcept.coding[0].display = displayValue;
 
             return component;

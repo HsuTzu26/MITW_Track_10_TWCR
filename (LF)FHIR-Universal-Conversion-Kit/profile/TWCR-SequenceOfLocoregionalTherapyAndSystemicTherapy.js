@@ -5,7 +5,7 @@ const uuid = require("../Bundle/UUIDForm.json");
 module.exports.profile = {
     name: "TWCR-SequenceOfLocoregionalTherapyAndSystemicTherapy",
     version: "1.0.0",
-    fhirServerBaseUrl: "https://hapi.fhir.tw/fhir",
+    fhirServerBaseUrl: "http://152.38.3.250:8080/fhir/",
     action: "upload", // return, upload
 };
 // 此Profile的JSON結構資料參考自以下網頁:
@@ -18,7 +18,7 @@ module.exports.globalResource = {
     Procedure: {
         id: uuid["TWCR-SequenceOfLocoregionalTherapyAndSystemicTherapy"],
         meta: {
-            profile: ["https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-sequence-of-radiotherapy-and-surgery-profile"],
+            profile: ["https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-sequence-of-locoregional-and-systemic-profile"],
         },
         text: {
             status: "empty",
@@ -26,7 +26,10 @@ module.exports.globalResource = {
         },
         status: "completed", //preparation | in-progress | not-done | on-hold | stopped | completed | entered-in-error | unknown
         subject: {
-            reference: `Patient/${uuid["TWCR-Patient"]}`
+            reference: `Patient/${uuid["TWCR-Patient"]}`,
+        },
+        encounter: {
+            reference: `Encounter/${uuid["TWCR-Encounter"]}`,
         },
     },
 };
@@ -55,20 +58,18 @@ module.exports.fields = [
         beforeConvert: (data) => {
             let SEQTPSYSCode = JSON.parse(`
             {
-                "valueCodeableConcept" : {
-                    "coding" : [
-                        {
-                        "system" : "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/sequence-of-locoregional-therapy-and-systemic-therapy-codesystem",
-                        "code" : "code",
-                        "display" : "display"
-                        }
-                    ]
-                }
+                "coding" : [
+                    {
+                      "system" : "https://hapi.fhir.tw/fhir/CodeSystem/twcr-lf-sequence-of-locoregional-and-systemic-codesystem",
+                      "code" : "-8",
+                      "display" : "No regional therapy 無區域治療"
+                    }
+                  ]
             }
             `);
-            SEQTPSYSCode.valueCodeableConcept.coding[0].code = data;
-            let displayValue = tools.searchCodeSystemDisplayValue("../TWCR_ValueSets/definitionsJSON/CodeSystem-sequence-of-locoregional-therapy-and-systemic-therapy-codesystem.json", data);
-            SEQTPSYSCode.valueCodeableConcept.coding[0].display = displayValue;
+            SEQTPSYSCode.coding[0].code = data;
+            let displayValue = tools.searchCodeSystemDisplayValue("../TWCR_ValueSets/definitionsJSON/CodeSystem-twcr-lf-sequence-of-locoregional-and-systemic-codesystem.json", data);
+            SEQTPSYSCode.coding[0].display = displayValue;
 
             return SEQTPSYSCode;
         },

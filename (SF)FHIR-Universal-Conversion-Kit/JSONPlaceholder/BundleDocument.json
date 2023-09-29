@@ -1,6 +1,6 @@
 {
     "resourceType": "Bundle",
-    "id": "4f3ae605-3990-4efa-89bd-07b5685e919a",
+    "id": "3fd6c306-fb72-4f66-8ecf-05ff5f347c7c",
     "meta": {
         "profile": [
             "https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-bundle-profile"
@@ -8,15 +8,16 @@
     },
     "identifier": {
         "system": "https://www.cdc.gov.tw/",
-        "value": "TWCR-SF-2023-09-16T18:26:16+08:00"
+        "value": "TWCR-SF-2023-09-29T13:23:58+08:00"
     },
     "type": "document",
-    "timestamp": "2023-09-16T18:26:16+08:00",
+    "timestamp": "2023-09-29T13:23:58+08:00",
     "entry": [
         {
+            "fullUrl": "http://152.38.3.250:8080/fhir/Composition/bddd73f8-b13a-423d-a9a9-f806caf7927c",
             "resource": {
                 "resourceType": "Composition",
-                "id": "9b4be1d0-15ed-40f3-920a-54246d16392f",
+                "id": "bddd73f8-b13a-423d-a9a9-f806caf7927c",
                 "meta": {
                     "profile": [
                         "https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-composition-profile"
@@ -30,139 +31,143 @@
                 "type": {
                     "coding": [
                         {
-                            "system": "http://loinc.org",
+                            "system": "https://loinc.org",
                             "code": "72134-0",
                             "display": "Cancer event report"
                         }
-                    ],
-                    "subject": {
-                        "reference": "86602a9d-9210-4458-96af-31486a131c09"
+                    ]
+                },
+                "subject": {
+                    "reference": "Patient/0ed46368-db5d-4419-9d26-c51524842018"
+                },
+                "date": "2023-09-29T13:23:58+08:00",
+                "author": [
+                    {
+                        "reference": "Organization/17ebfb14-df37-4883-86a8-44e781f38e47"
                     },
-                    "date": "2023-09-16T18:26:16+08:00",
-                    "author": [
-                        {
-                            "reference": "2d9a3009-3056-4bc8-a620-d6087a7b06b5"
-                        },
-                        {
-                            "reference": "c2a05b15-5991-4f6e-a5ec-3dd0e5c135cb"
-                        }
-                    ],
-                    "title": "Cancer Registry Short Form",
-                    "section": {
-                        "sectionCancerConfirmation": {
-                            "title": "The section of CancerConfirmation",
-                            "code": {
-                                "coding": [
-                                    {
-                                        "system": "http://snomed.info/sct",
-                                        "code": "395099008"
-                                    }
-                                ]
-                            },
-                            "entry": [
-                                {
-                                    "reference": "7abead5d-4220-4372-81d2-e1b5e3d548ac"
-                                },
-                                {
-                                    "reference": "69bcf857-416f-4deb-8456-d8776d543914"
-                                },
-                                {
-                                    "reference": "1d415cad-efb3-496c-9710-6f68b81d2444"
-                                },
-                                {
-                                    "reference": "74dfb2dd-7502-4cd4-b8f8-5aeb41386049"
-                                },
-                                {
-                                    "reference": "f1979686-c787-439c-90c6-440453da7bd2"
-                                },
-                                {
-                                    "reference": "14a71070-a306-4538-a080-1eddf5e41e99"
-                                },
-                                {
-                                    "reference": "247c5252-99b1-4289-a903-08cdd8ec3724"
-                                }
-                            ]
-                        },
-                        "sectionFirstCourseOfTreatment": {
-                            "title": "The section of FirstCourseOfTreatment",
-                            "code": {
-                                "coding": [
-                                    {
-                                        "system": "http://snomed.info/sct",
-                                        "code": "708255002"
-                                    }
-                                ]
-                            },
-                            "entry": [
-                                {
-                                    "reference": "3d626a39-f2c6-4e3c-9ee4-e020c89860fb"
-                                },
-                                {
-                                    "reference": "e3fbe467-add1-4bf2-9a40-3b655a1e2b78"
-                                },
-                                {
-                                    "reference": "668a05e4-09c3-46f1-b91b-c310edc34f58"
-                                },
-                                {
-                                    "reference": "cf38eea7-413a-46d1-a0ae-4a3010326674"
-                                },
-                                {
-                                    "reference": "83017428-5a80-4c6b-a479-628b607c6b37"
-                                },
-                                {
-                                    "reference": "12ca4808-68c6-4aaa-9880-272aaf28a030"
-                                },
-                                {
-                                    "reference": "e22d39dc-8531-46e4-9623-935464ab0e0b"
-                                },
-                                {
-                                    "reference": "3a6b601b-6c00-4ec4-818a-e0296a724212"
-                                },
-                                {
-                                    "reference": "500cfa63-5d50-4d06-80b2-bcec39d31937"
-                                },
-                                {
-                                    "reference": "0ca64a67-b206-47dc-b345-cfebc6d65b87"
-                                }
-                            ]
-                        },
-                        "sectionOtherFactors": {
-                            "title": "The section of OtherFactors",
-                            "code": {
-                                "coding": [
-                                    {
-                                        "system": "https://hapi.fhir.tw/fhir/CodeSystem/logical-model-codesystem",
-                                        "code": "OtherFactors"
-                                    }
-                                ]
-                            },
-                            "entry": [
-                                {
-                                    "reference": "5617475e-5a9d-4191-a56c-97cb2615d0d3"
-                                },
-                                {
-                                    "reference": "223d3959-fff8-4ae4-88bd-c2d7e7463783"
-                                },
-                                {
-                                    "reference": "871e4a46-55ff-40d8-bd67-1061b3e74d5c"
-                                },
-                                {},
-                                {
-                                    "reference": "a345aea6-d521-4d9f-aefd-d4aaf09f21a3"
-                                }
-                            ]
-                        }
+                    {
+                        "reference": "Practitioner/5413c320-f380-4260-8aaf-7f787207f547"
                     }
-                }
+                ],
+                "title": "Cancer Registry Short Form",
+                "section": [
+                    {
+                        "title": "The section of CancerConfirmation",
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://snomed.info/sct",
+                                    "code": "395099008"
+                                }
+                            ]
+                        },
+                        "entry": [
+                            {
+                                "reference": "Encounter/1344ed69-ceb5-4cd4-82b9-a4763eafa10e"
+                            },
+                            {
+                                "reference": "Condition/469d7638-54f5-4483-8004-f2c480e43dde"
+                            },
+                            {
+                                "reference": "Condition/e2242120-e7a2-4ef0-8121-d91f81131a91"
+                            },
+                            {
+                                "reference": "Condition/2cc51d59-0a83-40bb-aab0-536a53755495"
+                            },
+                            {
+                                "reference": "Condition/93f64ced-4984-43e9-8672-5b68511d0c5b"
+                            },
+                            {
+                                "reference": "Observation/af08a3ba-0882-4d5b-a92c-d1f23a5ddf71"
+                            },
+                            {
+                                "reference": "Observation/cefcefb4-9ff2-4d7e-a7ff-dc838fa734b6"
+                            }
+                        ]
+                    },
+                    {
+                        "title": "The section of FirstCourseOfTreatment",
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://snomed.info/sct",
+                                    "code": "708255002"
+                                }
+                            ]
+                        },
+                        "entry": [
+                            {
+                                "reference": "Procedure/46f67c74-f0cb-40c5-a2b3-0265e8ce608b"
+                            },
+                            {
+                                "reference": "Procedure/479fee15-3e9c-41c5-bbef-ea54358bc402"
+                            },
+                            {
+                                "reference": "Procedure/77109ad7-445d-4221-992d-ac618aa4cec2"
+                            },
+                            {
+                                "reference": "Procedure/f729dd9a-1333-4477-af81-8b052e2511fd"
+                            },
+                            {
+                                "reference": "Procedure/7620f095-3325-49dc-b136-6633bef02e63"
+                            },
+                            {
+                                "reference": "Procedure/6a3aeeec-4120-4f6d-a489-ac144d21e93c"
+                            },
+                            {
+                                "reference": "Procedure/2d68f329-6197-48ad-b942-b0c8578e62da"
+                            },
+                            {
+                                "reference": "Procedure/a1ee2a35-a77b-442e-b307-9e730aefd408"
+                            },
+                            {
+                                "reference": "Procedure/4be110a2-c52f-42d9-a51a-360eb2f45df1"
+                            },
+                            {
+                                "reference": "Procedure/e2fa4097-4041-49b7-806a-b5b93bf40f99"
+                            }
+                        ]
+                    },
+                    {
+                        "title": "The section of OtherFactors",
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://hapi.fhir.tw/fhir/CodeSystem/twcr-sf-logical-model-codesystem",
+                                    "code": "OtherFactors"
+                                }
+                            ]
+                        },
+                        "entry": [
+                            {
+                                "reference": "Observation/5c4f8dde-147a-40a8-b545-c548b5c21974"
+                            },
+                            {
+                                "reference": "Observation/5e137777-831c-45f1-958a-b200aea2f81d"
+                            },
+                            {
+                                "reference": "Observation/0981a918-c3f8-4fc6-93b1-c731e4a04e6b"
+                            },
+                            {
+                                "reference": "Observation/9aa1ec11-0869-4b2a-8666-a22d374755f2"
+                            },
+                            {
+                                "reference": "Observation/eb1580a4-750d-4f0a-b362-83b0546613cd"
+                            }
+                        ]
+                    }
+                ]
             }
         },
         {
+            "fullUrl": "http://152.38.3.250:8080/fhir/Organization/17ebfb14-df37-4883-86a8-44e781f38e47",
             "resource": {
                 "resourceType": "Organization",
-                "id": "2d9a3009-3056-4bc8-a620-d6087a7b06b5",
+                "id": "17ebfb14-df37-4883-86a8-44e781f38e47",
                 "meta": {
-                    "versionId": "2",
-                    "lastUpdated": "2023-09-15T14:20:31.600+00:00",
+                    "versionId": "1",
+                    "lastUpdated": "2023-09-29T05:23:58.450+00:00",
+                    "source": "#wUE5AaJ969jQHayn",
                     "profile": [
                         "https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-organization-profile"
                     ]
@@ -179,14 +184,16 @@
             }
         },
         {
+            "fullUrl": "http://152.38.3.250:8080/fhir/Patient/0ed46368-db5d-4419-9d26-c51524842018",
             "resource": {
                 "resourceType": "Patient",
-                "id": "86602a9d-9210-4458-96af-31486a131c09",
+                "id": "0ed46368-db5d-4419-9d26-c51524842018",
                 "meta": {
                     "versionId": "1",
-                    "lastUpdated": "2023-09-15T14:05:39.025+00:00",
+                    "lastUpdated": "2023-09-29T05:23:58.532+00:00",
+                    "source": "#fgMq03jpn5xCF1Bq",
                     "profile": [
-                        " https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-patient-profile"
+                        "https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-patient-profile"
                     ]
                 },
                 "text": {
@@ -199,12 +206,12 @@
                             "coding": [
                                 {
                                     "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
-                                    "code": "NI",
-                                    "display": "National unique individual identifier"
+                                    "code": "NNxxx",
+                                    "display": "National Person Identifier where the xxx is the ISO table 3166 3-character (alphabetic) country code"
                                 }
                             ]
                         },
-                        "system": "http://www.moi.gov.tw/",
+                        "system": "http://www.moi.gov.tw",
                         "value": "F130000002"
                     },
                     {
@@ -234,19 +241,21 @@
                     }
                 ],
                 "managingOrganization": {
-                    "reference": "Organization/2d9a3009-3056-4bc8-a620-d6087a7b06b5"
+                    "reference": "Organization/17ebfb14-df37-4883-86a8-44e781f38e47"
                 }
             }
         },
         {
+            "fullUrl": "http://152.38.3.250:8080/fhir/Practitioner/5413c320-f380-4260-8aaf-7f787207f547",
             "resource": {
                 "resourceType": "Practitioner",
-                "id": "c2a05b15-5991-4f6e-a5ec-3dd0e5c135cb",
+                "id": "5413c320-f380-4260-8aaf-7f787207f547",
                 "meta": {
                     "versionId": "1",
-                    "lastUpdated": "2023-09-15T14:05:39.105+00:00",
+                    "lastUpdated": "2023-09-29T05:23:58.586+00:00",
+                    "source": "#xkyhCVfJGmVu5KnN",
                     "profile": [
-                        " https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-practitioner-profile"
+                        "https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-practitioner-profile"
                     ]
                 },
                 "text": {
@@ -261,12 +270,14 @@
             }
         },
         {
+            "fullUrl": "http://152.38.3.250:8080/fhir/Encounter/1344ed69-ceb5-4cd4-82b9-a4763eafa10e",
             "resource": {
                 "resourceType": "Encounter",
-                "id": "7abead5d-4220-4372-81d2-e1b5e3d548ac",
+                "id": "1344ed69-ceb5-4cd4-82b9-a4763eafa10e",
                 "meta": {
                     "versionId": "1",
-                    "lastUpdated": "2023-09-15T14:05:39.167+00:00",
+                    "lastUpdated": "2023-09-29T05:23:58.653+00:00",
+                    "source": "#f0JlyFBdYH2VzlEO",
                     "profile": [
                         "https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-encounter-profile"
                     ]
@@ -277,9 +288,12 @@
                 },
                 "status": "finished",
                 "class": {
-                    "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+                    "system": "https://terminology.hl7.org/CodeSystem/v3-ActCode",
                     "code": "AMB",
                     "display": "ambulatory"
+                },
+                "subject": {
+                    "reference": "Patient/0ed46368-db5d-4419-9d26-c51524842018"
                 },
                 "period": {
                     "start": "2017-06-22"
@@ -287,102 +301,108 @@
             }
         },
         {
+            "fullUrl": "http://152.38.3.250:8080/fhir/Observation/9aa1ec11-0869-4b2a-8666-a22d374755f2",
             "resource": {
-                "resourceType": "Bundle",
-                "type": "transaction",
-                "entry": [
+                "resourceType": "Observation",
+                "id": "9aa1ec11-0869-4b2a-8666-a22d374755f2",
+                "meta": {
+                    "versionId": "1",
+                    "lastUpdated": "2023-09-29T05:23:58.702+00:00",
+                    "source": "#lPUfwVUhxqM89GDP",
+                    "profile": [
+                        "https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-betel-nut-chewing-behavior-profile"
+                    ]
+                },
+                "text": {
+                    "status": "empty",
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">目前為空值，可根據使用需求自行產生這筆資料的摘要資訊並填入此欄位</div>"
+                },
+                "status": "registered",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "https://hapi.fhir.tw/fhir/CodeSystem/twcr-sf-observation-behavior-codesystem",
+                            "code": "BetelNutChewing",
+                            "display": "嚼檳榔行為"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "Patient/0ed46368-db5d-4419-9d26-c51524842018"
+                },
+                "component": [
                     {
-                        "fullUrl": "https://hapi.fhir.tw/fhir/Observation/1b69a7e7-0891-464f-ab33-d42826e6ccb8",
-                        "resource": {
-                            "resourceType": "Observation",
-                            "id": "1b69a7e7-0891-464f-ab33-d42826e6ccb8",
-                            "meta": {
-                                "profile": [
-                                    "https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-betel-nut-chewing-behavior-profile"
-                                ]
-                            },
-                            "text": {
-                                "status": "empty",
-                                "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">目前為空值，可根據使用需求自行產生這筆資料的摘要資訊並填入此欄位</div>"
-                            },
-                            "component": [
+                        "code": {
+                            "coding": [
                                 {
-                                    "code": {
-                                        "coding": [
-                                            {
-                                                "system": "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/betel-nut-chewing-behavior-codesystem",
-                                                "code": "amount",
-                                                "display": "每日嚼檳榔量，以 ”顆” 計算"
-                                            }
-                                        ]
-                                    },
-                                    "valueCodeableConcept": {
-                                        "coding": [
-                                            {
-                                                "system": "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/betel-nut-chewing-amount-codesystem",
-                                                "code": "99",
-                                                "display": "病歷未記載或嚼檳榔狀態完全不詳者"
-                                            }
-                                        ]
-                                    }
-                                },
-                                {
-                                    "code": {
-                                        "coding": [
-                                            {
-                                                "system": "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/betel-nut-chewing-behavior-codesystem",
-                                                "code": "year",
-                                                "display": "嚼檳榔年"
-                                            }
-                                        ]
-                                    },
-                                    "valueCodeableConcept": {
-                                        "coding": [
-                                            {
-                                                "system": "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/betel-nut-chewing-year-codesystem",
-                                                "code": "99",
-                                                "display": "病歷未記載或嚼檳榔狀態完全不詳者"
-                                            }
-                                        ]
-                                    }
-                                },
-                                {
-                                    "code": {
-                                        "coding": [
-                                            {
-                                                "system": "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/betel-nut-chewing-behavior-codesystem",
-                                                "code": "quit",
-                                                "display": "戒嚼檳榔年"
-                                            }
-                                        ]
-                                    },
-                                    "valueCodeableConcept": {
-                                        "coding": [
-                                            {
-                                                "system": "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/betel-nut-chewing-quit-codesystem",
-                                                "code": "99",
-                                                "display": "病歷未記載或戒嚼檳榔狀態完全不詳者"
-                                            }
-                                        ]
-                                    }
+                                    "system": "https://hapi.fhir.tw/fhir/CodeSystem/twcr-sf-betel-nut-chewing-behavior-codesystem",
+                                    "code": "amount",
+                                    "display": "每日嚼檳榔量，以 ”顆” 計算"
                                 }
                             ]
                         },
-                        "request": {
-                            "method": "PUT",
-                            "url": "/Observation/1b69a7e7-0891-464f-ab33-d42826e6ccb8"
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "https://hapi.fhir.tw/fhir/CodeSystem/twcr-sf-betel-nut-chewing-amount-codesystem",
+                                    "code": "99",
+                                    "display": "病歷未記載或嚼檳榔狀態完全不詳者"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://hapi.fhir.tw/fhir/CodeSystem/twcr-sf-betel-nut-chewing-behavior-codesystem",
+                                    "code": "year",
+                                    "display": "嚼檳榔年"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "https://hapi.fhir.tw/fhir/CodeSystem/twcr-sf-betel-nut-chewing-year-codesystem",
+                                    "code": "99",
+                                    "display": "病歷未記載或嚼檳榔狀態完全不詳者"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "https://hapi.fhir.tw/fhir/CodeSystem/twcr-sf-betel-nut-chewing-behavior-codesystem",
+                                    "code": "quit",
+                                    "display": "戒嚼檳榔年"
+                                }
+                            ]
+                        },
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "https://hapi.fhir.tw/fhir/CodeSystem/twcr-sf-betel-nut-chewing-quit-codesystem",
+                                    "code": "99",
+                                    "display": "病歷未記載或戒嚼檳榔狀態完全不詳者"
+                                }
+                            ]
                         }
                     }
                 ]
             }
         },
         {
+            "fullUrl": "http://152.38.3.250:8080/fhir/Procedure/f729dd9a-1333-4477-af81-8b052e2511fd",
             "resource": {
                 "resourceType": "Procedure",
-                "id": "cf38eea7-413a-46d1-a0ae-4a3010326674",
+                "id": "f729dd9a-1333-4477-af81-8b052e2511fd",
                 "meta": {
                     "versionId": "1",
-                    "lastUpdated": "2023-09-15T14:45:05.858+00:00",
+                    "lastUpdated": "2023-09-29T05:23:58.758+00:00",
+                    "source": "#FKRJm8eblO2ZlHJy",
                     "profile": [
                         "https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-chemotherapy-profile"
                     ]
@@ -395,14 +415,23 @@
                 "category": {
                     "coding": [
                         {
-                            "system": "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/procedure-code-codesystem",
+                            "system": "https://hapi.fhir.tw/fhir/CodeSystem/twcr-sf-procedure-code-codesystem",
                             "code": "Chemotherapy",
                             "display": "申報醫院化學治療"
                         }
                     ]
                 },
+                "code": {
+                    "coding": [
+                        {
+                            "system": "https://hapi.fhir.tw/fhir/CodeSystem/twcr-sf-chemotherapy-codesystem",
+                            "code": "01",
+                            "display": "接受全身性化學治療"
+                        }
+                    ]
+                },
                 "subject": {
-                    "reference": "Patient/86602a9d-9210-4458-96af-31486a131c09"
+                    "reference": "Patient/0ed46368-db5d-4419-9d26-c51524842018"
                 },
                 "performedPeriod": {
                     "start": "2002-11-11"
@@ -410,14 +439,16 @@
             }
         },
         {
+            "fullUrl": "http://152.38.3.250:8080/fhir/Condition/469d7638-54f5-4483-8004-f2c480e43dde",
             "resource": {
                 "resourceType": "Condition",
-                "id": "69bcf857-416f-4deb-8456-d8776d543914",
+                "id": "469d7638-54f5-4483-8004-f2c480e43dde",
                 "meta": {
                     "versionId": "1",
-                    "lastUpdated": "2023-09-15T14:15:12.611+00:00",
+                    "lastUpdated": "2023-09-29T05:23:58.807+00:00",
+                    "source": "#HwbLv5o1bu7syoxB",
                     "profile": [
-                        "https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-chemotherapy-profile"
+                        "https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-condition-profile"
                     ]
                 },
                 "text": {
@@ -428,7 +459,7 @@
                     {
                         "coding": [
                             {
-                                "system": "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/class-of-case-codesystem",
+                                "system": "https://hapi.fhir.tw/fhir/CodeSystem/twcr-sf-class-of-case-codesystem",
                                 "code": "0",
                                 "display": "申報醫院診斷，但未於申報醫院接受首次療程"
                             }
@@ -437,7 +468,7 @@
                     {
                         "coding": [
                             {
-                                "system": "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/class-of-diangosis-status-codesystem",
+                                "system": "https://hapi.fhir.tw/fhir/CodeSystem/twcr-sf-class-of-diangosis-status-codesystem",
                                 "code": "1",
                                 "display": "於申報醫院診斷"
                             }
@@ -446,9 +477,9 @@
                     {
                         "coding": [
                             {
-                                "system": "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/class-of-treatment-status-codesystem",
-                                "code": "2",
-                                "display": "未於申報醫院接受任何首次療程：(1)僅於他院接受首次療程 (2)於申報醫院診斷，但至他院接受後續診療，其首次療程內容不詳 (3)於他院診斷未治療，至申報醫院諮詢第二意見\r\n/主要癌症治療計畫由他院規劃：(1)接受首次療程後維持輔助性荷爾蒙治療(maintenance adjuvant hormonal therapy)或維持性口服性化療 (2)因為原轉介醫院放射治療設備不足，接受委託局部追加放射治療，且放射治療模式為其他放射療法 (Other RT)，如brachytherapy, radiosurgery, proton...等 (3)因為原轉介醫院放射治療設備在療程中途故障，為避免延誤療程，接受委託進行部分放射治療 (4)維持性口服性化療"
+                                "system": "https://hapi.fhir.tw/fhir/CodeSystem/twcr-sf-class-of-treatment-status-codesystem",
+                                "code": "0",
+                                "display": "未於申報醫院接受任何治療即死亡：(1)申報醫院診斷後死亡或病危出院 (2)他院診斷，轉診至申報醫院後死亡"
                             }
                         ]
                     }
@@ -456,22 +487,25 @@
                 "code": {
                     "coding": [
                         {
-                            "system": "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/sequence-number-codesystem",
+                            "system": "https://hapi.fhir.tw/fhir/CodeSystem/twcr-sf-sequence-number-codesystem",
                             "code": "01",
                             "display": "個案一生中第 1 個惡性腫瘤或原位癌"
                         }
                     ]
                 },
                 "subject": {
-                    "reference": "Patient/86602a9d-9210-4458-96af-31486a131c09"
+                    "reference": "Patient/0ed46368-db5d-4419-9d26-c51524842018"
                 },
                 "encounter": {
-                    "reference": "Encounter/7abead5d-4220-4372-81d2-e1b5e3d548ac"
+                    "reference": "Encounter/1344ed69-ceb5-4cd4-82b9-a4763eafa10e"
                 },
                 "onsetAge": {
                     "value": 60,
                     "system": "http://unitsofmeasure.org",
                     "code": "a"
+                },
+                "recorder": {
+                    "reference": "Practitioner/5413c320-f380-4260-8aaf-7f787207f547"
                 },
                 "evidence": [
                     {
@@ -479,7 +513,7 @@
                             {
                                 "coding": [
                                     {
-                                        "system": "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/diagnostic-confirmation-codesystem",
+                                        "system": "https://hapi.fhir.tw/fhir/CodeSystem/twcr-sf-diagnostic-confirmation-codesystem",
                                         "code": "7",
                                         "display": "放射線或其他影像學檢查診斷為癌症，但未經顯微鏡檢證實"
                                     }
@@ -491,12 +525,14 @@
             }
         },
         {
+            "fullUrl": "http://152.38.3.250:8080/fhir/Condition/e2242120-e7a2-4ef0-8121-d91f81131a91",
             "resource": {
                 "resourceType": "Condition",
-                "id": "1d415cad-efb3-496c-9710-6f68b81d2444",
+                "id": "e2242120-e7a2-4ef0-8121-d91f81131a91",
                 "meta": {
                     "versionId": "1",
-                    "lastUpdated": "2023-09-15T14:45:06.004+00:00",
+                    "lastUpdated": "2023-09-29T05:23:58.861+00:00",
+                    "source": "#HQa803icIaKLU552",
                     "profile": [
                         "https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-date-of-diagnosis-condition-profile"
                     ]
@@ -506,7 +542,7 @@
                     "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">目前為空值，可根據使用需求自行產生這筆資料的摘要資訊並填入此欄位</div>"
                 },
                 "subject": {
-                    "reference": "Patient/86602a9d-9210-4458-96af-31486a131c09"
+                    "reference": "Patient/0ed46368-db5d-4419-9d26-c51524842018"
                 },
                 "onsetPeriod": {
                     "start": "2017-06-22"
@@ -514,12 +550,14 @@
             }
         },
         {
+            "fullUrl": "http://152.38.3.250:8080/fhir/Condition/2cc51d59-0a83-40bb-aab0-536a53755495",
             "resource": {
                 "resourceType": "Condition",
-                "id": "74dfb2dd-7502-4cd4-b8f8-5aeb41386049",
+                "id": "2cc51d59-0a83-40bb-aab0-536a53755495",
                 "meta": {
                     "versionId": "1",
-                    "lastUpdated": "2023-09-15T14:45:06.084+00:00",
+                    "lastUpdated": "2023-09-29T05:23:58.933+00:00",
+                    "source": "#QFBlwUU36YtmU61A",
                     "profile": [
                         "https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-date-of-microscopic-confirmation-profile"
                     ]
@@ -529,18 +567,20 @@
                     "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">目前為空值，可根據使用需求自行產生這筆資料的摘要資訊並填入此欄位</div>"
                 },
                 "subject": {
-                    "reference": "Patient/86602a9d-9210-4458-96af-31486a131c09"
+                    "reference": "Patient/0ed46368-db5d-4419-9d26-c51524842018"
                 },
                 "onsetDateTime": "2002-11-11"
             }
         },
         {
+            "fullUrl": "http://152.38.3.250:8080/fhir/Observation/eb1580a4-750d-4f0a-b362-83b0546613cd",
             "resource": {
                 "resourceType": "Observation",
-                "id": "a345aea6-d521-4d9f-aefd-d4aaf09f21a3",
+                "id": "eb1580a4-750d-4f0a-b362-83b0546613cd",
                 "meta": {
                     "versionId": "1",
-                    "lastUpdated": "2023-09-15T14:45:06.151+00:00",
+                    "lastUpdated": "2023-09-29T05:23:58.995+00:00",
+                    "source": "#uJsqI3Bb1zox9vVT",
                     "profile": [
                         "https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-drinking-behavior-profile"
                     ]
@@ -553,16 +593,22 @@
                 "code": {
                     "coding": [
                         {
-                            "system": "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/behavior-codesystem",
+                            "system": "https://hapi.fhir.tw/fhir/CodeSystem/twcr-sf-observation-behavior-codesystem",
                             "code": "Drinking",
                             "display": "喝酒行為"
                         }
                     ]
                 },
+                "subject": {
+                    "reference": "Patient/0ed46368-db5d-4419-9d26-c51524842018"
+                },
+                "encounter": {
+                    "reference": "Encounter/1344ed69-ceb5-4cd4-82b9-a4763eafa10e"
+                },
                 "valueCodeableConcept": {
                     "coding": [
                         {
-                            "system": "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/drinking-behavior-codesystem",
+                            "system": "https://hapi.fhir.tw/fhir/CodeSystem/twcr-sf-drinking-behavior-codesystem",
                             "code": "999",
                             "display": "病歷未記載或不詳"
                         }
@@ -571,12 +617,14 @@
             }
         },
         {
+            "fullUrl": "http://152.38.3.250:8080/fhir/Procedure/46f67c74-f0cb-40c5-a2b3-0265e8ce608b",
             "resource": {
                 "resourceType": "Procedure",
-                "id": "3d626a39-f2c6-4e3c-9ee4-e020c89860fb",
+                "id": "46f67c74-f0cb-40c5-a2b3-0265e8ce608b",
                 "meta": {
                     "versionId": "1",
-                    "lastUpdated": "2023-09-15T14:45:06.212+00:00",
+                    "lastUpdated": "2023-09-29T05:23:59.040+00:00",
+                    "source": "#d36mfMvRKrbsqAY1",
                     "profile": [
                         "https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-first-surgical-procedure-profile"
                     ]
@@ -586,19 +634,33 @@
                     "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">目前為空值，可根據使用需求自行產生這筆資料的摘要資訊並填入此欄位</div>"
                 },
                 "status": "completed",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "https://hapi.fhir.tw/fhir/CodeSystem/twcr-sf-procedure-code-codesystem",
+                            "code": "FirstSurgicalProcedure",
+                            "display": "首次手術"
+                        }
+                    ]
+                },
                 "subject": {
-                    "reference": "Patient/86602a9d-9210-4458-96af-31486a131c09"
+                    "reference": "Patient/0ed46368-db5d-4419-9d26-c51524842018"
+                },
+                "encounter": {
+                    "reference": "Encounter/1344ed69-ceb5-4cd4-82b9-a4763eafa10e"
                 },
                 "performedDateTime": "2002-11-11"
             }
         },
         {
+            "fullUrl": "http://152.38.3.250:8080/fhir/Observation/af08a3ba-0882-4d5b-a92c-d1f23a5ddf71",
             "resource": {
                 "resourceType": "Observation",
-                "id": "14a71070-a306-4538-a080-1eddf5e41e99",
+                "id": "af08a3ba-0882-4d5b-a92c-d1f23a5ddf71",
                 "meta": {
                     "versionId": "1",
-                    "lastUpdated": "2023-09-15T14:45:06.291+00:00",
+                    "lastUpdated": "2023-09-29T05:23:59.086+00:00",
+                    "source": "#Q9rvaTtxZ7sruK1n",
                     "profile": [
                         "https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-grade-clinical-profile"
                     ]
@@ -611,16 +673,22 @@
                 "code": {
                     "coding": [
                         {
-                            "system": "http://loinc.org",
+                            "system": "https://loinc.org",
                             "code": "75620-5",
                             "display": "TNM clinical staging before treatment panel Cancer"
                         }
                     ]
                 },
+                "subject": {
+                    "reference": "Patient/0ed46368-db5d-4419-9d26-c51524842018"
+                },
+                "encounter": {
+                    "reference": "Encounter/1344ed69-ceb5-4cd4-82b9-a4763eafa10e"
+                },
                 "valueCodeableConcept": {
                     "coding": [
                         {
-                            "system": "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/grade-clinical-codesystem",
+                            "system": "https://hapi.fhir.tw/fhir/CodeSystem/twcr-sf-grade-clinical-codesystem",
                             "code": "9",
                             "display": "(1)分化/分級不明、病歷未記載 (2)首次治療前未有分級/分化 (3)術後才診斷為癌症"
                         }
@@ -629,12 +697,14 @@
             }
         },
         {
+            "fullUrl": "http://152.38.3.250:8080/fhir/Observation/cefcefb4-9ff2-4d7e-a7ff-dc838fa734b6",
             "resource": {
                 "resourceType": "Observation",
-                "id": "247c5252-99b1-4289-a903-08cdd8ec3724",
+                "id": "cefcefb4-9ff2-4d7e-a7ff-dc838fa734b6",
                 "meta": {
                     "versionId": "1",
-                    "lastUpdated": "2023-09-15T14:45:06.507+00:00",
+                    "lastUpdated": "2023-09-29T05:23:59.135+00:00",
+                    "source": "#3YA5saERaShKhDC5",
                     "profile": [
                         "https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-grade-pathological-profile"
                     ]
@@ -647,16 +717,22 @@
                 "code": {
                     "coding": [
                         {
-                            "system": "http://loinc.org",
+                            "system": "https://loinc.org",
                             "code": "75621-3",
                             "display": "TNM pathologic staging after surgery panel Cancer"
                         }
                     ]
                 },
+                "subject": {
+                    "reference": "Patient/0ed46368-db5d-4419-9d26-c51524842018"
+                },
+                "encounter": {
+                    "reference": "Encounter/1344ed69-ceb5-4cd4-82b9-a4763eafa10e"
+                },
                 "valueCodeableConcept": {
                     "coding": [
                         {
-                            "system": "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/grade-pathological-codesystem",
+                            "system": "https://hapi.fhir.tw/fhir/CodeSystem/twcr-sf-grade-pathological-codesystem",
                             "code": "9",
                             "display": "(1)分化/分級不明、病歷未記載 (2)首次治療前未有分級/分化 (3)術後才診斷為癌症"
                         }
@@ -665,12 +741,14 @@
             }
         },
         {
+            "fullUrl": "http://152.38.3.250:8080/fhir/Observation/5c4f8dde-147a-40a8-b545-c548b5c21974",
             "resource": {
                 "resourceType": "Observation",
-                "id": "5617475e-5a9d-4191-a56c-97cb2615d0d3",
+                "id": "5c4f8dde-147a-40a8-b545-c548b5c21974",
                 "meta": {
                     "versionId": "1",
-                    "lastUpdated": "2023-09-15T14:45:06.574+00:00",
+                    "lastUpdated": "2023-09-29T05:23:59.183+00:00",
+                    "source": "#fhVB7xgT2I9uKmFz",
                     "profile": [
                         "https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-height-profile"
                     ]
@@ -683,16 +761,22 @@
                 "code": {
                     "coding": [
                         {
-                            "system": "http://loinc.org",
+                            "system": "https://loinc.org",
                             "code": "3137-7",
                             "display": "Body height Measured"
                         }
                     ]
                 },
+                "subject": {
+                    "reference": "Patient/0ed46368-db5d-4419-9d26-c51524842018"
+                },
+                "encounter": {
+                    "reference": "Encounter/1344ed69-ceb5-4cd4-82b9-a4763eafa10e"
+                },
                 "valueCodeableConcept": {
                     "coding": [
                         {
-                            "system": "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/height-codesystem",
+                            "system": "https://hapi.fhir.tw/fhir/CodeSystem/twcr-sf-height-codesystem",
                             "code": "999",
                             "display": "病歷未記載或不詳"
                         }
@@ -701,12 +785,14 @@
             }
         },
         {
+            "fullUrl": "http://152.38.3.250:8080/fhir/Procedure/2d68f329-6197-48ad-b942-b0c8578e62da",
             "resource": {
                 "resourceType": "Procedure",
-                "id": "e22d39dc-8531-46e4-9623-935464ab0e0b",
+                "id": "2d68f329-6197-48ad-b942-b0c8578e62da",
                 "meta": {
                     "versionId": "1",
-                    "lastUpdated": "2023-09-15T14:45:06.651+00:00",
+                    "lastUpdated": "2023-09-29T05:23:59.234+00:00",
+                    "source": "#cEZGU1KXg1Ooli5N",
                     "profile": [
                         "https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-hematologic-transplant-endocrine-procedure-profile"
                     ]
@@ -719,7 +805,7 @@
                 "category": {
                     "coding": [
                         {
-                            "system": "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/procedure-code-codesystem",
+                            "system": "https://hapi.fhir.tw/fhir/CodeSystem/twcr-sf-procedure-code-codesystem",
                             "code": "HematologicTransplantAndEndocrineProcedure",
                             "display": "申報醫院骨髓/幹細胞移植或內分泌處置"
                         }
@@ -728,14 +814,17 @@
                 "code": {
                     "coding": [
                         {
-                            "system": "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/hematologic-transplant-and-endocrine-procedure-codesystem",
-                            "code": "00",
-                            "display": "未接受骨髓/幹細胞移植或內分泌處置，骨髓/幹細胞移植或內分泌處置非首次療程的一部份，由屍體解剖時才診斷為癌症"
+                            "system": "https://hapi.fhir.tw/fhir/CodeSystem/twcr-sf-hematologic-transplant-and-endocrine-codesystem",
+                            "code": "10",
+                            "display": "有骨髓移植"
                         }
                     ]
                 },
                 "subject": {
-                    "reference": "Patient/86602a9d-9210-4458-96af-31486a131c09"
+                    "reference": "Patient/0ed46368-db5d-4419-9d26-c51524842018"
+                },
+                "encounter": {
+                    "reference": "Encounter/1344ed69-ceb5-4cd4-82b9-a4763eafa10e"
                 },
                 "performedPeriod": {
                     "start": "2002-11-11"
@@ -743,12 +832,14 @@
             }
         },
         {
+            "fullUrl": "http://152.38.3.250:8080/fhir/Procedure/7620f095-3325-49dc-b136-6633bef02e63",
             "resource": {
                 "resourceType": "Procedure",
-                "id": "83017428-5a80-4c6b-a479-628b607c6b37",
+                "id": "7620f095-3325-49dc-b136-6633bef02e63",
                 "meta": {
                     "versionId": "1",
-                    "lastUpdated": "2023-09-15T14:45:06.731+00:00",
+                    "lastUpdated": "2023-09-29T05:23:59.287+00:00",
+                    "source": "#in1MMgvxdvl3IsFq",
                     "profile": [
                         "https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-hormone-steroid-therapy-profile"
                     ]
@@ -761,7 +852,7 @@
                 "category": {
                     "coding": [
                         {
-                            "system": "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/procedure-code-codesystem",
+                            "system": "https://hapi.fhir.tw/fhir/CodeSystem/twcr-sf-procedure-code-codesystem",
                             "code": "HormoneSteroid",
                             "display": "申報醫院荷爾蒙/類固醇治療"
                         }
@@ -770,14 +861,14 @@
                 "code": {
                     "coding": [
                         {
-                            "system": "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/hormone-steroid-therapy-codesystem",
+                            "system": "https://hapi.fhir.tw/fhir/CodeSystem/twcr-sf-hormone-steroid-therapy-codesystem",
                             "code": "00",
                             "display": "(1)未接受荷爾蒙/類固醇治療，荷爾蒙/類固醇治療非首次療程的一部份 (2)由屍體解剖時才診斷為癌症"
                         }
                     ]
                 },
                 "subject": {
-                    "reference": "Patient/86602a9d-9210-4458-96af-31486a131c09"
+                    "reference": "Patient/0ed46368-db5d-4419-9d26-c51524842018"
                 },
                 "performedPeriod": {
                     "start": "2002-11-11"
@@ -785,12 +876,14 @@
             }
         },
         {
+            "fullUrl": "http://152.38.3.250:8080/fhir/Procedure/6a3aeeec-4120-4f6d-a489-ac144d21e93c",
             "resource": {
                 "resourceType": "Procedure",
-                "id": "12ca4808-68c6-4aaa-9880-272aaf28a030",
+                "id": "6a3aeeec-4120-4f6d-a489-ac144d21e93c",
                 "meta": {
                     "versionId": "1",
-                    "lastUpdated": "2023-09-15T14:45:06.792+00:00",
+                    "lastUpdated": "2023-09-29T05:23:59.337+00:00",
+                    "source": "#gm8C88jygGJRmY96",
                     "profile": [
                         "https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-immunotherapy-profile"
                     ]
@@ -803,7 +896,7 @@
                 "category": {
                     "coding": [
                         {
-                            "system": "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/procedure-code-codesystem",
+                            "system": "https://hapi.fhir.tw/fhir/CodeSystem/twcr-sf-procedure-code-codesystem",
                             "code": "Immunotherapy",
                             "display": "申報醫院免疫治療"
                         }
@@ -812,14 +905,14 @@
                 "code": {
                     "coding": [
                         {
-                            "system": "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/immunotherapy-codesystem",
+                            "system": "https://hapi.fhir.tw/fhir/CodeSystem/twcr-sf-immunotherapy-codesystem",
                             "code": "00",
                             "display": "(1)未接受免疫治療，免疫治療非首次療程的一部份 (2)由屍體解剖時才診斷為癌症"
                         }
                     ]
                 },
                 "subject": {
-                    "reference": "Patient/86602a9d-9210-4458-96af-31486a131c09"
+                    "reference": "Patient/0ed46368-db5d-4419-9d26-c51524842018"
                 },
                 "performedPeriod": {
                     "start": "2002-11-11"
@@ -827,12 +920,14 @@
             }
         },
         {
+            "fullUrl": "http://152.38.3.250:8080/fhir/Procedure/e2fa4097-4041-49b7-806a-b5b93bf40f99",
             "resource": {
                 "resourceType": "Procedure",
-                "id": "0ca64a67-b206-47dc-b345-cfebc6d65b87",
+                "id": "e2fa4097-4041-49b7-806a-b5b93bf40f99",
                 "meta": {
-                    "versionId": "2",
-                    "lastUpdated": "2023-09-15T14:30:50.233+00:00",
+                    "versionId": "1",
+                    "lastUpdated": "2023-09-29T05:23:59.394+00:00",
+                    "source": "#HwOpiahJnN05SFxx",
                     "profile": [
                         "https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-other-treatment-profile"
                     ]
@@ -845,7 +940,7 @@
                 "category": {
                     "coding": [
                         {
-                            "system": "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/procedure-code-codesystem",
+                            "system": "https://hapi.fhir.tw/fhir/CodeSystem/twcr-sf-procedure-code-codesystem",
                             "code": "OtherTreatment",
                             "display": "申報醫院其他治療"
                         }
@@ -854,14 +949,14 @@
                 "code": {
                     "coding": [
                         {
-                            "system": "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/other-treatment-codesystem",
+                            "system": "https://hapi.fhir.tw/fhir/CodeSystem/twcr-sf-other-treatment-codesystem",
                             "code": "00",
                             "display": "(1)未接受其他治療，其他治療非首次療程的一部份 (2)由屍體解剖時才診斷為癌症 (3)個案於申報醫院接受臨床試驗藥物治療，且依據藥物種類編碼於化學/荷爾蒙/類固醇/免疫/標靶欄位"
                         }
                     ]
                 },
                 "subject": {
-                    "reference": "Patient/86602a9d-9210-4458-96af-31486a131c09"
+                    "reference": "Patient/0ed46368-db5d-4419-9d26-c51524842018"
                 },
                 "performedPeriod": {
                     "start": "2002-11-11"
@@ -869,12 +964,14 @@
             }
         },
         {
+            "fullUrl": "http://152.38.3.250:8080/fhir/Procedure/4be110a2-c52f-42d9-a51a-360eb2f45df1",
             "resource": {
                 "resourceType": "Procedure",
-                "id": "500cfa63-5d50-4d06-80b2-bcec39d31937",
+                "id": "4be110a2-c52f-42d9-a51a-360eb2f45df1",
                 "meta": {
                     "versionId": "1",
-                    "lastUpdated": "2023-09-15T14:45:51.359+00:00",
+                    "lastUpdated": "2023-09-29T05:23:59.463+00:00",
+                    "source": "#nInGw6OAJGVzjwk6",
                     "profile": [
                         "https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-palliative-care-profile"
                     ]
@@ -887,7 +984,7 @@
                 "category": {
                     "coding": [
                         {
-                            "system": "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/procedure-code-codesystem",
+                            "system": "https://hapi.fhir.tw/fhir/CodeSystem/twcr-sf-procedure-code-codesystem",
                             "code": "PalliativeCare",
                             "display": "申報醫院緩和照護"
                         }
@@ -896,26 +993,31 @@
                 "code": {
                     "coding": [
                         {
-                            "system": "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/palliative-care-codesystem",
+                            "system": "https://hapi.fhir.tw/fhir/CodeSystem/twcr-sf-palliative-care-codesystem",
                             "code": "0",
                             "display": "(1)個案未接受緩和照護 (2)屍體解剖時才診斷為癌症"
                         }
                     ]
                 },
                 "subject": {
-                    "reference": "Patient/86602a9d-9210-4458-96af-31486a131c09"
+                    "reference": "Patient/0ed46368-db5d-4419-9d26-c51524842018"
+                },
+                "encounter": {
+                    "reference": "Encounter/1344ed69-ceb5-4cd4-82b9-a4763eafa10e"
                 }
             }
         },
         {
+            "fullUrl": "http://152.38.3.250:8080/fhir/Condition/93f64ced-4984-43e9-8672-5b68511d0c5b",
             "resource": {
                 "resourceType": "Condition",
-                "id": "f1979686-c787-439c-90c6-440453da7bd2",
+                "id": "93f64ced-4984-43e9-8672-5b68511d0c5b",
                 "meta": {
                     "versionId": "1",
-                    "lastUpdated": "2023-09-15T14:45:51.440+00:00",
+                    "lastUpdated": "2023-09-29T05:23:59.510+00:00",
+                    "source": "#wTauADGwwAdnpluM",
                     "profile": [
-                        " https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-primary-cancer-profile"
+                        "https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-primary-cancer-profile"
                     ]
                 },
                 "text": {
@@ -924,54 +1026,44 @@
                 },
                 "extension": [
                     {
-                        "url": " https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-histology-extension",
-                        "extension": [
-                            {
-                                "url": "histology",
-                                "valueCodeableConcept": {
-                                    "coding": [
-                                        {
-                                            "system": "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/histology-codesystem",
-                                            "code": "8312",
-                                            "display": "Renal cell carcinoma, NOS/ Renal cell adenocarcinoma/ Renal cell carcinoma, unclassified/ Grawitz tumor/ Hypernephroma"
-                                        }
-                                    ]
+                        "url": "https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-histology-extension",
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "https://hapi.fhir.tw/fhir/CodeSystem/twcr-sf-histology-codesystem",
+                                    "code": "8001",
+                                    "display": "Tumor cells, malignant"
                                 }
-                            }
-                        ]
+                            ]
+                        }
                     },
                     {
-                        "url": " https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-behavior-code-extension",
-                        "extension": [
-                            {
-                                "url": "behaviorCode",
-                                "valueCodeableConcept": {
-                                    "coding": [
-                                        {
-                                            "system": "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/behavior-code-codesystem",
-                                            "code": "3",
-                                            "display": "invasive"
-                                        }
-                                    ]
+                        "url": "https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-behavior-code-extension",
+                        "valueCodeableConcept": {
+                            "coding": [
+                                {
+                                    "system": "https://hapi.fhir.tw/fhir/CodeSystem/twcr-sf-behavior-code-codesystem",
+                                    "code": "3",
+                                    "display": "invasive"
                                 }
-                            }
-                        ]
+                            ]
+                        }
                     }
                 ],
                 "bodySite": [
                     {
                         "coding": [
                             {
-                                "system": "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/primary-site-codesystem",
-                                "code": "C649",
-                                "display": "Kidney NOS"
+                                "system": "https://hapi.fhir.tw/fhir/CodeSystem/twcr-sf-primary-site-codesystem",
+                                "code": "C000",
+                                "display": "External lip upper"
                             }
                         ]
                     },
                     {
                         "coding": [
                             {
-                                "system": "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/laterality-codesystem",
+                                "system": "https://hapi.fhir.tw/fhir/CodeSystem/twcr-sf-laterality-codesystem",
                                 "code": "1",
                                 "display": "原發起源位在右側"
                             }
@@ -979,19 +1071,27 @@
                     }
                 ],
                 "subject": {
-                    "reference": "Patient/86602a9d-9210-4458-96af-31486a131c09"
+                    "reference": "Patient/0ed46368-db5d-4419-9d26-c51524842018"
+                },
+                "encounter": {
+                    "reference": "Encounter/1344ed69-ceb5-4cd4-82b9-a4763eafa10e"
+                },
+                "recorder": {
+                    "reference": "Practitioner/5413c320-f380-4260-8aaf-7f787207f547"
                 }
             }
         },
         {
+            "fullUrl": "http://152.38.3.250:8080/fhir/Procedure/77109ad7-445d-4221-992d-ac618aa4cec2",
             "resource": {
                 "resourceType": "Procedure",
-                "id": "668a05e4-09c3-46f1-b91b-c310edc34f58",
+                "id": "77109ad7-445d-4221-992d-ac618aa4cec2",
                 "meta": {
                     "versionId": "1",
-                    "lastUpdated": "2023-09-15T14:45:51.610+00:00",
+                    "lastUpdated": "2023-09-29T05:23:59.556+00:00",
+                    "source": "#KvkcwTRyIlpw9YjP",
                     "profile": [
-                        " https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-rt-profile"
+                        "https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-rt-profile"
                     ]
                 },
                 "text": {
@@ -1002,7 +1102,7 @@
                 "category": {
                     "coding": [
                         {
-                            "system": "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/procedure-code-codesystem",
+                            "system": "https://hapi.fhir.tw/fhir/CodeSystem/twcr-sf-procedure-code-codesystem",
                             "code": "RT",
                             "display": "申報醫院放射治療"
                         }
@@ -1011,14 +1111,17 @@
                 "code": {
                     "coding": [
                         {
-                            "system": "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/institute-of-RT-codesystem",
-                            "code": "999",
-                            "display": "Error-Could_not_find_any_match_displayValue"
+                            "system": "https://hapi.fhir.tw/fhir/CodeSystem/twcr-sf-institute-of-RT-codesystem",
+                            "code": "0",
+                            "display": "個案未做放射治療"
                         }
                     ]
                 },
                 "subject": {
-                    "reference": "Patient/86602a9d-9210-4458-96af-31486a131c09"
+                    "reference": "Patient/0ed46368-db5d-4419-9d26-c51524842018"
+                },
+                "encounter": {
+                    "reference": "Encounter/1344ed69-ceb5-4cd4-82b9-a4763eafa10e"
                 },
                 "performedPeriod": {
                     "start": "2020-03-06"
@@ -1026,14 +1129,16 @@
             }
         },
         {
+            "fullUrl": "http://152.38.3.250:8080/fhir/Observation/0981a918-c3f8-4fc6-93b1-c731e4a04e6b",
             "resource": {
                 "resourceType": "Observation",
-                "id": "871e4a46-55ff-40d8-bd67-1061b3e74d5c",
+                "id": "0981a918-c3f8-4fc6-93b1-c731e4a04e6b",
                 "meta": {
                     "versionId": "1",
-                    "lastUpdated": "2023-09-15T14:45:51.689+00:00",
+                    "lastUpdated": "2023-09-29T05:23:59.614+00:00",
+                    "source": "#iMuqL5GAxXaKPno0",
                     "profile": [
-                        " https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-smoking-behavior-profile"
+                        "https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-smoking-behavior-profile"
                     ]
                 },
                 "text": {
@@ -1044,18 +1149,24 @@
                 "code": {
                     "coding": [
                         {
-                            "system": "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/behavior-codesystem",
+                            "system": "https://hapi.fhir.tw/fhir/CodeSystem/twcr-sf-observation-behavior-codesystem",
                             "code": "Smoking",
                             "display": "吸菸行為"
                         }
                     ]
+                },
+                "subject": {
+                    "reference": "Patient/0ed46368-db5d-4419-9d26-c51524842018"
+                },
+                "encounter": {
+                    "reference": "Encounter/1344ed69-ceb5-4cd4-82b9-a4763eafa10e"
                 },
                 "component": [
                     {
                         "code": {
                             "coding": [
                                 {
-                                    "system": "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/smoking-behavior-codesystem",
+                                    "system": "https://hapi.fhir.tw/fhir/CodeSystem/twcr-sf-smoking-behavior-codesystem",
                                     "code": "amount",
                                     "display": "每日吸菸量，以”支”計算"
                                 }
@@ -1064,7 +1175,7 @@
                         "valueCodeableConcept": {
                             "coding": [
                                 {
-                                    "system": "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/smoking-amount-codesystem",
+                                    "system": "https://hapi.fhir.tw/fhir/CodeSystem/twcr-sf-smoking-amount-codesystem",
                                     "code": "99",
                                     "display": "病歷未記載或吸菸狀態完全不詳者"
                                 }
@@ -1075,7 +1186,7 @@
                         "code": {
                             "coding": [
                                 {
-                                    "system": "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/smoking-behavior-codesystem",
+                                    "system": "https://hapi.fhir.tw/fhir/CodeSystem/twcr-sf-smoking-behavior-codesystem",
                                     "code": "year",
                                     "display": "吸菸年"
                                 }
@@ -1084,7 +1195,7 @@
                         "valueCodeableConcept": {
                             "coding": [
                                 {
-                                    "system": "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/smoking-year-codesystem",
+                                    "system": "https://hapi.fhir.tw/fhir/CodeSystem/twcr-sf-smoking-year-codesystem",
                                     "code": "99",
                                     "display": "病歷未記載或吸菸狀態完全不詳者"
                                 }
@@ -1095,7 +1206,7 @@
                         "code": {
                             "coding": [
                                 {
-                                    "system": "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/smoking-behavior-codesystem",
+                                    "system": "https://hapi.fhir.tw/fhir/CodeSystem/twcr-sf-smoking-behavior-codesystem",
                                     "code": "quit",
                                     "display": "戒菸年"
                                 }
@@ -1104,7 +1215,7 @@
                         "valueCodeableConcept": {
                             "coding": [
                                 {
-                                    "system": "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/smoking-quit-codesystem",
+                                    "system": "https://hapi.fhir.tw/fhir/CodeSystem/twcr-sf-smoking-quit-codesystem",
                                     "code": "99",
                                     "display": "病歷未記載或戒菸狀態完全不詳者"
                                 }
@@ -1115,44 +1226,16 @@
             }
         },
         {
+            "fullUrl": "http://152.38.3.250:8080/fhir/Procedure/479fee15-3e9c-41c5-bbef-ea54358bc402",
             "resource": {
                 "resourceType": "Procedure",
-                "id": "e3fbe467-add1-4bf2-9a40-3b655a1e2b78",
+                "id": "479fee15-3e9c-41c5-bbef-ea54358bc402",
                 "meta": {
                     "versionId": "1",
-                    "lastUpdated": "2023-09-15T14:45:51.769+00:00",
+                    "lastUpdated": "2023-09-29T05:23:59.683+00:00",
+                    "source": "#uQQvXrwfZrNA0ONg",
                     "profile": [
-                        " https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-surgical-procedure-of-primary-site-profile"
-                    ]
-                },
-                "text": {
-                    "status": "empty",
-                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">目前為空值，可根據使用需求自行產生這筆資料的摘要資訊並填入此欄位</div>"
-                },
-                "status": "completed",
-                "code": {
-                    "coding": [
-                        {
-                            "system": "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/surgical-procedure-of-primary-site-codesystem",
-                            "code": "00",
-                            "display": "未進行原發部位切除手術"
-                        }
-                    ]
-                },
-                "subject": {
-                    "reference": "Patient/86602a9d-9210-4458-96af-31486a131c09"
-                }
-            }
-        },
-        {
-            "resource": {
-                "resourceType": "Procedure",
-                "id": "3a6b601b-6c00-4ec4-818a-e0296a724212",
-                "meta": {
-                    "versionId": "1",
-                    "lastUpdated": "2023-09-15T14:45:51.859+00:00",
-                    "profile": [
-                        " https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-target-therapy-profile"
+                        "https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-surgical-procedure-of-primary-site-profile"
                     ]
                 },
                 "text": {
@@ -1163,7 +1246,48 @@
                 "category": {
                     "coding": [
                         {
-                            "system": "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/procedure-code-codesystem",
+                            "system": "https://hapi.fhir.tw/fhir/CodeSystem/twcr-sf-procedure-code-codesystem",
+                            "code": "SurgicalProcedureOfPrimarySite",
+                            "display": "申報醫院原發部位手術方式"
+                        }
+                    ]
+                },
+                "code": {
+                    "coding": [
+                        {
+                            "system": "https://hapi.fhir.tw/fhir/CodeSystem/twcr-sf-surgical-procedure-of-primary-site-codesystem",
+                            "code": "00",
+                            "display": "未進行原發部位切除手術"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "Patient/0ed46368-db5d-4419-9d26-c51524842018"
+                }
+            }
+        },
+        {
+            "fullUrl": "http://152.38.3.250:8080/fhir/Procedure/a1ee2a35-a77b-442e-b307-9e730aefd408",
+            "resource": {
+                "resourceType": "Procedure",
+                "id": "a1ee2a35-a77b-442e-b307-9e730aefd408",
+                "meta": {
+                    "versionId": "1",
+                    "lastUpdated": "2023-09-29T05:23:59.738+00:00",
+                    "source": "#yRwEjnVFLYR4Vhbf",
+                    "profile": [
+                        "https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-targeted-therapy-profile"
+                    ]
+                },
+                "text": {
+                    "status": "empty",
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">目前為空值，可根據使用需求自行產生這筆資料的摘要資訊並填入此欄位</div>"
+                },
+                "status": "completed",
+                "category": {
+                    "coding": [
+                        {
+                            "system": "https://hapi.fhir.tw/fhir/CodeSystem/twcr-sf-procedure-code-codesystem",
                             "code": "TargetedTherapy",
                             "display": "申報醫院標靶治療"
                         }
@@ -1172,14 +1296,17 @@
                 "code": {
                     "coding": [
                         {
-                            "system": "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/targeted-therapy-codesystem",
+                            "system": "https://hapi.fhir.tw/fhir/CodeSystem/twcr-sf-targeted-therapy-codesystem",
                             "code": "00",
                             "display": "(1)未接受標靶治療，標靶治療非首次療程的一部份 (2)由屍體解剖時才診斷為癌症"
                         }
                     ]
                 },
                 "subject": {
-                    "reference": "Patient/86602a9d-9210-4458-96af-31486a131c09"
+                    "reference": "Patient/0ed46368-db5d-4419-9d26-c51524842018"
+                },
+                "encounter": {
+                    "reference": "Encounter/1344ed69-ceb5-4cd4-82b9-a4763eafa10e"
                 },
                 "performedPeriod": {
                     "start": "2002-11-11"
@@ -1187,14 +1314,16 @@
             }
         },
         {
+            "fullUrl": "http://152.38.3.250:8080/fhir/Observation/5e137777-831c-45f1-958a-b200aea2f81d",
             "resource": {
                 "resourceType": "Observation",
-                "id": "223d3959-fff8-4ae4-88bd-c2d7e7463783",
+                "id": "5e137777-831c-45f1-958a-b200aea2f81d",
                 "meta": {
                     "versionId": "1",
-                    "lastUpdated": "2023-09-15T14:45:51.937+00:00",
+                    "lastUpdated": "2023-09-29T05:23:59.796+00:00",
+                    "source": "#80zsQMq2sCqRFucD",
                     "profile": [
-                        " https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-weight-profile"
+                        "https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-weight-profile"
                     ]
                 },
                 "text": {
@@ -1205,16 +1334,22 @@
                 "code": {
                     "coding": [
                         {
-                            "system": "http://loinc.org",
+                            "system": "https://loinc.org",
                             "code": "29463-7",
                             "display": "Body Weight"
                         }
                     ]
                 },
+                "subject": {
+                    "reference": "Patient/0ed46368-db5d-4419-9d26-c51524842018"
+                },
+                "encounter": {
+                    "reference": "Encounter/1344ed69-ceb5-4cd4-82b9-a4763eafa10e"
+                },
                 "valueCodeableConcept": {
                     "coding": [
                         {
-                            "system": "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/weight-codesystem",
+                            "system": "https://hapi.fhir.tw/fhir/CodeSystem/twcr-sf-weight-codesystem",
                             "code": "999",
                             "display": "病歷未記載或不詳"
                         }

@@ -5,7 +5,7 @@ const uuid = require("../Bundle/UUIDForm.json");
 module.exports.profile = {
     name: "TWCR-PerineuralInvasion",
     version: "1.0.0",
-    fhirServerBaseUrl: "https://hapi.fhir.tw/fhir",
+    fhirServerBaseUrl: "http://152.38.3.250:8080/fhir/",
     action: "upload", // return, upload
 };
 // 此Profile的JSON結構資料參考自以下網頁:
@@ -25,18 +25,20 @@ module.exports.globalResource = {
             div: '<div xmlns="http://www.w3.org/1999/xhtml">目前為空值，可根據使用需求自行產生這筆資料的摘要資訊並填入此欄位</div>',
         },
         status: "final", //registered | preliminary | final | amended +
-        value: "無神經侵襲",
         code: {
             coding: [
                 {
-                    system: "http://loinc.org",
-                    code: "LP73089-2",
-                    display: "Perineural invasion",
+                    system: "https://loinc.org",
+                    code: "92837-4",
+                    display: "Perineural invasion [Presence] in Cancer specimen",
                 },
             ],
         },
         subject: {
-            reference: `Patient/${uuid["TWCR-Patient"]}`
+            reference: `Patient/${uuid["TWCR-Patient"]}`,
+        },
+        encounter: {
+            reference: `Encounter/${uuid["TWCR-Encounter"]}`,
         },
     },
 };
@@ -65,17 +67,17 @@ module.exports.fields = [
         beforeConvert: (data) => {
             let valueCodeableConcept = JSON.parse(`
             {
-            "coding" : [
-                {
-                "system" : "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/perineural-invasion-codesystem",
-                "code" : "code",
-                "display" : "display"
-                }
-            ]
+                "coding" : [
+                    {
+                      "system" : "https://hapi.fhir.tw/fhir/CodeSystem/twcr-lf-perineural-invasion-codesystem",
+                      "code" : "0",
+                      "display" : "無神經侵襲"
+                    }
+                  ]
             }
             `);
             valueCodeableConcept.coding[0].code = data;
-            let displayValue = tools.searchCodeSystemDisplayValue("../TWCR_ValueSets/definitionsJSON/CodeSystem-perineural-invasion-codesystem.json", data);
+            let displayValue = tools.searchCodeSystemDisplayValue("../TWCR_ValueSets/definitionsJSON/CodeSystem-twcr-lf-perineural-invasion-codesystem.json", data);
             valueCodeableConcept.coding[0].display = displayValue;
 
             return valueCodeableConcept;

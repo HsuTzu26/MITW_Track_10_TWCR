@@ -5,7 +5,7 @@ const uuid = require("../Bundle/UUIDForm.json");
 module.exports.profile = {
     name: "TWCR-SurgicalProcedureOfPrimarySiteAtOtherFacility",
     version: "1.0.0",
-    fhirServerBaseUrl: "https://hapi.fhir.tw/fhir",
+    fhirServerBaseUrl: "http://152.38.3.250:8080/fhir/",
     action: "upload", // return, upload
 };
 // 此Profile的JSON結構資料參考自以下網頁:
@@ -18,16 +18,28 @@ module.exports.globalResource = {
     Procedure: {
         id: uuid["TWCR-SurgicalProcedureOfPrimarySiteAtOtherFacility"],
         meta: {
-            profile: ["https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-surgical-procedure-of-primary-site-at-other-facility-profile"],
+            profile: ["https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-surgical-of-primary-site-at-other-facility-profile"],
         },
         text: {
             status: "empty",
             div: '<div xmlns="http://www.w3.org/1999/xhtml">目前為空值，可根據使用需求自行產生這筆資料的摘要資訊並填入此欄位</div>',
         },
-        subject: {
-            reference: `Patient/${uuid["TWCR-Patient"]}`
+        status: "completed",
+        category: {
+            coding: [
+                {
+                    system: "https://hapi.fhir.tw/fhir/CodeSystem/twcr-lf-procedure-code-codesystem",
+                    code: "OtherSurgicalProcedureOfPrimarySite",
+                    display: "外院原發部位手術方式",
+                },
+            ],
         },
-        performed: "2020-05-21",
+        subject: {
+            reference: `Patient/${uuid["TWCR-Patient"]}`,
+        },
+        encounter: {
+            reference: `Encounter/${uuid["TWCR-Encounter"]}`,
+        },
     },
 };
 
@@ -55,10 +67,19 @@ module.exports.fields = [
         beforeConvert: (data) => {
             let SUGPOFCode = JSON.parse(`
             {
-                "text" :"text"
+                "coding" : [
+                    {
+                      "system" : "https://hapi.fhir.tw/fhir/CodeSystem/twcr-lf-other-surgical-procedure-of-primary-site-codesystem",
+                      "code" : "99",
+                      "display" : "不詳或不清楚"
+                    }
+                  ],
+                  "text" : "99"
             }
             `);
-            SUGPOFCode.text = data;
+            SUGPOFCode.coding[0].code = data;
+            let displayValue = tools.searchCodeSystemDisplayValue("../TWCR_ValueSets/definitionsJSON/CodeSystem-twcr-lf-other-surgical-procedure-of-primary-site-codesystem.json", data);
+            SUGPOFCode.coding[0].display = displayValue;
 
             return SUGPOFCode;
         },

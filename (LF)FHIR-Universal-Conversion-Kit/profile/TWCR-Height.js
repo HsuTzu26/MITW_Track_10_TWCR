@@ -6,7 +6,7 @@ const uuid = require("../Bundle/UUIDForm.json");
 module.exports.profile = {
     name: "TWCR-Height",
     version: "1.0.0",
-    fhirServerBaseUrl: "https://hapi.fhir.tw/fhir",
+    fhirServerBaseUrl: "http://152.38.3.250:8080/fhir/",
     action: "upload", // return, upload
 };
 // 此Profile的JSON結構資料參考自以下網頁:
@@ -26,11 +26,10 @@ module.exports.globalResource = {
             div: '<div xmlns="http://www.w3.org/1999/xhtml">目前為空值，可根據使用需求自行產生這筆資料的摘要資訊並填入此欄位</div>',
         },
         status: "final", // registered | preliminary | final | amended
-        value: "168",
         code: {
             coding: [
                 {
-                    system: "http://loinc.org",
+                    system: "https://loinc.org",
                     code: "3137-7",
                     display: "Body height Measured",
                 },
@@ -38,6 +37,9 @@ module.exports.globalResource = {
         },
         subject: {
             reference: `Patient/${uuid["TWCR-Patient"]}`,
+        },
+        encounter: {
+            reference: `Encounter/${uuid["TWCR-Encounter"]}`,
         },
     },
 };
@@ -76,7 +78,7 @@ module.exports.fields = [
         {
           "coding" : [
             {
-              "system" : "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/height-codesystem",
+              "system" : "https://hapi.fhir.tw/fhir/CodeSystem/twcr-lf-height-codesystem",
               "code" : "999",
               "display" : "病歷未記載或不詳"
             }
@@ -92,7 +94,7 @@ module.exports.fields = [
     {
         // 身高	HEIGHT	valueCodeableConcept / valueQuantity
         // *依據申報內容不同有可能為 valueCodeableConcept 或 valueQuantity
-        source: "HEIGHT_copy",
+        source: "HEIGHT",
         target: "Observation.valueQuantity",
         beforeConvert: (data) => {
             // https://mitw.dicom.org.tw/IG/TWCR_SF/Observation-HeightExample.json.html
@@ -100,7 +102,7 @@ module.exports.fields = [
         {
           "value" : 160,
           "unit" : "cm",
-          "system" : "http://unitsofmeasure.org",
+          "system" : "https://unitsofmeasure.org",
           "code" : "cm"
         }
         `);

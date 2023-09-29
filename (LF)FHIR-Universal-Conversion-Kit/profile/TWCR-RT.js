@@ -5,7 +5,7 @@ const uuid = require("../Bundle/UUIDForm.json");
 module.exports.profile = {
     name: "TWCR-RT",
     version: "1.0.0",
-    fhirServerBaseUrl: "https://hapi.fhir.tw/fhir",
+    fhirServerBaseUrl: "http://152.38.3.250:8080/fhir/",
     action: "upload", // return, upload
 };
 // 此Profile的JSON結構資料參考自以下網頁:
@@ -28,16 +28,18 @@ module.exports.globalResource = {
         category: {
             coding: [
                 {
-                    system: "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/procedure-code-codesystem",
+                    system: "https://hapi.fhir.tw/fhir/CodeSystem/twcr-lf-procedure-code-codesystem",
                     code: "RT",
                     display: "申報醫院放射治療",
                 },
             ],
         },
         subject: {
-            reference: `Patient/${uuid["TWCR-Patient"]}`
+            reference: `Patient/${uuid["TWCR-Patient"]}`,
         },
-        performed: "2020-03-06 --> 2021-01-08",
+        encounter: {
+            reference: `Encounter/${uuid["TWCR-Encounter"]}`,
+        }
     },
 };
 
@@ -65,19 +67,18 @@ module.exports.fields = [
         beforeConvert: (data) => {
             let RT = JSON.parse(`
             {
-                "code" : {
                 "coding" : [
                     {
-                    "system" : "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/rt-modality-codesystem",
-                    "code" : "HormoneSteroid",
-                    "display" : "申報醫院放射治療"
+                      "system" : "https://hapi.fhir.tw/fhir/CodeSystem/twcr-lf-rt-modality-codesystem",
+                      "code" : "0",
+                      "display" : "No radiation therapy 無放射治療"
                     }
                 ]
-            },
+            }
             `);
-            RT.valueCodeableConcept.coding[0].code = data;
-            let displayValue = tools.searchCodeSystemDisplayValue("../TWCR_ValueSets/definitionsJSON/CodeSystem-institute-of-RT-codesystem.json", data);
-            RT.valueCodeableConcept.coding[0].display = displayValue;
+            RT.coding[0].code = data;
+            let displayValue = tools.searchCodeSystemDisplayValue("../TWCR_ValueSets/definitionsJSON/CodeSystem-twcr-lf-rt-modality-codesystem.json", data);
+            RT.coding[0].display = displayValue;
 
             return RT;
         },
@@ -129,20 +130,20 @@ module.exports.fields = [
         beforeConvert: (data) => {
             let RTTSUM = JSON.parse(`
             {                
+                "url" : "https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-rt-target-summary-extension",
                 "valueCodeableConcept" : {
                     "coding" : [
-                    {
-                        "system" : "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/procedure-code-codesystem",
-                        "code" : "codeValue",
-                        "display" : "displayValue"
-                    }
+                        {
+                            "system" : "https://hapi.fhir.tw/fhir/CodeSystem/twcr-lf-rt-target-summary-codesystem",
+                            "code" : "1",
+                            "display" : "T 原發腫瘤"
+                        }
                     ]
-                },
-                "url" : "https://hapi.fhir.tw/fhir/StructureDefinition/rt-target-summary-extension"         
+                 }
             }
             `);
             RTTSUM.valueCodeableConcept.coding[0].code = data;
-            let displayValue = tools.searchCodeSystemDisplayValue("../TWCR_ValueSets/definitionsJSON/CodeSystem-rt-target-summary-codesystem.json", data);
+            let displayValue = tools.searchCodeSystemDisplayValue("../TWCR_ValueSets/definitionsJSON/CodeSystem-twcr-lf-rt-target-summary-codesystem.json", data);
             RTTSUM.valueCodeableConcept.coding[0].display = displayValue;
             return RTTSUM;
         },
@@ -152,27 +153,23 @@ module.exports.fields = [
         source: "RFNRT",
         target: "Procedure.extension",
         beforeConvert: (data) => {
-            let RFNRT = JSON.parse(`
-            
-                [
-                    {                
+            let RFNRT = JSON.parse(`                            
+             {                
+                "url" : "https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-rt-status-extension",
                 "valueCodeableConcept" : {
                     "coding" : [
-                    {
-                        "system" : "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/procedure-code-codesystem",
-                        "code" : "codeValue",
-                        "display" : "displayValue"
-                    }
+                        {
+                            "system" : "https://hapi.fhir.tw/fhir/CodeSystem/twcr-lf-rt-status-codesystem",
+                            "code" : "00",
+                            "display" : "個案僅於申報醫院接受首次療程的放射治療"
+                        }
                     ]
-                },
-                "url" : "https://hapi.fhir.tw/fhir/StructureDefinition/rt-status-extension"         
-            }
-        ]
-        
+                }
+            }        
             `);
-            RFNRT[0].valueCodeableConcept.coding[0].code = data;
-            let displayValue = tools.searchCodeSystemDisplayValue("../TWCR_ValueSets/definitionsJSON/CodeSystem-rt-status-codesystem.json", data);
-            RFNRT[0].valueCodeableConcept.coding[0].display = displayValue;
+            RFNRT.valueCodeableConcept.coding[0].code = data;
+            let displayValue = tools.searchCodeSystemDisplayValue("../TWCR_ValueSets/definitionsJSON/CodeSystem-twcr-lf-rt-status-codesystem.json", data);
+            RFNRT.valueCodeableConcept.coding[0].display = displayValue;
             return RFNRT;
         },
     },

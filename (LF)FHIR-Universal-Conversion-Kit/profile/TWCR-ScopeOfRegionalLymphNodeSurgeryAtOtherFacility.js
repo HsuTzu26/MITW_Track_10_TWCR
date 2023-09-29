@@ -5,7 +5,7 @@ const uuid = require("../Bundle/UUIDForm.json");
 module.exports.profile = {
     name: "TWCR-ScopeOfRegionalLymphNodeSurgeryAtOtherFacility",
     version: "1.0.0",
-    fhirServerBaseUrl: "https://hapi.fhir.tw/fhir",
+    fhirServerBaseUrl: "http://152.38.3.250:8080/fhir/",
     action: "upload", // return, upload
 };
 // 此Profile的JSON結構資料參考自以下網頁:
@@ -18,7 +18,7 @@ module.exports.globalResource = {
     Procedure: {
         id: uuid["TWCR-ScopeOfRegionalLymphNodeSurgeryAtOtherFacility"],
         meta: {
-            profile: ["https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-scope-of-regional-lymph-node-surgery-at-other-facility-profile"],
+            profile: ["https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-scope-of-regional-lymph-node-at-other-facility-profile"],
         },
         text: {
             status: "empty",
@@ -26,7 +26,10 @@ module.exports.globalResource = {
         },
         status: "completed", //preparation | in-progress | not-done | on-hold | stopped | completed | entered-in-error | unknown
         subject: {
-            reference: `Patient/${uuid["TWCR-Patient"]}`
+            reference: `Patient/${uuid["TWCR-Patient"]}`,
+        },
+        encounter: {
+            reference: `Encounter/${uuid["TWCR-Encounter"]}`,
         },
     },
 };
@@ -55,20 +58,18 @@ module.exports.fields = [
         beforeConvert: (data) => {
             let SRLNSOFCode = JSON.parse(`
             {
-                "valueCodeableConcept" : {
-                    "coding" : [
-                        {
-                        "system" : "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/other-scope-of-regional-lymph-node-surgery-codesystem",
-                        "code" : "code",
-                        "display" : "display"
-                        }
-                    ]
-                }
+                "coding" : [
+                    {
+                      "system" : "https://hapi.fhir.tw/fhir/CodeSystem/twcr-lf-other-scope-of-regional-lymph-node-surgery-codesystem",
+                      "code" : "1",
+                      "display" : "執行區域淋巴結切片或抽吸"
+                    }
+                  ]
             }
             `);
-            SRLNSOFCode.valueCodeableConcept.coding[0].code = data;
-            let displayValue = tools.searchCodeSystemDisplayValue("../TWCR_ValueSets/definitionsJSON/CodeSystem-scope-of-regional-lymph-node-surgery-codesystem.json", data);
-            SRLNSOFCode.valueCodeableConcept.coding[0].display = displayValue;
+            SRLNSOFCode.coding[0].code = data;
+            let displayValue = tools.searchCodeSystemDisplayValue("../TWCR_ValueSets/definitionsJSON/CodeSystem-twcr-lf-scope-of-regional-lymph-node-surgery-codesystem.json", data);
+            SRLNSOFCode.coding[0].display = displayValue;
 
             return SRLNSOFCode;
         },

@@ -6,7 +6,7 @@ const uuid = require("../Bundle/UUIDForm.json")
 module.exports.profile = {
   name: 'TWCR-Patient',
   version: '1.0.0',
-  fhirServerBaseUrl: 'https://hapi.fhir.tw/fhir',
+  fhirServerBaseUrl: "http://152.38.3.250:8080/fhir/",
   action: "upload", // return, upload
 }
 // 此Profile的JSON結構資料參考自以下網頁:
@@ -20,7 +20,7 @@ module.exports.globalResource = {
     id: uuid["TWCR-Patient"],
     meta: {
       profile: [
-        " https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-patient-profile"
+        "https://hapi.fhir.tw/fhir/StructureDefinition/twcr-sf-patient-profile"
       ]
     },
     text: {
@@ -61,12 +61,12 @@ module.exports.fields = [
           "coding" : [
             {
               "system" : "http://terminology.hl7.org/CodeSystem/v2-0203",
-              "code" : "NI",
-              "display" : "National unique individual identifier"
+              "code" : "NNxxx",
+              "display" : "National Person Identifier where the xxx is the ISO table 3166 3-character (alphabetic) country code"
             }
           ]
         },
-        "system" : "http://www.moi.gov.tw/",
+        "system" : "http://www.moi.gov.tw",
         "value" : "123456789"
       }
       `);

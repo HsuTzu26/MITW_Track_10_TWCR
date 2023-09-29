@@ -11,9 +11,10 @@ const { v4: uuidv4 } = require("uuid");
 
 const Lorex = "https://hapi.fhir.tw/fhir/"; //Lorex
 const internal1 = "http://152.38.3.102:8080/fhir/"; //內網1
-const internal2 = "http://152.38.3.103:4180/fhir" //內網2
+const internal2 = "http://152.38.3.103:4180/fhir/"; //內網2
+const internal3 = "http://152.38.3.250:8080/fhir/"; //內網3
 
-const fhirServer = Lorex;
+const fhirServer = internal3;
 
 // Running server and POST to F.U.C.K. then return the result of F.U.C.K. response
 function runFuck(data, profileName) {
@@ -70,7 +71,7 @@ function createComposition(sectionEntry, compId = `${uuidv4()}`, status = "final
         type: {
             coding: [
                 {
-                    system: "http://loinc.org",
+                    system: "https://loinc.org",
                     code: "72134-0",
                     display: "Cancer event report",
                 },
@@ -88,14 +89,14 @@ function createComposition(sectionEntry, compId = `${uuidv4()}`, status = "final
                 reference: `Practitioner/${sectionEntry.Practitioner}`,
             },
         ],
-        title: "Cancer Registry Short Form",
+        title: "癌症登記長表",
         section: [
             {
-                title: "The section of CancerConfirmation",
+                title: "癌症確認section",
                 code: {
                     coding: [
                         {
-                            system: "http://snomed.info/sct",
+                            system: "https://snomed.info/sct",
                             code: "395099008",
                             display: "Cancer confirmed (situation)",
                         },
@@ -117,13 +118,13 @@ function createComposition(sectionEntry, compId = `${uuidv4()}`, status = "final
                 ],
             },
             {
-                title: "The section of StageOfInitialDiagnosis",
+                title: "癌症最初診斷期別section",
                 code: {
                     coding: [
                         {
-                            system: "https://hapi.fhir.tw/fhir/CodeSystem/logical-model-codesystem",
+                            system: "https://hapi.fhir.tw/fhir/CodeSystem/twcr-lf-logical-model-codesystem",
                             code: "StageOfInitialDiagnosisOfCancer",
-                            display: "StageOfInitialDiagnosisOfCancer",
+                            display: "癌症最初診斷期別",
                         },
                     ],
                 },
@@ -145,11 +146,11 @@ function createComposition(sectionEntry, compId = `${uuidv4()}`, status = "final
                 ],
             },
             {
-                title: "The section of FirstCourseOfTreatment",
+                title: "首次療程section",
                 code: {
                     coding: [
                         {
-                            system: "http://snomed.info/sct",
+                            system: "https://snomed.info/sct",
                             code: "708255002",
                             display: "First line treatment (procedure)",
                         },
@@ -188,13 +189,13 @@ function createComposition(sectionEntry, compId = `${uuidv4()}`, status = "final
                 ],
             },
             {
-                title: "The section of OtherFactors",
+                title: "其他因子section",
                 code: {
                     coding: [
                         {
-                            system: "https://hapi.fhir.tw/fhir/CodeSystem/logical-model-codesystem",
+                            system: "https://hapi.fhir.tw/fhir/CodeSystem/twcr-lf-logical-model-codesystem",
                             code: "OtherFactors",
-                            display: "OtherFactors",
+                            display: "其他因子",
                         },
                     ],
                 },
@@ -208,28 +209,30 @@ function createComposition(sectionEntry, compId = `${uuidv4()}`, status = "final
                 ],
             },
             {
-                title: "The section of Outcome",
+                title: "結果section",
                 code: {
                     coding: [
                         {
-                            system: "http://loinc.org",
+                            system: "https://loinc.org",
                             code: "21976-6",
                             display: "Cancer outcome status",
                         },
                     ],
                 },
-                entry: {
-                    reference: `Observation/${sectionEntry.FirstRecurrence}`,
-                },
+                entry: [
+                    {
+                        reference: `Observation/${sectionEntry.FirstRecurrence}`,
+                    },
+                ],
             },
             {
-                title: "The section of SSF",
+                title: "癌症部位特定因子section",
                 code: {
                     coding: [
                         {
-                            system: "https://hapi.fhir.tw/fhir/CodeSystem/logical-model-codesystem",
+                            system: "https://hapi.fhir.tw/fhir/CodeSystem/twcr-lf-logical-model-codesystem",
                             code: "SSF",
-                            display: "Site-Specific Factor",
+                            display: "癌症部位特定因子",
                         },
                     ],
                 },
@@ -248,10 +251,10 @@ function createComposition(sectionEntry, compId = `${uuidv4()}`, status = "final
             },
         ],
 
-        request: {
-            method: "PUT",
-            url: `Composition/${compId}`,
-        },
+        // request: {
+        //     method: "PUT",
+        //     url: `Composition/${compId}`,
+        // },
     };
 
     return composition;
@@ -280,6 +283,7 @@ let data = postData; // data: Object, type: JSON
     // 1.1 個別 Resource 上傳
     // Get the profile names
     const profiles = getProfilesName.getProfilesName();
+    // console.log(profiles)
 
     // Get the result of F.U.C.K. response
     let entry = [];
@@ -330,7 +334,16 @@ let data = postData; // data: Object, type: JSON
     postCompHapi
         .then((res) => (Composition = res.data))
         .catch((e) => {
-            console.log(e.response.data);
+            // console.log(e.response.data);
+            console.log("Composition PUT Run Error");
+            const CompErrorPath = path.join(__dirname, "../JSONPlaceholder/CompError.json");
+            const CompErrorJson = JSON.stringify(e.response.data, null, 4);
+            fs.writeFileSync(CompErrorPath, CompErrorJson, "utf-8", (e) => {
+                if (e) {
+                    console.log(e);
+                    return;
+                }
+            });
         });
     console.log("***Completely create Composition***");
     PNum++;
@@ -356,15 +369,45 @@ let data = postData; // data: Object, type: JSON
         delete entry[e].request;
     }
 
+    let storedfullUrl = [];
     // Create resource
     for (let e in entry) {
-        let resource = [{ resource: entry[e] }];
-        entry[e] = resource[0];
+        let fullUrlValue = `${fhirServer}${entry[e].resourceType}/${entry[e].id}`;
+
+        entry[e] = {
+            fullUrl: fullUrlValue,
+            resource: entry[e],
+        };
+
+        storedfullUrl.push(fullUrlValue);
     }
 
     let BundleDocument = createBundle(entry);
 
     BundleDocument.type = "document";
+
+    const hapiBundlePutURL = `${fhirServer}Bundle/${BundleDocument.id}`;
+    const putBundleHapi = axios.put(hapiBundlePutURL, BundleDocument);
+
+    putBundleHapi
+        .then((res) => {
+            BundleDocument = res;
+            console.log("***Completely create Bundle document***");
+        })
+        .catch((e) => {
+            // console.log(e.response.data);
+            console.log("Bundle Document PUT Run Error");
+            // save Error
+            const BundleDocumentErrorPath = path.join(__dirname, "../JSONPlaceholder/BundleDocumentError.json");
+            const BundleDocumentErrorJson = JSON.stringify(e.response.data, null, 4);
+            fs.writeFileSync(BundleDocumentErrorPath, BundleDocumentErrorJson, "utf-8", (e) => {
+                if (e) {
+                    console.log(e);
+                    return;
+                }
+            });
+        });
+    storedfullUrl.unshift(`${fhirServer}${BundleDocument.resourceType}/${BundleDocument.id}`);
 
     // save Bundle document
     const BundleDocumentPath = path.join(__dirname, "../JSONPlaceholder/BundleDocument.json");
@@ -376,18 +419,17 @@ let data = postData; // data: Object, type: JSON
         }
     });
 
-    const hapiBundlePutURL = `${fhirServer}Bundle/${BundleDocument.id}`;
-    const putBundleHapi = axios.put(hapiBundlePutURL, BundleDocument);
-
-    putBundleHapi
-        .then((res) => (BundleDocument = res))
-        .catch((e) => {
-            console.log(e.response.data);
-        });
-
-    console.log("***Completely create Bundle document***");
     PNum++;
 
     /* Final Check */
     PNum === 75 + 2 ? console.log(PNum, `Validation Long Form Profiles: ${PNum} Success`) : "Validation Failed";
+
+    const fullUrlPath = path.join(__dirname, "../JSONPlaceholder/storedfullUrl.json");
+    const fullUrlJson = JSON.stringify(storedfullUrl, null, 4);
+    fs.writeFileSync(fullUrlPath, fullUrlJson, "utf-8", (e) => {
+        if (e) {
+            console.log(e);
+            return;
+        }
+    });
 })();

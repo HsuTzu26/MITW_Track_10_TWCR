@@ -6,7 +6,7 @@ const uuid = require("../Bundle/UUIDForm.json");
 module.exports.profile = {
     name: "TWCR-ClinicalOtherStaging",
     version: "1.0.0",
-    fhirServerBaseUrl: "https://hapi.fhir.tw/fhir",
+    fhirServerBaseUrl: "http://152.38.3.250:8080/fhir/",
     action: "upload", // return, upload
 };
 // 此Profile的JSON結構資料參考自以下網頁:
@@ -25,19 +25,21 @@ module.exports.globalResource = {
             status: "empty",
             div: '<div xmlns="http://www.w3.org/1999/xhtml">目前為空值，可根據使用需求自行產生這筆資料的摘要資訊並填入此欄位</div>',
         },
-        status: "final", // registered | preliminary | final | amended
-        value: "0000",
+        status: "registered", // registered | preliminary | final | amended
         code: {
             coding: [
                 {
-                    system: "http://loinc.org",
+                    system: "https://loinc.org",
                     code: "21908-9",
                     display: "Stage group.clinical Cancer",
                 },
             ],
         },
         subject: {
-            reference: `Patient/${uuid["TWCR-Patient"]}`
+            reference: `Patient/${uuid["TWCR-Patient"]}`,
+        },
+        encounter: {
+            reference: `Encounter/${uuid["TWCR-Encounter"]}`,
         },
     },
 };
@@ -68,28 +70,29 @@ module.exports.fields = [
             {
             "coding" : [
                 {
-                "system" : "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/clinical-other-staging-codesystem",
-                "code" : "code",
-                "display" : "display"
+                "system" : "https://hapi.fhir.tw/fhir/CodeSystem/twcr-lf-clinical-other-staging-codesystem",
+                "code" : "0000",
+                "display" : "無使用其他分期系統"
                 }
-            ]
+            ],
+            "text" : "0000"
             }
             `);
             valueCodeableConcept.coding[0].code = data;
-            let displayValue = tools.searchCodeSystemDisplayValue("../TWCR_ValueSets/definitionsJSON/CodeSystem-clinical-other-staging-codesystem.json", data);
+            let displayValue = tools.searchCodeSystemDisplayValue("../TWCR_ValueSets/definitionsJSON/CodeSystem-twcr-lf-clinical-other-staging-codesystem.json", data);
             valueCodeableConcept.coding[0].display = displayValue;
 
             return valueCodeableConcept;
         },
     },
-    {
-        source: "CosVstr",
-        target: "Observation.valueString",
-        beforeConvert: (data) => {
-            let str = data.toString();
-            return str;
-        },
-    },
+    // {
+    //     source: "CosVstr",
+    //     target: "Observation.valueString",
+    //     beforeConvert: (data) => {
+    //         let str = data.toString();
+    //         return str;
+    //     },
+    // },
     {
         //其他分期系統
         source: "OTHSTG",
@@ -99,14 +102,17 @@ module.exports.fields = [
             {
                 "coding" : [
                     {
-                    "system" : "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/other-staging-system-codesystem",
-                    "code" : "code",
-                    "display" : "display"
+                      "system" : "https://hapi.fhir.tw/fhir/CodeSystem/twcr-lf-other-staging-system-codesystem",
+                      "code" : "00",
+                      "display" : "無其他分期系統"
                     }
-                ]
+                  ]
             }
             `);
-            method.text = method.data;
+            method.coding[0].code = data;
+            let displayValue = tools.searchCodeSystemDisplayValue("../TWCR_ValueSets/definitionsJSON/CodeSystem-twcr-lf-other-staging-system-codesystem.json", data);
+            method.coding[0].display = displayValue;
+
             return method;
         },
     },

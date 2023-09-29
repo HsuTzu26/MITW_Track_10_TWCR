@@ -5,7 +5,7 @@ const uuid = require("../Bundle/UUIDForm.json");
 module.exports.profile = {
     name: "TWCR-ImmunotherapyAtOtherFacility",
     version: "1.0.0",
-    fhirServerBaseUrl: "https://hapi.fhir.tw/fhir",
+    fhirServerBaseUrl: "http://152.38.3.250:8080/fhir/",
     action: "upload", // return, upload
 };
 // 此Profile的JSON結構資料參考自以下網頁:
@@ -28,14 +28,17 @@ https: module.exports.globalResource = {
         category: {
             coding: [
                 {
-                    system: "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/procedure-code-codesystem",
-                    code: "OtherFacilityTargetedTherapy",
-                    display: "外院標靶治療",
+                    system: "https://hapi.fhir.tw/fhir/CodeSystem/twcr-lf-procedure-code-codesystem",
+                    code: "OtherFacilityImmunotherapy",
+                    display: "外院免疫治療",
                 },
             ],
         },
         subject: {
-            reference: `Patient/${uuid["TWCR-Patient"]}`
+            reference: `Patient/${uuid["TWCR-Patient"]}`,
+        },
+        encounter: {
+            reference: `Encounter/${uuid["TWCR-Encounter"]}`,
         },
     },
 };
@@ -64,20 +67,18 @@ module.exports.fields = [
         beforeConvert: (data) => {
             let IMAOFCode = JSON.parse(`
             {
-                "valueCodeableConcept" : {
-                    "coding" : [
-                        {
-                            "system" : "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/other-immunotherapy-codesystem",
-                        "code" : "OtherFacilityTargetedTherapy",
-                        "display" : "外院標靶治療"
-                        }
-                    ]
-                }
+                "coding" : [
+                    {
+                      "system" : "https://hapi.fhir.tw/fhir/CodeSystem/twcr-lf-other-immunotherapy-codesystem",
+                      "code" : "01",
+                      "display" : "接受全身性免疫藥物治療"
+                    }
+                  ]
             }
             `);
-            IMAOFCode.valueCodeableConcept.coding[0].code = data;
-            let displayValue = tools.searchCodeSystemDisplayValue("../TWCR_ValueSets/definitionsJSON/CodeSystem-other-immunotherapy-codesystem.json", data);
-            IMAOFCode.valueCodeableConcept.coding[0].display = displayValue;
+            IMAOFCode.coding[0].code = data;
+            let displayValue = tools.searchCodeSystemDisplayValue("../TWCR_ValueSets/definitionsJSON/CodeSystem-twcr-lf-other-immunotherapy-codesystem.json", data);
+            IMAOFCode.coding[0].display = displayValue;
 
             return IMAOFCode;
         },

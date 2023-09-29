@@ -6,13 +6,13 @@ const uuid = require("../Bundle/UUIDForm.json");
 module.exports.profile = {
     name: "TWCR-Patient",
     version: "1.0.0",
-    fhirServerBaseUrl: "https://hapi.fhir.tw/fhir",
+    fhirServerBaseUrl: "http://152.38.3.250:8080/fhir/",
     action: "upload", // return, upload
 };
 // 此Profile的JSON結構資料參考自以下網頁:
-// https://mitw.dicom.org.tw/IG/TWCR_LF/StructureDefinition-patient-profile.html
+// https://mitw.dicom.org.tw/IG/TWCR_SF/StructureDefinition-patient-profile.html
 // 此Profile的完整JSON範例檔:
-// https://mitw.dicom.org.tw/IG/TWCR_LF/Patient-PatientExample.json.html
+// https://mitw.dicom.org.tw/IG/TWCR_SF/Patient-PatientExample.json.html
 
 module.exports.globalResource = {
     // Should be resource name
@@ -25,9 +25,15 @@ module.exports.globalResource = {
             status: "empty",
             div: '<div xmlns="http://www.w3.org/1999/xhtml">目前為空值，可根據使用需求自行產生這筆資料的摘要資訊並填入此欄位</div>',
         },
-        managingOrganization:{
-            reference: `Organization/${uuid["TWCR-Organization"]}`
-        }
+        extension: [
+            {
+                url: "https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-last-contact-or-death-extension",
+                valueDateTime: "2022-08-14",
+            },
+        ],
+        managingOrganization: {
+            reference: `Organization/${uuid["TWCR-Organization"]}`,
+        },
     },
 };
 
@@ -50,48 +56,52 @@ module.exports.fields = [
         },
     },
     {
-        source: "IDNUM", //idCardNumber.value
-        target: "Patient.identifier",
+        source: 'IDNUM', //idCardNumber.value
+        target: 'Patient.identifier',
         beforeConvert: (data) => {
-            let identifier = JSON.parse(`
+          let identifier = JSON.parse(`
+          
             {
-                "type" : {
-                  "coding" : [
-                    {
-                      "system" : "http://terminology.hl7.org/CodeSystem/v2-0203",
-                      "code" : "NI",
-                      "display" : "National unique individual identifier"
-                    }
-                  ]
-                },
-                "system" : "http://www.moi.gov.tw/",
-                "value" : "123456789"
-              }
-            `);
-            identifier.value = data;
-
-            return identifier;
-        },
-    },
+            "type" : {
+              "coding" : [
+                {
+                  "system" : "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code" : "NNxxx",
+                  "display" : "National Person Identifier where the xxx is the ISO table 3166 3-character (alphabetic) country code"
+                }
+              ]
+            },
+            "system" : "http://www.moi.gov.tw",
+            "value" : "123456789"
+            }
+        
+          `);
+          identifier.value = data;
+    
+          return identifier;
+        }
+      },
     {
         source: "PHISTNUM", //medicalRecord.value
         target: "Patient.identifier",
         beforeConvert: (data) => {
             let identifier = JSON.parse(`
+      
+        {
+        "type" : {
+          "coding" : [
             {
-                "type" : {
-                  "coding" : [
-                    {
-                      "system" : "http://terminology.hl7.org/CodeSystem/v2-0203",
-                      "code" : "MR",
-                      "display" : "Medical record number"
-                    }
-                  ]
-                },
-                "system" : "https://www.vghtpe.gov.tw/Index.action",
-                "value" : "10216"
+              "system" : "http://terminology.hl7.org/CodeSystem/v2-0203",
+              "code" : "MR",
+              "display" : "Medical record number"
             }
-            `);
+          ]
+        },
+        "system" : "https://www.vghtpe.gov.tw/Index.action",
+        "value" : "10216"
+        }
+      
+      `);
             identifier.value = data;
 
             return identifier;
@@ -102,9 +112,11 @@ module.exports.fields = [
         target: "Patient.name",
         beforeConvert: (data) => {
             let name = JSON.parse(`
-            {
-                "text" : "Patient Name"
-            }
+      
+        {
+        "text" : "Patient Name"
+        }
+      
       `);
             name.text = data;
 
@@ -136,9 +148,11 @@ module.exports.fields = [
         target: "Patient.address",
         beforeConvert: (data) => {
             let address = JSON.parse(`
-      {
+      
+        {
         "postalCode" : "112"
-      }
+        }
+      
       `);
             address.postalCode = data;
 
@@ -150,30 +164,8 @@ module.exports.fields = [
         source: "VITSS", //deceasedBoolean
         target: "Patient.deceasedBoolean",
         beforeConvert: (data) => {
-            if (data == "1") return "true";
-            else return "false";
-        },
-    },
-    {
-        //最後聯絡或死亡日期 LastContactOrDeath
-        source: "DLCOD",
-        target: "Patient.extension",
-        beforeConvert: (data) => {
-            let DLCOD = JSON.parse(`
-            [
-                {
-                    "url" : "https://hapi.fhir.tw/fhir/StructureDefinition/twcr-lf-last-contact-or-death-extension",
-                    "value" : "2020-07-14"                
-                }
-            ]
-                `);
-            let s = String(data);
-            let YYYY = s[0] + s[1] + s[2] + s[3];
-            let MM = s[4] + s[5];
-            let DD = s[6] + s[7];
-            DLCOD.value = `${YYYY}-${MM}-${DD}`;
-
-            return DLCOD;
+            if (data == "1") return true;
+            else return false;
         },
     },
 ];

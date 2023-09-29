@@ -8,7 +8,7 @@
 
 
 * 北榮 程式流程
-1.  取得個別 Resource 的檔案名稱 (getProfilesName.js)
+1.  取得個別 Resource 的檔案名稱 (getProfilesName.js) (每次上傳前需更新UUID)
     * 注意 Resource 上傳順序 
     (Organization, Patient, Practitioner, Encounter)
 2.  取得 F.U.C.K.回應的結果 (FHIR 格式資料)

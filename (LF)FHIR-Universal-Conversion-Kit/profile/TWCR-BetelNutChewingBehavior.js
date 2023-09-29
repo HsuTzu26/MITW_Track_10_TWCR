@@ -7,7 +7,7 @@ const uuid = require("../Bundle/UUIDForm.json");
 module.exports.profile = {
     name: "TWCR-BetelNutChewingBehavior",
     version: "1.0.0",
-    fhirServerBaseUrl: "https://hapi.fhir.tw/fhir",
+    fhirServerBaseUrl: "http://152.38.3.250:8080/fhir/",
     action: "upload", // return, upload
 };
 
@@ -26,10 +26,21 @@ module.exports.globalResource = {
             status: "empty",
             div: '<div xmlns="http://www.w3.org/1999/xhtml">目前為空值，可根據使用需求自行產生這筆資料的摘要資訊並填入此欄位</div>',
         },
-        status: "final", // registered | preliminary | final | amended
+        status: "registered", // registered | preliminary | final | amended
+        code: {
+            coding: [
+                {
+                    system: "https://hapi.fhir.tw/fhir/CodeSystem/twcr-lf-observation-behavior-codesystem",
+                    code: "BetelNutChewing",
+                    display: "嚼檳榔行為",
+                },
+            ],
+        },
         subject: {
-            // reference: "Patient/9a537ea8-a8d0-448d-9fc2-a6f8eacd4348",
-            reference: `Patient/${uuid["TWCR-Patient"]}`
+            reference: `Patient/${uuid["TWCR-Patient"]}`,
+        },
+        encounter: {
+            reference: `Encounter/${uuid["TWCR-Encounter"]}`,
         },
     },
 };
@@ -69,7 +80,7 @@ module.exports.fields = [
         "code" : {
           "coding" : [
             {
-              "system" : "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/betel-nut-chewing-behavior-codesystem",
+              "system" : "https://hapi.fhir.tw/fhir/CodeSystem/twcr-lf-betel-nut-chewing-behavior-codesystem",
               "code" : "amount",
               "display" : "每日嚼檳榔量，以 ”顆” 計算"
             }
@@ -78,9 +89,9 @@ module.exports.fields = [
         "valueCodeableConcept" : {
           "coding" : [
             {
-              "system" : "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/betel-nut-chewing-amount-codesystem",
-              "code" : "",
-              "display" : ""
+              "system" : "https://hapi.fhir.tw/fhir/CodeSystem/twcr-lf-betel-nut-chewing-amount-codesystem",
+              "code" : "00",
+              "display" : "無嚼檳榔"
             }
           ]
         }
@@ -102,7 +113,7 @@ module.exports.fields = [
         "code" : {
           "coding" : [
             {
-              "system" : "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/betel-nut-chewing-behavior-codesystem",
+              "system" : "https://hapi.fhir.tw/fhir/CodeSystem/twcr-lf-betel-nut-chewing-behavior-codesystem",
               "code" : "year",
               "display" : "嚼檳榔年"
             }
@@ -111,9 +122,9 @@ module.exports.fields = [
         "valueCodeableConcept" : {
           "coding" : [
             {
-              "system" : "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/betel-nut-chewing-year-codesystem",
-              "code" : "",
-              "display" : ""
+              "system" : "https://hapi.fhir.tw/fhir/CodeSystem/twcr-lf-betel-nut-chewing-year-codesystem",
+              "code" : "00",
+              "display" : "無嚼檳榔"
             }
           ]
         }
@@ -135,7 +146,7 @@ module.exports.fields = [
         "code" : {
           "coding" : [
             {
-              "system" : "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/betel-nut-chewing-behavior-codesystem",
+              "system" : "https://hapi.fhir.tw/fhir/CodeSystem/twcr-lf-betel-nut-chewing-behavior-codesystem",
               "code" : "quit",
               "display" : "戒嚼檳榔年"
             }
@@ -144,9 +155,9 @@ module.exports.fields = [
         "valueCodeableConcept" : {
           "coding" : [
             {
-              "system" : "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/betel-nut-chewing-quit-codesystem",
-              "code" : "",
-              "display" : ""
+              "system" : "https://hapi.fhir.tw/fhir/CodeSystem/twcr-lf-betel-nut-chewing-quit-codesystem",
+              "code" : "00",
+              "display" : "無嚼檳榔"
             }
           ]
         }

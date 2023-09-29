@@ -5,7 +5,7 @@ const uuid = require("../Bundle/UUIDForm.json");
 module.exports.profile = {
     name: "TWCR-TargetedTherapyAtOtherFacility",
     version: "1.0.0",
-    fhirServerBaseUrl: "https://hapi.fhir.tw/fhir",
+    fhirServerBaseUrl: "http://152.38.3.250:8080/fhir/",
     action: "upload", // return, upload
 };
 // 此Profile的JSON結構資料參考自以下網頁:
@@ -28,14 +28,17 @@ module.exports.globalResource = {
         category: {
             coding: [
                 {
-                    system: "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/procedure-code-codesystem",
+                    system: "https://hapi.fhir.tw/fhir/CodeSystem/twcr-lf-procedure-code-codesystem",
                     code: "OtherFacilityTargetedTherapy",
                     display: "外院標靶治療",
                 },
             ],
         },
         subject: {
-            reference: `Patient/${uuid["TWCR-Patient"]}`
+            reference: `Patient/${uuid["TWCR-Patient"]}`,
+        },
+        encounter: {
+            reference: `Encounter/${uuid["TWCR-Encounter"]}`,
         },
     },
 };
@@ -64,20 +67,18 @@ module.exports.fields = [
         beforeConvert: (data) => {
             let TTAOFCode = JSON.parse(`
             {
-                "valueCodeableConcept" : {
-                    "coding" : [
-                        {
-                        "system" : "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/other-targeted-therapy-codesystem",
-                        "code" : "OtherFacilityTargetedTherapy",
-                        "display" : "外院標靶治療"
-                        }
-                    ]
-                }
+                "coding" : [
+                    {
+                      "system" : "https://hapi.fhir.tw/fhir/CodeSystem/twcr-lf-other-targeted-therapy-codesystem",
+                      "code" : "20",
+                      "display" : "僅接受臨床試驗標靶治療"
+                    }
+                ]
             }
             `);
-            TTAOFCode.valueCodeableConcept.coding[0].code = data;
-            let displayValue = tools.searchCodeSystemDisplayValue("../TWCR_ValueSets/definitionsJSON/CodeSystem-other-targeted-therapy-codesystem.json", data);
-            TTAOFCode.valueCodeableConcept.coding[0].display = displayValue;
+            TTAOFCode.coding[0].code = data;
+            let displayValue = tools.searchCodeSystemDisplayValue("../TWCR_ValueSets/definitionsJSON/CodeSystem-twcr-lf-other-targeted-therapy-codesystem.json", data);
+            TTAOFCode.coding[0].display = displayValue;
 
             return TTAOFCode;
         },

@@ -6,7 +6,7 @@ const uuid = require("../Bundle/UUIDForm.json")
 module.exports.profile = {
     name: "TWCR-Encounter",
     version: "1.0.0",
-    fhirServerBaseUrl: "https://hapi.fhir.tw/fhir",
+    fhirServerBaseUrl: "http://152.38.3.250:8080/fhir/",
     action: "upload", // return, upload
 };
 // 此Profile的JSON結構資料參考自以下網頁:
@@ -27,9 +27,12 @@ module.exports.globalResource = {
         },
         status: "finished", //planned | arrived | triaged | in-progress | onleave | finished | cancelled +
         class: {
-            system: "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+            system: "https://terminology.hl7.org/CodeSystem/v3-ActCode",
             code: "AMB",
-            display: "ambulatory",
+            display: "ambulatory"
+        },
+        subject: {
+          reference: `Patient/${uuid["TWCR-Patient"]}`
         },
     },
 };

@@ -7,7 +7,7 @@ const uuid = require("../Bundle/UUIDForm.json");
 module.exports.profile = {
     name: "TWCR-GradeClinical",
     version: "1.0.0",
-    fhirServerBaseUrl: "https://hapi.fhir.tw/fhir",
+    fhirServerBaseUrl: "http://152.38.3.250:8080/fhir/",
     action: "upload", // return, upload
 };
 
@@ -27,8 +27,20 @@ module.exports.globalResource = {
             div: '<div xmlns="http://www.w3.org/1999/xhtml">目前為空值，可根據使用需求自行產生這筆資料的摘要資訊並填入此欄位</div>',
         },
         status: "final", // registered | preliminary | final | amended
+        code: {
+            coding: [
+                {
+                    system: "https://loinc.org",
+                    code: "75620-5",
+                    display: "TNM clinical staging before treatment panel Cancer",
+                },
+            ],
+        },
         subject: {
-            reference: `Patient/${uuid["TWCR-Patient"]}`
+            reference: `Patient/${uuid["TWCR-Patient"]}`,
+        },
+        encounter: {
+            reference: `Encounter/${uuid["TWCR-Encounter"]}`,
         },
     },
 };
@@ -60,19 +72,19 @@ module.exports.fields = [
             let valueCodeableConcept = JSON.parse(`
       {
         "coding" : [
-          {
-            "system" : "https://mitw.dicom.org.tw/IG/TWCR/CodeSystem/grade-clinical-codesystem",
-            "code" : "code",
-            "display" : "displayValue"
-          }
-        ]
+            {
+              "system" : "https://hapi.fhir.tw/fhir/CodeSystem/twcr-lf-grade-clinical-codesystem",
+              "code" : "1",
+              "display" : "Site-specific grade system category-1"
+            }
+          ]
       }
       `);
             data = String(data).toUpperCase(); //其CodeSystem定義值均為大寫字母
             // https://mitw.dicom.org.tw/IG/TWCR_SF/ValueSet-grade-clinical-valueset.html
 
             valueCodeableConcept.coding[0].code = data;
-            let displayValue = tools.searchCodeSystemDisplayValue("../TWCR_ValueSets/definitionsJSON/CodeSystem-grade-clinical-codesystem.json", data);
+            let displayValue = tools.searchCodeSystemDisplayValue("../TWCR_ValueSets/definitionsJSON/CodeSystem-twcr-lf-grade-clinical-codesystem.json", data);
             valueCodeableConcept.coding[0].display = displayValue;
 
             return valueCodeableConcept;

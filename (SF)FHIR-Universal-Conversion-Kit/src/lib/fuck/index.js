@@ -109,7 +109,7 @@ class Convert {
             }
 
             // if id was changed, update the fullUrl
-            bundle.entry[resourceIndex].fullUrl = `${profile.profile.fhirServerBaseUrl}/${resourceType}/${bundle.entry[resourceIndex].resource.id}`;
+            bundle.entry[resourceIndex].fullUrl = `${profile.profile.fhirServerBaseUrl}${resourceType}/${bundle.entry[resourceIndex].resource.id}`;
             bundle.entry[resourceIndex].request.url = `/${resourceType}/${bundle.entry[resourceIndex].resource.id}`;
             resourceIdList[resourceType] = bundle.entry[resourceIndex].resource.id;
         }
@@ -145,15 +145,13 @@ class Convert {
             return bundle;
         }
 
-        // console.log(JSON.stringify(resource[0]))
-
         if (profile.profile.action === "upload") {
             const result = await axios
                 .put(`${profile.profile.fhirServerBaseUrl}/${bundle.entry[0].resource.resourceType}/${uuid[this.useProfile]}`, bundle.entry[0].resource, headerConfigs)
                 .catch((err) => {
-                    console.log(err.response.data);
-                    console.log(bundle.entry[0]);
-                    throw new Error(JSON.stringify(err.response.data));
+                    // console.log(err.response.data);
+                    // console.log(JSON.stringify(bundle.entry[0],null,4));
+                    throw new Error(JSON.stringify(err.response.data, null, 4));
                 });
             return result.data;
         }
